@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="4.2 Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis | Cofit x Genensis 醫療大數據 (分析報告)" />
+<meta property="og:type" content="book" />
+
+
+
+
+<meta name="author" content="By BigData Team" />
+
+
+
+<meta name="description" content="4.2 Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis | Cofit x Genensis 醫療大數據 (分析報告)">
+
+<title>4.2 Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis | Cofit x Genensis 醫療大數據 (分析報告)</title>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#index" id="toc-index">Highlight</a></li>
+<li class="has-sub"><a href="1-減重成效---單次療程.html#減重成效---單次療程" id="toc-減重成效---單次療程"><span class="toc-section-number">1</span> 減重成效 - (單次療程)</a>
+<ul>
+<li><a href="1.1-vens_grap_ob.html#vens_grap_ob" id="toc-vens_grap_ob"><span class="toc-section-number">1.1</span> 資料集(Datasets)</a></li>
+<li><a href="1.2-porfile_ob.html#porfile_ob" id="toc-porfile_ob"><span class="toc-section-number">1.2</span> 客戶輪廓分析</a></li>
+<li><a href="1.3-global_result_ob.html#global_result_ob" id="toc-global_result_ob"><span class="toc-section-number">1.3</span> 整體成效分析</a></li>
+<li class="has-sub"><a href="1.4-cor_ob.html#cor_ob" id="toc-cor_ob"><span class="toc-section-number">1.4</span> 相關分析(Correlation Analysis)</a>
+<ul>
+<li><a href="1.4-cor_ob.html#cor_ob_var_specific" id="toc-cor_ob_var_specific">特定變數</a></li>
+<li><a href="1.4-cor_ob.html#cor_ob_var_all" id="toc-cor_ob_var_all">全變數</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.5-strat_1_ob.html#strat_1_ob" id="toc-strat_1_ob"><span class="toc-section-number">1.5</span> 分層分析-1: 減重成效</a>
+<ul>
+<li><a href="1.5-strat_1_ob.html#baseline_ob" id="toc-baseline_ob">初始狀態(Baseline)</a></li>
+<li><a href="1.5-strat_1_ob.html#endpoint_ob" id="toc-endpoint_ob">介入後狀態(Endpoint)</a></li>
+<li><a href="1.5-strat_1_ob.html#diet_ob" id="toc-diet_ob">飲食(Diet)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_ob" id="toc-delta_ob">∆成效(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_p_ob" id="toc-delta_p_ob">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#Summary_ob" id="toc-Summary_ob">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.6-strat_1_ob_filtered.html#strat_1_ob_filtered" id="toc-strat_1_ob_filtered"><span class="toc-section-number">1.6</span> 續(篩選飲食上傳&gt;80%)</a>
+<ul>
+<li><a href="1.6-strat_1_ob_filtered.html#baseline_ob_filtered" id="toc-baseline_ob_filtered">初始狀態(Baseline)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#endpoint_ob_filtered" id="toc-endpoint_ob_filtered">介入後狀態(Endpoint)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#diet_ob_filtered" id="toc-diet_ob_filtered">飲食(Diet)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_ob_filtered" id="toc-delta_ob_filtered">∆成效(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_p_ob_filtered" id="toc-delta_p_ob_filtered">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#Summary_ob_filtered" id="toc-Summary_ob_filtered">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.7-strat_1_testosterone.html#strat_1_testosterone" id="toc-strat_1_testosterone"><span class="toc-section-number">1.7</span> 分層分析-2: 男性:睪固酮(Testosterone)</a>
+<ul>
+<li><a href="1.7-strat_1_testosterone.html#cor_test_testosterone" id="toc-cor_test_testosterone">相關分析(Correlation Analysis)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#baseline_testosterone" id="toc-baseline_testosterone">初始狀態(Baseline)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#endpoint_testosterone" id="toc-endpoint_testosterone">介入後狀態(Endpoint)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#diet_testosterone" id="toc-diet_testosterone">飲食(Diet)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#effectiveness_testosterone" id="toc-effectiveness_testosterone">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.8-strat_2_sua.html#strat_2_sua" id="toc-strat_2_sua"><span class="toc-section-number">1.8</span> 分層分析-3: 尿酸(Serum Uric Acid)</a>
+<ul>
+<li><a href="1.8-strat_2_sua.html#cor_sua" id="toc-cor_sua"><span class="toc-section-number">1.8.1</span> 相關分析(Correlation Analysis)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_2" id="toc-cutoff_sua_2"><span class="toc-section-number">1.8.2</span> Cutoff-1 (♂7.6/♀6.6)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua" id="toc-baseline_sua">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua" id="toc-endpoint_sua">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua" id="toc-diet_sua">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua" id="toc-effectiveness_sua">成效(Effectiveness)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_0" id="toc-cutoff_sua_0"><span class="toc-section-number">1.8.3</span> Cutoff-2 (5.5)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua0" id="toc-baseline_sua0">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua0" id="toc-endpoint_sua0">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua0" id="toc-diet_sua0">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua0" id="toc-effectiveness_sua0">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.9-ketone_response.html#ketone_response" id="toc-ketone_response"><span class="toc-section-number">1.9</span> 尿酮體 x 空腹胰島素</a>
+<ul>
+<li><a href="1.9-ketone_response.html#chisq分析" id="toc-chisq分析"><span class="toc-section-number">1.9.1</span> Chisq分析</a></li>
+<li><a href="1.9-ketone_response.html#敏感度分析" id="toc-敏感度分析"><span class="toc-section-number">1.9.2</span> 敏感度分析</a></li>
+<li><a href="1.9-ketone_response.html#optimal-cutoff分析" id="toc-optimal-cutoff分析"><span class="toc-section-number">1.9.3</span> Optimal Cutoff分析</a></li>
+<li><a href="1.9-ketone_response.html#strat_4_ketone_response" id="toc-strat_4_ketone_response"><span class="toc-section-number">1.9.4</span> 分層分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-glucose-insulin-response-curvegirc.html#glucose-insulin-response-curvegirc" id="toc-glucose-insulin-response-curvegirc"><span class="toc-section-number">2</span> Glucose Insulin Response Curve(GIRC)</a>
+<ul>
+<li class="has-sub"><a href="2.1-ogtt胰島素反應分型.html#ogtt胰島素反應分型" id="toc-ogtt胰島素反應分型"><span class="toc-section-number">2.1</span> OGTT胰島素反應分型</a>
+<ul>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-i" id="toc-pattern-i"><span class="toc-section-number">2.1.1</span> Pattern I</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-ii" id="toc-pattern-ii"><span class="toc-section-number">2.1.2</span> Pattern II</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iii" id="toc-pattern-iii"><span class="toc-section-number">2.1.3</span> Pattern III</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iv" id="toc-pattern-iv"><span class="toc-section-number">2.1.4</span> Pattern IV</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-v" id="toc-pattern-v"><span class="toc-section-number">2.1.5</span> Pattern V</a></li>
+</ul></li>
+<li class="has-sub"><a href="2.2-girc_analysis_.html#girc_analysis_" id="toc-girc_analysis_"><span class="toc-section-number">2.2</span> GIRC分析</a>
+<ul>
+<li><a href="2.2-girc_analysis_.html#girc_table_all" id="toc-girc_table_all">DM x GIRC分佈(All)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_table_ob" id="toc-girc_table_ob">DM x GIRC分佈(Obesity Program)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc分層分析" id="toc-girc分層分析">GIRC分層分析</a></li>
+<li><a href="2.2-girc_analysis_.html#baseline_girc" id="toc-baseline_girc">初始狀態(Baseline)</a></li>
+<li><a href="2.2-girc_analysis_.html#endpoint_girc" id="toc-endpoint_girc">介入後狀態(Endpoint)</a></li>
+<li><a href="2.2-girc_analysis_.html#diet_girc" id="toc-diet_girc">飲食(Diet)</a></li>
+<li><a href="2.2-girc_analysis_.html#effectiveness_girc" id="toc-effectiveness_girc">成效(Effectiveness)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_improvemnt_path" id="toc-girc_improvemnt_path">Pattern改善分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-prediction研究中.html#prediction研究中" id="toc-prediction研究中"><span class="toc-section-number">3</span> Prediction(研究中)</a>
+<ul>
+<li><a href="3.1-predict_cutoff_roc.html#predict_cutoff_roc" id="toc-predict_cutoff_roc"><span class="toc-section-number">3.1</span> 單因子預測力&amp;切點分析</a></li>
+<li><a href="3.2-predict_cutoff_roc_filtered.html#predict_cutoff_roc_filtered" id="toc-predict_cutoff_roc_filtered"><span class="toc-section-number">3.2</span> 單因子預測力&amp;切點分析(排除飲食紀律不佳)</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-publication1.html#publication1" id="toc-publication1"><span class="toc-section-number">4</span> Publication(1)</a>
+<ul>
+<li class="has-sub"><a href="4.1-p1-1.html#p1-1" id="toc-p1-1"><span class="toc-section-number">4.1</span> Genesis Insulin Response Pattern</a>
+<ul>
+<li><a href="4.1-p1-1.html#p1-1fig1" id="toc-p1-1fig1"><span class="toc-section-number">4.1.1</span> Figure 1. Genesis Pattern Categorization</a></li>
+<li><a href="4.1-p1-1.html#p1-1fig2" id="toc-p1-1fig2"><span class="toc-section-number">4.1.2</span> Figure 2. Genesis Pattern Distribution.</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.2-p1-2.html#p1-2" id="toc-p1-2"><span class="toc-section-number">4.2</span> Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis</a>
+<ul>
+<li><a href="4.2-p1-2.html#p1-2tab1" id="toc-p1-2tab1"><span class="toc-section-number">4.2.1</span> Table 1. Genesis Pattern Distribution Characteristics.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig3" id="toc-p1-2fig3"><span class="toc-section-number">4.2.2</span> Figure 3. Body Composition &amp; Biochem. Profile.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig45" id="toc-p1-2fig45"><span class="toc-section-number">4.2.3</span> Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.3-p1-3.html#p1-3" id="toc-p1-3"><span class="toc-section-number">4.3</span> Weight loss Efficacy(OB)</a>
+<ul>
+<li><a href="4.3-p1-3.html#p1-3fig6" id="toc-p1-3fig6"><span class="toc-section-number">4.3.1</span> Figure 6. body composition/ biochem.</a></li>
+<li><a href="4.3-p1-3.html#p1-3tab2" id="toc-p1-3tab2"><span class="toc-section-number">4.3.2</span> Table 2. Pattern Response Improvement.</a></li>
+<li><a href="4.3-p1-3.html#p1-3fig7" id="toc-p1-3fig7"><span class="toc-section-number">4.3.3</span> Figure 7. CIM weight loss strategy</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="5-亞健康改善成效246mo.html#亞健康改善成效246mo" id="toc-亞健康改善成效246mo"><span class="toc-section-number">5</span> 亞健康改善成效(2,4,6mo)</a>
+<ul>
+<li><a href="5.1-imp_def.html#imp_def" id="toc-imp_def"><span class="toc-section-number">5.1</span> 定義 Definition</a></li>
+<li class="has-sub"><a href="5.2-imp_ob.html#imp_ob" id="toc-imp_ob"><span class="toc-section-number">5.2</span> Program: Weight Loss</a>
+<ul>
+<li><a href="5.2-imp_ob.html#obesity" id="toc-obesity"><span class="toc-section-number">5.2.1</span> Obesity</a></li>
+<li><a href="5.2-imp_ob.html#metabolic-syndrome" id="toc-metabolic-syndrome"><span class="toc-section-number">5.2.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.2-imp_ob.html#pre-diabetes" id="toc-pre-diabetes"><span class="toc-section-number">5.2.3</span> Pre-Diabetes</a></li>
+<li><a href="5.2-imp_ob.html#insulin-response-pattern" id="toc-insulin-response-pattern"><span class="toc-section-number">5.2.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.2-imp_ob.html#hypertension" id="toc-hypertension"><span class="toc-section-number">5.2.5</span> Hypertension</a></li>
+<li><a href="5.2-imp_ob.html#hyperlipidemia" id="toc-hyperlipidemia"><span class="toc-section-number">5.2.6</span> Hyperlipidemia</a></li>
+</ul></li>
+<li class="has-sub"><a href="5.3-imp_dm.html#imp_dm" id="toc-imp_dm"><span class="toc-section-number">5.3</span> Program: Diabetes Control</a>
+<ul>
+<li><a href="5.3-imp_dm.html#obesity-1" id="toc-obesity-1"><span class="toc-section-number">5.3.1</span> Obesity</a></li>
+<li><a href="5.3-imp_dm.html#metabolic-syndrome-1" id="toc-metabolic-syndrome-1"><span class="toc-section-number">5.3.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.3-imp_dm.html#pre-diabetes-1" id="toc-pre-diabetes-1"><span class="toc-section-number">5.3.3</span> Pre-Diabetes</a></li>
+<li><a href="5.3-imp_dm.html#insulin-response-pattern-1" id="toc-insulin-response-pattern-1"><span class="toc-section-number">5.3.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.3-imp_dm.html#hypertension-1" id="toc-hypertension-1"><span class="toc-section-number">5.3.5</span> Hypertension</a></li>
+<li><a href="5.3-imp_dm.html#hyperlipidemia-1" id="toc-hyperlipidemia-1"><span class="toc-section-number">5.3.6</span> Hyperlipidemia</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="p1-2" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis</h2>
+<div id="p1-2tab1" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Table 1. Genesis Pattern Distribution Characteristics.</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+(#tab:input plot rscript_flc)<b>Table 1.</b>
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Female
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Male
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern I
+(n=96)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern II
+(n=382)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern III
+(n=389)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern IV
+(n=69)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern V
+(n=38)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern I
+(n=18)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern II
+(n=96)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern III
+(n=54)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern IV
+(n=39)
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern V
+(n=24)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Age
+</td>
+<td style="text-align:center;">
+40.1 ± 8.7
+</td>
+<td style="text-align:center;">
+38.5 ± 9.6
+</td>
+<td style="text-align:center;">
+41.7 ± 11.8
+</td>
+<td style="text-align:center;">
+35 ± 11.4
+</td>
+<td style="text-align:center;">
+49.9 ± 11.7
+</td>
+<td style="text-align:center;">
+41.4 ± 14.8
+</td>
+<td style="text-align:center;">
+39.9 ± 10.8
+</td>
+<td style="text-align:center;">
+46.5 ± 12.4
+</td>
+<td style="text-align:center;">
+35.5 ± 9.1
+</td>
+<td style="text-align:center;">
+48.8 ± 13.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI
+</td>
+<td style="text-align:center;">
+26.7 ± 4.9
+</td>
+<td style="text-align:center;">
+28.1 ± 4.4
+</td>
+<td style="text-align:center;">
+28 ± 4.5
+</td>
+<td style="text-align:center;">
+34.7 ± 5.7
+</td>
+<td style="text-align:center;">
+27 ± 4.6
+</td>
+<td style="text-align:center;">
+29.4 ± 5.3
+</td>
+<td style="text-align:center;">
+30.4 ± 4.5
+</td>
+<td style="text-align:center;">
+29.6 ± 4.2
+</td>
+<td style="text-align:center;">
+36 ± 6.2
+</td>
+<td style="text-align:center;">
+27.7 ± 4.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PBF
+</td>
+<td style="text-align:center;">
+36.9 ± 6.5
+</td>
+<td style="text-align:center;">
+39.8 ± 6
+</td>
+<td style="text-align:center;">
+39.6 ± 6.1
+</td>
+<td style="text-align:center;">
+45.8 ± 4.9
+</td>
+<td style="text-align:center;">
+37.2 ± 7.2
+</td>
+<td style="text-align:center;">
+29.6 ± 7.3
+</td>
+<td style="text-align:center;">
+32.4 ± 6.1
+</td>
+<td style="text-align:center;">
+31.4 ± 6.4
+</td>
+<td style="text-align:center;">
+37.3 ± 6.8
+</td>
+<td style="text-align:center;">
+27.8 ± 6.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Viceral Fat
+</td>
+<td style="text-align:center;">
+133.7 ± 49.1
+</td>
+<td style="text-align:center;">
+150 ± 46.7
+</td>
+<td style="text-align:center;">
+144 ± 45.3
+</td>
+<td style="text-align:center;">
+191 ± 34.4
+</td>
+<td style="text-align:center;">
+141 ± 55
+</td>
+<td style="text-align:center;">
+128.7 ± 62.3
+</td>
+<td style="text-align:center;">
+127.9 ± 44.5
+</td>
+<td style="text-align:center;">
+120.5 ± 38.8
+</td>
+<td style="text-align:center;">
+178 ± 52.9
+</td>
+<td style="text-align:center;">
+107 ± 47.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HbA1C
+</td>
+<td style="text-align:center;">
+5.5 ± 0.8
+</td>
+<td style="text-align:center;">
+5.5 ± 0.5
+</td>
+<td style="text-align:center;">
+5.7 ± 0.7
+</td>
+<td style="text-align:center;">
+5.9 ± 0.8
+</td>
+<td style="text-align:center;">
+7.2 ± 2.3
+</td>
+<td style="text-align:center;">
+5.9 ± 0.7
+</td>
+<td style="text-align:center;">
+5.9 ± 1
+</td>
+<td style="text-align:center;">
+6 ± 0.9
+</td>
+<td style="text-align:center;">
+6.1 ± 0.9
+</td>
+<td style="text-align:center;">
+8.8 ± 2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fasting Glucose
+</td>
+<td style="text-align:center;">
+88 ± 21.8
+</td>
+<td style="text-align:center;">
+85.3 ± 12.6
+</td>
+<td style="text-align:center;">
+89.2 ± 16
+</td>
+<td style="text-align:center;">
+94.5 ± 22.3
+</td>
+<td style="text-align:center;">
+130.3 ± 55.8
+</td>
+<td style="text-align:center;">
+92.6 ± 23.5
+</td>
+<td style="text-align:center;">
+93.1 ± 18.3
+</td>
+<td style="text-align:center;">
+95.9 ± 17.8
+</td>
+<td style="text-align:center;">
+95.8 ± 23.7
+</td>
+<td style="text-align:center;">
+184.5 ± 67.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fasting Insulin
+</td>
+<td style="text-align:center;">
+7.6 ± 4.2
+</td>
+<td style="text-align:center;">
+10.9 ± 5.4
+</td>
+<td style="text-align:center;">
+10.5 ± 5.5
+</td>
+<td style="text-align:center;">
+35.6 ± 12.2
+</td>
+<td style="text-align:center;">
+7.7 ± 4.5
+</td>
+<td style="text-align:center;">
+8.6 ± 4.6
+</td>
+<td style="text-align:center;">
+14.1 ± 5.6
+</td>
+<td style="text-align:center;">
+12.8 ± 5.6
+</td>
+<td style="text-align:center;">
+36.3 ± 10.6
+</td>
+<td style="text-align:center;">
+7.4 ± 3.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HOMA-IR
+</td>
+<td style="text-align:center;">
+1.7 ± 1.3
+</td>
+<td style="text-align:center;">
+2.3 ± 1.3
+</td>
+<td style="text-align:center;">
+2.4 ± 1.4
+</td>
+<td style="text-align:center;">
+8.3 ± 3.2
+</td>
+<td style="text-align:center;">
+2.6 ± 2
+</td>
+<td style="text-align:center;">
+2 ± 1.3
+</td>
+<td style="text-align:center;">
+3.3 ± 1.6
+</td>
+<td style="text-align:center;">
+3.1 ± 1.6
+</td>
+<td style="text-align:center;">
+8.7 ± 3.6
+</td>
+<td style="text-align:center;">
+3.3 ± 2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TG
+</td>
+<td style="text-align:center;">
+87 ± 46.9
+</td>
+<td style="text-align:center;">
+101.2 ± 51
+</td>
+<td style="text-align:center;">
+116.9 ± 69.9
+</td>
+<td style="text-align:center;">
+168.2 ± 128
+</td>
+<td style="text-align:center;">
+127.7 ± 84.2
+</td>
+<td style="text-align:center;">
+116.9 ± 65.8
+</td>
+<td style="text-align:center;">
+157.2 ± 89.6
+</td>
+<td style="text-align:center;">
+151 ± 102
+</td>
+<td style="text-align:center;">
+173.9 ± 100.2
+</td>
+<td style="text-align:center;">
+134 ± 88.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TC
+</td>
+<td style="text-align:center;">
+201 ± 34.6
+</td>
+<td style="text-align:center;">
+194.5 ± 36
+</td>
+<td style="text-align:center;">
+198.2 ± 40.7
+</td>
+<td style="text-align:center;">
+192.1 ± 42.2
+</td>
+<td style="text-align:center;">
+196.3 ± 38.5
+</td>
+<td style="text-align:center;">
+199.9 ± 41.7
+</td>
+<td style="text-align:center;">
+196 ± 43.5
+</td>
+<td style="text-align:center;">
+182.6 ± 38.1
+</td>
+<td style="text-align:center;">
+191.2 ± 41.5
+</td>
+<td style="text-align:center;">
+186.3 ± 43.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LDL
+</td>
+<td style="text-align:center;">
+119.1 ± 28.5
+</td>
+<td style="text-align:center;">
+121.2 ± 31.7
+</td>
+<td style="text-align:center;">
+123.7 ± 35.5
+</td>
+<td style="text-align:center;">
+125.6 ± 36.4
+</td>
+<td style="text-align:center;">
+114.2 ± 35.6
+</td>
+<td style="text-align:center;">
+131.4 ± 41.3
+</td>
+<td style="text-align:center;">
+128.6 ± 37
+</td>
+<td style="text-align:center;">
+117.7 ± 35.4
+</td>
+<td style="text-align:center;">
+125.4 ± 31.2
+</td>
+<td style="text-align:center;">
+114.6 ± 37.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HDL
+</td>
+<td style="text-align:center;">
+64.2 ± 15.9
+</td>
+<td style="text-align:center;">
+56.6 ± 11.7
+</td>
+<td style="text-align:center;">
+55.3 ± 13.1
+</td>
+<td style="text-align:center;">
+46.5 ± 8.6
+</td>
+<td style="text-align:center;">
+60.2 ± 15.8
+</td>
+<td style="text-align:center;">
+47.5 ± 7.3
+</td>
+<td style="text-align:center;">
+45.5 ± 9
+</td>
+<td style="text-align:center;">
+45.1 ± 9.8
+</td>
+<td style="text-align:center;">
+42.2 ± 9.6
+</td>
+<td style="text-align:center;">
+49.3 ± 9
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> <br>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div id="p1-2fig3" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Figure 3. Body Composition &amp; Biochem. Profile.</h3>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-186-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="p1-2fig45" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis</h3>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+(#tab:input plot rscript_girc)<b>Table: Pooled Data with Blood Test(DM View)</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern.I
+</th>
+<th style="text-align:center;">
+Pattern.II
+</th>
+<th style="text-align:center;">
+Pattern.III
+</th>
+<th style="text-align:center;">
+Pattern.IV
+</th>
+<th style="text-align:center;">
+Pattern.V
+</th>
+<th style="text-align:center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:center;">
+245 (16.24%)
+</td>
+<td style="text-align:center;">
+754 (49.97%)
+</td>
+<td style="text-align:center;">
+409 (27.1%)
+</td>
+<td style="text-align:center;">
+61 (4.04%)
+</td>
+<td style="text-align:center;">
+40 (2.65%)
+</td>
+<td style="text-align:center;">
+1509 (100%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pre-DM
+</td>
+<td style="text-align:center;">
+52 (5.79%)
+</td>
+<td style="text-align:center;">
+278 (30.96%)
+</td>
+<td style="text-align:center;">
+450 (50.11%)
+</td>
+<td style="text-align:center;">
+105 (11.69%)
+</td>
+<td style="text-align:center;">
+13 (1.45%)
+</td>
+<td style="text-align:center;">
+898 (100%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DM
+</td>
+<td style="text-align:center;">
+29 (5.24%)
+</td>
+<td style="text-align:center;">
+61 (11.03%)
+</td>
+<td style="text-align:center;">
+240 (43.4%)
+</td>
+<td style="text-align:center;">
+77 (13.92%)
+</td>
+<td style="text-align:center;">
+146 (26.4%)
+</td>
+<td style="text-align:center;">
+553 (100%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:center;">
+326
+</td>
+<td style="text-align:center;">
+1093
+</td>
+<td style="text-align:center;">
+1099
+</td>
+<td style="text-align:center;">
+243
+</td>
+<td style="text-align:center;">
+199
+</td>
+<td style="text-align:center;">
+2960
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Note:</span> <sup></sup> <sup></sup> Before intervention
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="4.1-p1-1.html"><button class="btn btn-default">Previous</button></a>
+<a href="4.3-p1-3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

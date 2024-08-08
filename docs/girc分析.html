@@ -1,0 +1,4611 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.2 GIRC分析 | Cofit x Genensis 醫療大數據 (分析報告)</title>
+  <meta name="description" content="2.2 GIRC分析 | Cofit x Genensis 醫療大數據 (分析報告)" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.2 GIRC分析 | Cofit x Genensis 醫療大數據 (分析報告)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.2 GIRC分析 | Cofit x Genensis 醫療大數據 (分析報告)" />
+  
+  
+  
+
+<meta name="author" content="By BigData Team" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ogtt胰島素反應分型.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DSC50GVDJ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DSC50GVDJ7');
+</script>
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Highlight</a></li>
+<li class="chapter" data-level="1" data-path="減重成效---單次療程.html"><a href="減重成效---單次療程.html"><i class="fa fa-check"></i><b>1</b> 減重成效 - (單次療程)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="vens_grap_ob.html"><a href="vens_grap_ob.html"><i class="fa fa-check"></i><b>1.1</b> 資料集(Datasets)</a></li>
+<li class="chapter" data-level="1.2" data-path="porfile_ob.html"><a href="porfile_ob.html"><i class="fa fa-check"></i><b>1.2</b> 客戶輪廓分析</a></li>
+<li class="chapter" data-level="1.3" data-path="global_result_ob.html"><a href="global_result_ob.html"><i class="fa fa-check"></i><b>1.3</b> 整體成效分析</a></li>
+<li class="chapter" data-level="1.4" data-path="cor_ob.html"><a href="cor_ob.html"><i class="fa fa-check"></i><b>1.4</b> 相關分析(Correlation Analysis)</a></li>
+<li class="chapter" data-level="1.5" data-path="strat_1_ob.html"><a href="strat_1_ob.html"><i class="fa fa-check"></i><b>1.5</b> 分層分析-1: 減重成效</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob"><i class="fa fa-check"></i>初始狀態(Baseline)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#diet_ob"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#effectiveness_ob"><i class="fa fa-check"></i>成效(Effectiveness)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#Summary_ob"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html"><i class="fa fa-check"></i><b>1.6</b> 分層分析-2: 男性:睪固酮(Testosterone)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#cor_test_testosterone"><i class="fa fa-check"></i>相關分析(Correlation Analysis)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#baseline_testosterone"><i class="fa fa-check"></i>初始狀態(Baseline)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#endpoint_testosterone"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#diet_testosterone"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#effectiveness_testosterone"><i class="fa fa-check"></i>成效(Effectiveness)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="strat_2_sua.html"><a href="strat_2_sua.html"><i class="fa fa-check"></i><b>1.7</b> 分層分析-3: 尿酸(Serum Uric Acid)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#cor_sua"><i class="fa fa-check"></i>相關分析(Correlation Analysis)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#baseline_sua"><i class="fa fa-check"></i>初始狀態(Baseline)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#endpoint_sua"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#diet_sua"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#effectiveness_sua"><i class="fa fa-check"></i>成效(Effectiveness)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="glucose-insulin-response-curvegirc.html"><a href="glucose-insulin-response-curvegirc.html"><i class="fa fa-check"></i><b>2</b> Glucose Insulin Response Curve(GIRC)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html"><i class="fa fa-check"></i><b>2.1</b> OGTT胰島素反應分型</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-i"><i class="fa fa-check"></i><b>2.1.1</b> Pattern I</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-ii"><i class="fa fa-check"></i><b>2.1.2</b> Pattern II</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-iii"><i class="fa fa-check"></i><b>2.1.3</b> Pattern III</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-iv"><i class="fa fa-check"></i><b>2.1.4</b> Pattern IV</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-v"><i class="fa fa-check"></i><b>2.1.5</b> Pattern V</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="girc分析.html"><a href="girc分析.html"><i class="fa fa-check"></i><b>2.2</b> GIRC分析</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="girc分析.html"><a href="girc分析.html#dm-x-girc分佈"><i class="fa fa-check"></i><b>2.2.1</b> DM x GIRC分佈</a></li>
+<li class="chapter" data-level="2.2.2" data-path="girc分析.html"><a href="girc分析.html#girc分層分析"><i class="fa fa-check"></i><b>2.2.2</b> GIRC分層分析</a></li>
+<li class="chapter" data-level="" data-path="girc分析.html"><a href="girc分析.html#baseline_girc"><i class="fa fa-check"></i>初始狀態(Baseline)</a></li>
+<li class="chapter" data-level="" data-path="girc分析.html"><a href="girc分析.html#endpoint_girc"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a></li>
+<li class="chapter" data-level="" data-path="girc分析.html"><a href="girc分析.html#diet_girc"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="girc分析.html"><a href="girc分析.html#effectiveness_girc"><i class="fa fa-check"></i>成效(Effectiveness)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cofit x Genensis 醫療大數據 (分析報告)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="girc分析" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> GIRC分析<a href="girc分析.html#girc分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dm-x-girc分佈" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> DM x GIRC分佈<a href="girc分析.html#dm-x-girc分佈" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Table: Stuty Group</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern I
+</th>
+<th style="text-align:center;">
+Pattern II
+</th>
+<th style="text-align:center;">
+Pattern III
+</th>
+<th style="text-align:center;">
+Pattern IV
+</th>
+<th style="text-align:center;">
+Pattern V
+</th>
+<th style="text-align:center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+555
+</td>
+<td style="text-align:center;">
+295
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+1099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pre-DM
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+202
+</td>
+<td style="text-align:center;">
+302
+</td>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+620
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DM
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+162
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+101
+</td>
+<td style="text-align:center;">
+376
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sum
+</td>
+<td style="text-align:center;">
+234
+</td>
+<td style="text-align:center;">
+805
+</td>
+<td style="text-align:center;">
+759
+</td>
+<td style="text-align:center;">
+158
+</td>
+<td style="text-align:center;">
+139
+</td>
+<td style="text-align:center;">
+2095
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Note:</span> <sup></sup> <sup></sup> Before intervention
+</td>
+</tr>
+</tfoot>
+</table>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Table: Stuty Group</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern I
+</th>
+<th style="text-align:center;">
+Pattern II
+</th>
+<th style="text-align:center;">
+Pattern III
+</th>
+<th style="text-align:center;">
+Pattern IV
+</th>
+<th style="text-align:center;">
+Pattern V
+</th>
+<th style="text-align:center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:center;">
+8.59
+</td>
+<td style="text-align:center;">
+26.49
+</td>
+<td style="text-align:center;">
+14.08
+</td>
+<td style="text-align:center;">
+2.00
+</td>
+<td style="text-align:center;">
+1.29
+</td>
+<td style="text-align:center;">
+52.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pre-DM
+</td>
+<td style="text-align:center;">
+1.72
+</td>
+<td style="text-align:center;">
+9.64
+</td>
+<td style="text-align:center;">
+14.42
+</td>
+<td style="text-align:center;">
+3.29
+</td>
+<td style="text-align:center;">
+0.53
+</td>
+<td style="text-align:center;">
+29.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DM
+</td>
+<td style="text-align:center;">
+0.86
+</td>
+<td style="text-align:center;">
+2.29
+</td>
+<td style="text-align:center;">
+7.73
+</td>
+<td style="text-align:center;">
+2.24
+</td>
+<td style="text-align:center;">
+4.82
+</td>
+<td style="text-align:center;">
+17.95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sum
+</td>
+<td style="text-align:center;">
+11.17
+</td>
+<td style="text-align:center;">
+38.42
+</td>
+<td style="text-align:center;">
+36.23
+</td>
+<td style="text-align:center;">
+7.54
+</td>
+<td style="text-align:center;">
+6.63
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Note:</span> <sup></sup> <sup></sup> Before intervention
+</td>
+</tr>
+</tfoot>
+</table>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Table: Stuty Group</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern I
+</th>
+<th style="text-align:center;">
+Pattern II
+</th>
+<th style="text-align:center;">
+Pattern III
+</th>
+<th style="text-align:center;">
+Pattern IV
+</th>
+<th style="text-align:center;">
+Pattern V
+</th>
+<th style="text-align:center;">
+Unclassified
+</th>
+<th style="text-align:center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:center;">
+61
+</td>
+<td style="text-align:center;">
+254
+</td>
+<td style="text-align:center;">
+223
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+593
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sum
+</td>
+<td style="text-align:center;">
+67
+</td>
+<td style="text-align:center;">
+300
+</td>
+<td style="text-align:center;">
+248
+</td>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+694
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> <br> <sup></sup>
+</td>
+</tr>
+</tfoot>
+</table>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Table: Stuty Group</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern I
+</th>
+<th style="text-align:center;">
+Pattern II
+</th>
+<th style="text-align:center;">
+Pattern III
+</th>
+<th style="text-align:center;">
+Pattern IV
+</th>
+<th style="text-align:center;">
+Pattern V
+</th>
+<th style="text-align:center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:center;">
+13.78
+</td>
+<td style="text-align:center;">
+53.13
+</td>
+<td style="text-align:center;">
+26.07
+</td>
+<td style="text-align:center;">
+4.76
+</td>
+<td style="text-align:center;">
+2.26
+</td>
+<td style="text-align:center;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pre-DM
+</td>
+<td style="text-align:center;">
+4.20
+</td>
+<td style="text-align:center;">
+33.61
+</td>
+<td style="text-align:center;">
+46.64
+</td>
+<td style="text-align:center;">
+14.29
+</td>
+<td style="text-align:center;">
+1.26
+</td>
+<td style="text-align:center;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DM
+</td>
+<td style="text-align:center;">
+3.57
+</td>
+<td style="text-align:center;">
+12.50
+</td>
+<td style="text-align:center;">
+58.93
+</td>
+<td style="text-align:center;">
+21.43
+</td>
+<td style="text-align:center;">
+3.57
+</td>
+<td style="text-align:center;">
+100
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Note:</span> <sup></sup> <sup></sup> Obesity Program &amp; Before intervention in “DM view”
+</td>
+</tr>
+</tfoot>
+</table>
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Table: Stuty Group</b>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Pattern I
+</th>
+<th style="text-align:center;">
+Pattern II
+</th>
+<th style="text-align:center;">
+Pattern III
+</th>
+<th style="text-align:center;">
+Pattern IV
+</th>
+<th style="text-align:center;">
+Pattern V
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:center;">
+82.09
+</td>
+<td style="text-align:center;">
+70.90
+</td>
+<td style="text-align:center;">
+41.94
+</td>
+<td style="text-align:center;">
+29.23
+</td>
+<td style="text-align:center;">
+64.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pre-DM
+</td>
+<td style="text-align:center;">
+14.93
+</td>
+<td style="text-align:center;">
+26.76
+</td>
+<td style="text-align:center;">
+44.76
+</td>
+<td style="text-align:center;">
+52.31
+</td>
+<td style="text-align:center;">
+21.43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DM
+</td>
+<td style="text-align:center;">
+2.99
+</td>
+<td style="text-align:center;">
+2.34
+</td>
+<td style="text-align:center;">
+13.31
+</td>
+<td style="text-align:center;">
+18.46
+</td>
+<td style="text-align:center;">
+14.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sum
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+<td style="text-align:center;">
+100.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Note:</span> <sup></sup> <sup></sup> Obesity Program &amp; Before intervention in “Insulin Pattern view”
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="girc分層分析" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> GIRC分層分析<a href="girc分析.html#girc分層分析" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="baseline_girc" class="section level3 unnumbered hasAnchor">
+<h3>初始狀態(Baseline)<a href="girc分析.html#baseline_girc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="inbody-6" class="section level4 hasAnchor" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> <strong>Inbody</strong><a href="girc分析.html#inbody-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-66-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="blood-6" class="section level4 hasAnchor" number="2.2.2.2">
+<h4><span class="header-section-number">2.2.2.2</span> <strong>Blood</strong><a href="girc分析.html#blood-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-67-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="endpoint_girc" class="section level3 unnumbered hasAnchor">
+<h3>介入後狀態(Endpoint)<a href="girc分析.html#endpoint_girc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="inbody-7" class="section level4 hasAnchor" number="2.2.2.3">
+<h4><span class="header-section-number">2.2.2.3</span> <strong>Inbody</strong><a href="girc分析.html#inbody-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-68-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="blood-7" class="section level4 hasAnchor" number="2.2.2.4">
+<h4><span class="header-section-number">2.2.2.4</span> <strong>Blood</strong><a href="girc分析.html#blood-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-69-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="diet_girc" class="section level3 unnumbered hasAnchor">
+<h3>飲食(Diet)<a href="girc分析.html#diet_girc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>在分層分析中顯示，減重表現優異者在飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等均優於減重表現低於預期者，具統計上顯著差異。</p>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-70-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="effectiveness_girc" class="section level3 unnumbered hasAnchor">
+<h3>成效(Effectiveness)<a href="girc分析.html#effectiveness_girc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="成效-inbody-6" class="section level4 hasAnchor" number="2.2.2.5">
+<h4><span class="header-section-number">2.2.2.5</span> <strong>成效(∆)-Inbody</strong><a href="girc分析.html#成效-inbody-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-71-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-blood-6" class="section level4 hasAnchor" number="2.2.2.6">
+<h4><span class="header-section-number">2.2.2.6</span> <strong>成效(∆)-Blood</strong><a href="girc分析.html#成效-blood-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-72-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-inbody-7" class="section level4 hasAnchor" number="2.2.2.7">
+<h4><span class="header-section-number">2.2.2.7</span> <strong>成效(%)-Inbody</strong><a href="girc分析.html#成效-inbody-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-73-1.svg" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-blood-7" class="section level4 hasAnchor" number="2.2.2.8">
+<h4><span class="header-section-number">2.2.2.8</span> <strong>成效(%)-Blood</strong><a href="girc分析.html#成效-blood-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-74-1.svg" width="960" style="display: block; margin: auto;" /></p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+<b>Statistics:</b>
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Female
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Male
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern I
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern II
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern III
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern IV
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern V
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern I
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern II
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern III
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern IV
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Pattern V
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+體重(T0)
+</td>
+<td style="text-align:center;">
+70.11 ± 1.5
+</td>
+<td style="text-align:center;">
+72.49 ± 0.75
+</td>
+<td style="text-align:center;">
+70.45 ± 0.78
+</td>
+<td style="text-align:center;">
+91.5 ± 2.34
+</td>
+<td style="text-align:center;">
+71.46 ± 4.59
+</td>
+<td style="text-align:center;">
+89.28 ± 3.34
+</td>
+<td style="text-align:center;">
+93.16 ± 2.35
+</td>
+<td style="text-align:center;">
+91.62 ± 2.29
+</td>
+<td style="text-align:center;">
+114.36 ± 4.63
+</td>
+<td style="text-align:center;">
+83.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI(T0)
+</td>
+<td style="text-align:center;">
+26.29 ± 0.49
+</td>
+<td style="text-align:center;">
+27.97 ± 0.27
+</td>
+<td style="text-align:center;">
+27.72 ± 0.29
+</td>
+<td style="text-align:center;">
+35.26 ± 0.86
+</td>
+<td style="text-align:center;">
+26.66 ± 1.45
+</td>
+<td style="text-align:center;">
+28.92 ± 0.89
+</td>
+<td style="text-align:center;">
+30.92 ± 0.78
+</td>
+<td style="text-align:center;">
+31.02 ± 0.8
+</td>
+<td style="text-align:center;">
+36.87 ± 1.58
+</td>
+<td style="text-align:center;">
+28.62 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂重(T0)
+</td>
+<td style="text-align:center;">
+26.04 ± 0.93
+</td>
+<td style="text-align:center;">
+29.18 ± 0.55
+</td>
+<td style="text-align:center;">
+28.21 ± 0.55
+</td>
+<td style="text-align:center;">
+42.65 ± 1.63
+</td>
+<td style="text-align:center;">
+27.51 ± 3.25
+</td>
+<td style="text-align:center;">
+25.2 ± 2.04
+</td>
+<td style="text-align:center;">
+30.94 ± 1.69
+</td>
+<td style="text-align:center;">
+30.98 ± 1.8
+</td>
+<td style="text-align:center;">
+44.83 ± 3.67
+</td>
+<td style="text-align:center;">
+27.5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂率(T0)
+</td>
+<td style="text-align:center;">
+36.64 ± 0.7
+</td>
+<td style="text-align:center;">
+39.59 ± 0.38
+</td>
+<td style="text-align:center;">
+39.43 ± 0.4
+</td>
+<td style="text-align:center;">
+46.08 ± 0.76
+</td>
+<td style="text-align:center;">
+37.22 ± 2.13
+</td>
+<td style="text-align:center;">
+28.12 ± 1.63
+</td>
+<td style="text-align:center;">
+32.48 ± 0.96
+</td>
+<td style="text-align:center;">
+33.28 ± 1.23
+</td>
+<td style="text-align:center;">
+37.9 ± 1.65
+</td>
+<td style="text-align:center;">
+32.9 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌質量指數(T0)
+</td>
+<td style="text-align:center;">
+6.8 ± 0.1
+</td>
+<td style="text-align:center;">
+6.83 ± 0.04
+</td>
+<td style="text-align:center;">
+6.74 ± 0.05
+</td>
+<td style="text-align:center;">
+7.78 ± 0.12
+</td>
+<td style="text-align:center;">
+6.78 ± 0.26
+</td>
+<td style="text-align:center;">
+8.83 ± 0.17
+</td>
+<td style="text-align:center;">
+8.78 ± 0.12
+</td>
+<td style="text-align:center;">
+8.78 ± 0.1
+</td>
+<td style="text-align:center;">
+9.53 ± 0.17
+</td>
+<td style="text-align:center;">
+7.9 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌率(T0)
+</td>
+<td style="text-align:center;">
+34.45 ± 0.39
+</td>
+<td style="text-align:center;">
+32.92 ± 0.21
+</td>
+<td style="text-align:center;">
+32.92 ± 0.22
+</td>
+<td style="text-align:center;">
+29.86 ± 0.41
+</td>
+<td style="text-align:center;">
+33.98 ± 1.1
+</td>
+<td style="text-align:center;">
+40.92 ± 1.06
+</td>
+<td style="text-align:center;">
+38.2 ± 0.56
+</td>
+<td style="text-align:center;">
+37.63 ± 0.71
+</td>
+<td style="text-align:center;">
+35.33 ± 0.95
+</td>
+<td style="text-align:center;">
+36.8 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+內臟脂肪面積(T0)
+</td>
+<td style="text-align:center;">
+134.94 ± 4.9
+</td>
+<td style="text-align:center;">
+151.12 ± 3
+</td>
+<td style="text-align:center;">
+141.45 ± 2.86
+</td>
+<td style="text-align:center;">
+192.56 ± 5.64
+</td>
+<td style="text-align:center;">
+152.08 ± 22.02
+</td>
+<td style="text-align:center;">
+96.27 ± 3.84
+</td>
+<td style="text-align:center;">
+123.37 ± 6.18
+</td>
+<td style="text-align:center;">
+133.22 ± 8.61
+</td>
+<td style="text-align:center;">
+186.09 ± 16.54
+</td>
+<td style="text-align:center;">
+124.8 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+腰圍(T0)
+</td>
+<td style="text-align:center;">
+88.94 ± 1.29
+</td>
+<td style="text-align:center;">
+92.41 ± 0.65
+</td>
+<td style="text-align:center;">
+91.32 ± 0.71
+</td>
+<td style="text-align:center;">
+110.18 ± 1.87
+</td>
+<td style="text-align:center;">
+90.06 ± 4.19
+</td>
+<td style="text-align:center;">
+100.43 ± 3.16
+</td>
+<td style="text-align:center;">
+104.55 ± 1.82
+</td>
+<td style="text-align:center;">
+104.39 ± 2.31
+</td>
+<td style="text-align:center;">
+123.4 ± 3.69
+</td>
+<td style="text-align:center;">
+95.9 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+除脂體重(T0)
+</td>
+<td style="text-align:center;">
+44.07 ± 0.77
+</td>
+<td style="text-align:center;">
+43.3 ± 0.32
+</td>
+<td style="text-align:center;">
+42.24 ± 0.34
+</td>
+<td style="text-align:center;">
+48.85 ± 0.94
+</td>
+<td style="text-align:center;">
+43.95 ± 1.74
+</td>
+<td style="text-align:center;">
+64.08 ± 2.24
+</td>
+<td style="text-align:center;">
+62.22 ± 1.07
+</td>
+<td style="text-align:center;">
+60.64 ± 1.04
+</td>
+<td style="text-align:center;">
+69.53 ± 1.38
+</td>
+<td style="text-align:center;">
+56.2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+基礎代謝率(T0)
+</td>
+<td style="text-align:center;">
+1321.87 ± 16.59
+</td>
+<td style="text-align:center;">
+1305.43 ± 6.92
+</td>
+<td style="text-align:center;">
+1282.35 ± 7.44
+</td>
+<td style="text-align:center;">
+1425.12 ± 20.25
+</td>
+<td style="text-align:center;">
+1319.46 ± 37.51
+</td>
+<td style="text-align:center;">
+1754 ± 48.4
+</td>
+<td style="text-align:center;">
+1713.8 ± 23.11
+</td>
+<td style="text-align:center;">
+1680.24 ± 22.36
+</td>
+<td style="text-align:center;">
+1871.74 ± 29.92
+</td>
+<td style="text-align:center;">
+1584 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+糖化血色素(T0)
+</td>
+<td style="text-align:center;">
+5.31 ± 0.04
+</td>
+<td style="text-align:center;">
+5.42 ± 0.02
+</td>
+<td style="text-align:center;">
+5.57 ± 0.03
+</td>
+<td style="text-align:center;">
+5.72 ± 0.08
+</td>
+<td style="text-align:center;">
+5.6 ± 0.23
+</td>
+<td style="text-align:center;">
+5.45 ± 0.09
+</td>
+<td style="text-align:center;">
+5.65 ± 0.05
+</td>
+<td style="text-align:center;">
+5.78 ± 0.12
+</td>
+<td style="text-align:center;">
+6.23 ± 0.19
+</td>
+<td style="text-align:center;">
+7.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹血糖(T0)
+</td>
+<td style="text-align:center;">
+83.43 ± 1.35
+</td>
+<td style="text-align:center;">
+84.31 ± 0.6
+</td>
+<td style="text-align:center;">
+87.29 ± 0.94
+</td>
+<td style="text-align:center;">
+89.52 ± 1.31
+</td>
+<td style="text-align:center;">
+89.08 ± 7.46
+</td>
+<td style="text-align:center;">
+82.83 ± 2.09
+</td>
+<td style="text-align:center;">
+88.37 ± 1.38
+</td>
+<td style="text-align:center;">
+94.4 ± 2.92
+</td>
+<td style="text-align:center;">
+98.65 ± 6.14
+</td>
+<td style="text-align:center;">
+119 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹胰島素(T0)
+</td>
+<td style="text-align:center;">
+7.46 ± 0.48
+</td>
+<td style="text-align:center;">
+10.91 ± 0.33
+</td>
+<td style="text-align:center;">
+10.72 ± 0.37
+</td>
+<td style="text-align:center;">
+36.85 ± 2.31
+</td>
+<td style="text-align:center;">
+6.2 ± 1.01
+</td>
+<td style="text-align:center;">
+8.07 ± 2.1
+</td>
+<td style="text-align:center;">
+13.94 ± 0.93
+</td>
+<td style="text-align:center;">
+13.87 ± 1.16
+</td>
+<td style="text-align:center;">
+35.89 ± 2.24
+</td>
+<td style="text-align:center;">
+16.2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+胰島素阻抗值(T0)
+</td>
+<td style="text-align:center;">
+1.56 ± 0.11
+</td>
+<td style="text-align:center;">
+2.3 ± 0.08
+</td>
+<td style="text-align:center;">
+2.35 ± 0.09
+</td>
+<td style="text-align:center;">
+8.14 ± 0.51
+</td>
+<td style="text-align:center;">
+1.47 ± 0.33
+</td>
+<td style="text-align:center;">
+1.7 ± 0.48
+</td>
+<td style="text-align:center;">
+3.08 ± 0.23
+</td>
+<td style="text-align:center;">
+3.36 ± 0.34
+</td>
+<td style="text-align:center;">
+8.84 ± 0.82
+</td>
+<td style="text-align:center;">
+4.8 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+β細胞功能(T0)
+</td>
+<td style="text-align:center;">
+164.69 ± 32.12
+</td>
+<td style="text-align:center;">
+200.12 ± 9.16
+</td>
+<td style="text-align:center;">
+189.22 ± 10.02
+</td>
+<td style="text-align:center;">
+548.4 ± 40.2
+</td>
+<td style="text-align:center;">
+108.75 ± 15.95
+</td>
+<td style="text-align:center;">
+136.68 ± 24.24
+</td>
+<td style="text-align:center;">
+220.74 ± 19.68
+</td>
+<td style="text-align:center;">
+156.52 ± 16.93
+</td>
+<td style="text-align:center;">
+496.13 ± 59.59
+</td>
+<td style="text-align:center;">
+104.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+三酸甘油脂(T0)
+</td>
+<td style="text-align:center;">
+82.26 ± 5.86
+</td>
+<td style="text-align:center;">
+99.77 ± 3.3
+</td>
+<td style="text-align:center;">
+125.82 ± 11.53
+</td>
+<td style="text-align:center;">
+181.02 ± 24.59
+</td>
+<td style="text-align:center;">
+82 ± 8.87
+</td>
+<td style="text-align:center;">
+108.83 ± 24.2
+</td>
+<td style="text-align:center;">
+154.35 ± 13.32
+</td>
+<td style="text-align:center;">
+153.72 ± 17.67
+</td>
+<td style="text-align:center;">
+183.83 ± 18.85
+</td>
+<td style="text-align:center;">
+138 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總膽固醇(T0)
+</td>
+<td style="text-align:center;">
+205.62 ± 4.84
+</td>
+<td style="text-align:center;">
+195.17 ± 2.27
+</td>
+<td style="text-align:center;">
+200.47 ± 2.62
+</td>
+<td style="text-align:center;">
+187.57 ± 6.09
+</td>
+<td style="text-align:center;">
+212.31 ± 11.31
+</td>
+<td style="text-align:center;">
+184.83 ± 11.86
+</td>
+<td style="text-align:center;">
+204.87 ± 6.02
+</td>
+<td style="text-align:center;">
+189.84 ± 7.2
+</td>
+<td style="text-align:center;">
+187.39 ± 8.95
+</td>
+<td style="text-align:center;">
+149 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+高密度脂蛋白(T0)
+</td>
+<td style="text-align:center;">
+64.93 ± 2.22
+</td>
+<td style="text-align:center;">
+56.21 ± 0.71
+</td>
+<td style="text-align:center;">
+55.02 ± 0.86
+</td>
+<td style="text-align:center;">
+44.62 ± 1.26
+</td>
+<td style="text-align:center;">
+69.7 ± 4.06
+</td>
+<td style="text-align:center;">
+47.23 ± 3.3
+</td>
+<td style="text-align:center;">
+46.33 ± 1.4
+</td>
+<td style="text-align:center;">
+45.47 ± 1.33
+</td>
+<td style="text-align:center;">
+39.68 ± 1.57
+</td>
+<td style="text-align:center;">
+43.3 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+低密度脂蛋白(T0)
+</td>
+<td style="text-align:center;">
+122.64 ± 3.93
+</td>
+<td style="text-align:center;">
+121.68 ± 2.04
+</td>
+<td style="text-align:center;">
+125.5 ± 2.31
+</td>
+<td style="text-align:center;">
+122 ± 5.48
+</td>
+<td style="text-align:center;">
+125.31 ± 9.99
+</td>
+<td style="text-align:center;">
+120.83 ± 11.21
+</td>
+<td style="text-align:center;">
+135.24 ± 5.37
+</td>
+<td style="text-align:center;">
+122.96 ± 6.7
+</td>
+<td style="text-align:center;">
+121.48 ± 6.48
+</td>
+<td style="text-align:center;">
+88 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+尿酸(T0)
+</td>
+<td style="text-align:center;">
+4.8 ± 0.15
+</td>
+<td style="text-align:center;">
+5.17 ± 0.07
+</td>
+<td style="text-align:center;">
+5.2 ± 0.07
+</td>
+<td style="text-align:center;">
+5.91 ± 0.16
+</td>
+<td style="text-align:center;">
+4.62 ± 0.29
+</td>
+<td style="text-align:center;">
+6.02 ± 0.5
+</td>
+<td style="text-align:center;">
+6.94 ± 0.19
+</td>
+<td style="text-align:center;">
+6.56 ± 0.29
+</td>
+<td style="text-align:center;">
+7.54 ± 0.35
+</td>
+<td style="text-align:center;">
+5.2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+澱粉脢(T0)
+</td>
+<td style="text-align:center;">
+49.08 ± 2.29
+</td>
+<td style="text-align:center;">
+46.38 ± 0.89
+</td>
+<td style="text-align:center;">
+44.09 ± 0.89
+</td>
+<td style="text-align:center;">
+36.24 ± 1.83
+</td>
+<td style="text-align:center;">
+49.54 ± 5.26
+</td>
+<td style="text-align:center;">
+42.83 ± 4.27
+</td>
+<td style="text-align:center;">
+43.04 ± 2.53
+</td>
+<td style="text-align:center;">
+40.08 ± 2.2
+</td>
+<td style="text-align:center;">
+40.61 ± 2.85
+</td>
+<td style="text-align:center;">
+55 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+解脂脢(T0)
+</td>
+<td style="text-align:center;">
+23.41 ± 1.59
+</td>
+<td style="text-align:center;">
+25.34 ± 0.93
+</td>
+<td style="text-align:center;">
+24.14 ± 0.84
+</td>
+<td style="text-align:center;">
+27.36 ± 3.88
+</td>
+<td style="text-align:center;">
+24 ± 3.41
+</td>
+<td style="text-align:center;">
+23.83 ± 6.52
+</td>
+<td style="text-align:center;">
+27.22 ± 3.23
+</td>
+<td style="text-align:center;">
+23.44 ± 1.93
+</td>
+<td style="text-align:center;">
+23.17 ± 2.7
+</td>
+<td style="text-align:center;">
+56 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體重(T1)
+</td>
+<td style="text-align:center;">
+65.49 ± 1.37
+</td>
+<td style="text-align:center;">
+67.65 ± 0.72
+</td>
+<td style="text-align:center;">
+65.84 ± 0.75
+</td>
+<td style="text-align:center;">
+85.83 ± 2.34
+</td>
+<td style="text-align:center;">
+66.52 ± 3.99
+</td>
+<td style="text-align:center;">
+83.28 ± 4.57
+</td>
+<td style="text-align:center;">
+86.27 ± 2.34
+</td>
+<td style="text-align:center;">
+84.26 ± 2.05
+</td>
+<td style="text-align:center;">
+106.94 ± 4.54
+</td>
+<td style="text-align:center;">
+80.6 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI(T1)
+</td>
+<td style="text-align:center;">
+24.56 ± 0.45
+</td>
+<td style="text-align:center;">
+26.1 ± 0.26
+</td>
+<td style="text-align:center;">
+25.81 ± 0.27
+</td>
+<td style="text-align:center;">
+33.09 ± 0.87
+</td>
+<td style="text-align:center;">
+24.82 ± 1.24
+</td>
+<td style="text-align:center;">
+26.95 ± 1.23
+</td>
+<td style="text-align:center;">
+28.64 ± 0.78
+</td>
+<td style="text-align:center;">
+28.56 ± 0.77
+</td>
+<td style="text-align:center;">
+34.48 ± 1.54
+</td>
+<td style="text-align:center;">
+27.56 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂重(T1)
+</td>
+<td style="text-align:center;">
+23.08 ± 0.88
+</td>
+<td style="text-align:center;">
+25.85 ± 0.53
+</td>
+<td style="text-align:center;">
+25.12 ± 0.52
+</td>
+<td style="text-align:center;">
+38.9 ± 1.67
+</td>
+<td style="text-align:center;">
+24.16 ± 2.75
+</td>
+<td style="text-align:center;">
+21.33 ± 2.77
+</td>
+<td style="text-align:center;">
+25.95 ± 1.73
+</td>
+<td style="text-align:center;">
+25.93 ± 1.71
+</td>
+<td style="text-align:center;">
+39.63 ± 3.57
+</td>
+<td style="text-align:center;">
+26 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂率(T1)
+</td>
+<td style="text-align:center;">
+34.7 ± 0.78
+</td>
+<td style="text-align:center;">
+37.44 ± 0.41
+</td>
+<td style="text-align:center;">
+37.47 ± 0.42
+</td>
+<td style="text-align:center;">
+44.64 ± 0.87
+</td>
+<td style="text-align:center;">
+35.15 ± 1.9
+</td>
+<td style="text-align:center;">
+25.17 ± 2.1
+</td>
+<td style="text-align:center;">
+29.11 ± 1.09
+</td>
+<td style="text-align:center;">
+30.2 ± 1.38
+</td>
+<td style="text-align:center;">
+35.59 ± 1.73
+</td>
+<td style="text-align:center;">
+32.3 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌質量指數(T1)
+</td>
+<td style="text-align:center;">
+6.54 ± 0.09
+</td>
+<td style="text-align:center;">
+6.57 ± 0.04
+</td>
+<td style="text-align:center;">
+6.48 ± 0.05
+</td>
+<td style="text-align:center;">
+7.47 ± 0.12
+</td>
+<td style="text-align:center;">
+6.49 ± 0.23
+</td>
+<td style="text-align:center;">
+8.53 ± 0.19
+</td>
+<td style="text-align:center;">
+8.5 ± 0.12
+</td>
+<td style="text-align:center;">
+8.41 ± 0.1
+</td>
+<td style="text-align:center;">
+9.29 ± 0.19
+</td>
+<td style="text-align:center;">
+7.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌率(T1)
+</td>
+<td style="text-align:center;">
+35.37 ± 0.43
+</td>
+<td style="text-align:center;">
+33.94 ± 0.22
+</td>
+<td style="text-align:center;">
+33.8 ± 0.22
+</td>
+<td style="text-align:center;">
+30.55 ± 0.47
+</td>
+<td style="text-align:center;">
+35.01 ± 0.96
+</td>
+<td style="text-align:center;">
+42.39 ± 1.24
+</td>
+<td style="text-align:center;">
+39.94 ± 0.63
+</td>
+<td style="text-align:center;">
+39.27 ± 0.79
+</td>
+<td style="text-align:center;">
+36.57 ± 1
+</td>
+<td style="text-align:center;">
+37.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+內臟脂肪面積(T1)
+</td>
+<td style="text-align:center;">
+118.86 ± 4.84
+</td>
+<td style="text-align:center;">
+132.87 ± 2.94
+</td>
+<td style="text-align:center;">
+123.97 ± 2.8
+</td>
+<td style="text-align:center;">
+180.35 ± 6.34
+</td>
+<td style="text-align:center;">
+119.26 ± 20.02
+</td>
+<td style="text-align:center;">
+83.13 ± 9.3
+</td>
+<td style="text-align:center;">
+96.97 ± 5.27
+</td>
+<td style="text-align:center;">
+109.71 ± 7.6
+</td>
+<td style="text-align:center;">
+173.27 ± 15.44
+</td>
+<td style="text-align:center;">
+120.4 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+腰圍(T1)
+</td>
+<td style="text-align:center;">
+84.55 ± 1.23
+</td>
+<td style="text-align:center;">
+87.65 ± 0.64
+</td>
+<td style="text-align:center;">
+86.79 ± 0.71
+</td>
+<td style="text-align:center;">
+105.2 ± 1.93
+</td>
+<td style="text-align:center;">
+86.45 ± 3.63
+</td>
+<td style="text-align:center;">
+93.9 ± 4.96
+</td>
+<td style="text-align:center;">
+96.98 ± 1.87
+</td>
+<td style="text-align:center;">
+97.68 ± 2.36
+</td>
+<td style="text-align:center;">
+116.2 ± 3.82
+</td>
+<td style="text-align:center;">
+95.2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+除脂體重(T1)
+</td>
+<td style="text-align:center;">
+42.41 ± 0.72
+</td>
+<td style="text-align:center;">
+41.8 ± 0.3
+</td>
+<td style="text-align:center;">
+40.71 ± 0.34
+</td>
+<td style="text-align:center;">
+46.92 ± 0.91
+</td>
+<td style="text-align:center;">
+42.36 ± 1.55
+</td>
+<td style="text-align:center;">
+61.95 ± 2.28
+</td>
+<td style="text-align:center;">
+60.32 ± 1.03
+</td>
+<td style="text-align:center;">
+58.33 ± 0.96
+</td>
+<td style="text-align:center;">
+67.32 ± 1.28
+</td>
+<td style="text-align:center;">
+54.6 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+基礎代謝率(T1)
+</td>
+<td style="text-align:center;">
+1285.98 ± 15.5
+</td>
+<td style="text-align:center;">
+1273.02 ± 6.52
+</td>
+<td style="text-align:center;">
+1249.39 ± 7.27
+</td>
+<td style="text-align:center;">
+1383.45 ± 19.58
+</td>
+<td style="text-align:center;">
+1284.92 ± 33.51
+</td>
+<td style="text-align:center;">
+1708.5 ± 49.35
+</td>
+<td style="text-align:center;">
+1672.72 ± 22.15
+</td>
+<td style="text-align:center;">
+1629.92 ± 20.66
+</td>
+<td style="text-align:center;">
+1823.96 ± 27.57
+</td>
+<td style="text-align:center;">
+1549 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+糖化血色素(T1)
+</td>
+<td style="text-align:center;">
+5.15 ± 0.04
+</td>
+<td style="text-align:center;">
+5.2 ± 0.02
+</td>
+<td style="text-align:center;">
+5.29 ± 0.02
+</td>
+<td style="text-align:center;">
+5.33 ± 0.05
+</td>
+<td style="text-align:center;">
+5.3 ± 0.11
+</td>
+<td style="text-align:center;">
+5.35 ± 0.09
+</td>
+<td style="text-align:center;">
+5.36 ± 0.04
+</td>
+<td style="text-align:center;">
+5.39 ± 0.08
+</td>
+<td style="text-align:center;">
+5.55 ± 0.08
+</td>
+<td style="text-align:center;">
+6.5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹血糖(T1)
+</td>
+<td style="text-align:center;">
+77.33 ± 1.06
+</td>
+<td style="text-align:center;">
+76.08 ± 0.5
+</td>
+<td style="text-align:center;">
+77.65 ± 0.68
+</td>
+<td style="text-align:center;">
+80.74 ± 1.22
+</td>
+<td style="text-align:center;">
+75.54 ± 3.07
+</td>
+<td style="text-align:center;">
+81.5 ± 2.93
+</td>
+<td style="text-align:center;">
+77.57 ± 1.13
+</td>
+<td style="text-align:center;">
+77.4 ± 2.41
+</td>
+<td style="text-align:center;">
+80.22 ± 1.77
+</td>
+<td style="text-align:center;">
+83 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹胰島素(T1)
+</td>
+<td style="text-align:center;">
+6.99 ± 0.65
+</td>
+<td style="text-align:center;">
+8.94 ± 0.4
+</td>
+<td style="text-align:center;">
+9.01 ± 0.39
+</td>
+<td style="text-align:center;">
+21.86 ± 1.95
+</td>
+<td style="text-align:center;">
+5.5 ± 0.98
+</td>
+<td style="text-align:center;">
+9.13 ± 3.48
+</td>
+<td style="text-align:center;">
+10.58 ± 1.12
+</td>
+<td style="text-align:center;">
+9.39 ± 1.25
+</td>
+<td style="text-align:center;">
+24.81 ± 4.2
+</td>
+<td style="text-align:center;">
+8.67 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+胰島素阻抗值(T1)
+</td>
+<td style="text-align:center;">
+1.37 ± 0.14
+</td>
+<td style="text-align:center;">
+1.74 ± 0.08
+</td>
+<td style="text-align:center;">
+1.79 ± 0.09
+</td>
+<td style="text-align:center;">
+4.42 ± 0.41
+</td>
+<td style="text-align:center;">
+1.08 ± 0.22
+</td>
+<td style="text-align:center;">
+1.9 ± 0.75
+</td>
+<td style="text-align:center;">
+2.07 ± 0.22
+</td>
+<td style="text-align:center;">
+1.87 ± 0.27
+</td>
+<td style="text-align:center;">
+5.04 ± 1.04
+</td>
+<td style="text-align:center;">
+1.8 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+β細胞功能(T1)
+</td>
+<td style="text-align:center;">
+174.07 ± 34.19
+</td>
+<td style="text-align:center;">
+261.08 ± 22.9
+</td>
+<td style="text-align:center;">
+318.8 ± 42.93
+</td>
+<td style="text-align:center;">
+610.1 ± 100.77
+</td>
+<td style="text-align:center;">
+-210.87 ± 335.61
+</td>
+<td style="text-align:center;">
+166.67 ± 45.95
+</td>
+<td style="text-align:center;">
+284.12 ± 40.32
+</td>
+<td style="text-align:center;">
+98.03 ± 92.06
+</td>
+<td style="text-align:center;">
+564.97 ± 80.9
+</td>
+<td style="text-align:center;">
+156.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+三酸甘油脂(T1)
+</td>
+<td style="text-align:center;">
+78.33 ± 3.39
+</td>
+<td style="text-align:center;">
+90.74 ± 2.36
+</td>
+<td style="text-align:center;">
+97.78 ± 3.94
+</td>
+<td style="text-align:center;">
+127.38 ± 9.23
+</td>
+<td style="text-align:center;">
+82.62 ± 8.43
+</td>
+<td style="text-align:center;">
+72.17 ± 9.83
+</td>
+<td style="text-align:center;">
+130.78 ± 8.13
+</td>
+<td style="text-align:center;">
+108.28 ± 7.58
+</td>
+<td style="text-align:center;">
+161.61 ± 18.85
+</td>
+<td style="text-align:center;">
+60 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總膽固醇(T1)
+</td>
+<td style="text-align:center;">
+212.43 ± 5.66
+</td>
+<td style="text-align:center;">
+201.86 ± 2.92
+</td>
+<td style="text-align:center;">
+200.11 ± 2.89
+</td>
+<td style="text-align:center;">
+178.74 ± 6.32
+</td>
+<td style="text-align:center;">
+222.92 ± 14.53
+</td>
+<td style="text-align:center;">
+184.5 ± 19.16
+</td>
+<td style="text-align:center;">
+202.67 ± 8.25
+</td>
+<td style="text-align:center;">
+188.28 ± 7.72
+</td>
+<td style="text-align:center;">
+181.96 ± 9.56
+</td>
+<td style="text-align:center;">
+142 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+高密度脂蛋白(T1)
+</td>
+<td style="text-align:center;">
+58.08 ± 1.95
+</td>
+<td style="text-align:center;">
+50.75 ± 0.64
+</td>
+<td style="text-align:center;">
+49.78 ± 0.8
+</td>
+<td style="text-align:center;">
+38.92 ± 1.09
+</td>
+<td style="text-align:center;">
+58.87 ± 3.03
+</td>
+<td style="text-align:center;">
+46.08 ± 3.59
+</td>
+<td style="text-align:center;">
+40.93 ± 1.23
+</td>
+<td style="text-align:center;">
+44.34 ± 2.24
+</td>
+<td style="text-align:center;">
+35 ± 1.29
+</td>
+<td style="text-align:center;">
+39.5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+低密度脂蛋白(T1)
+</td>
+<td style="text-align:center;">
+136.52 ± 4.65
+</td>
+<td style="text-align:center;">
+130.58 ± 2.48
+</td>
+<td style="text-align:center;">
+129.4 ± 2.53
+</td>
+<td style="text-align:center;">
+119.36 ± 5.68
+</td>
+<td style="text-align:center;">
+139.85 ± 12.97
+</td>
+<td style="text-align:center;">
+123.83 ± 16.61
+</td>
+<td style="text-align:center;">
+136.35 ± 6.93
+</td>
+<td style="text-align:center;">
+121.6 ± 7.13
+</td>
+<td style="text-align:center;">
+121.83 ± 7.72
+</td>
+<td style="text-align:center;">
+90 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+尿酸(T1)
+</td>
+<td style="text-align:center;">
+3.94 ± 0.11
+</td>
+<td style="text-align:center;">
+4.58 ± 0.08
+</td>
+<td style="text-align:center;">
+4.59 ± 0.08
+</td>
+<td style="text-align:center;">
+5.26 ± 0.22
+</td>
+<td style="text-align:center;">
+4.74 ± 0.43
+</td>
+<td style="text-align:center;">
+4.47 ± 0.39
+</td>
+<td style="text-align:center;">
+6.1 ± 0.22
+</td>
+<td style="text-align:center;">
+5.6 ± 0.26
+</td>
+<td style="text-align:center;">
+6.86 ± 0.36
+</td>
+<td style="text-align:center;">
+5.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+澱粉脢(T1)
+</td>
+<td style="text-align:center;">
+51.39 ± 2.39
+</td>
+<td style="text-align:center;">
+48.17 ± 1
+</td>
+<td style="text-align:center;">
+46.01 ± 1.08
+</td>
+<td style="text-align:center;">
+35.95 ± 1.73
+</td>
+<td style="text-align:center;">
+49.31 ± 4.38
+</td>
+<td style="text-align:center;">
+48.17 ± 4.46
+</td>
+<td style="text-align:center;">
+43.46 ± 2.73
+</td>
+<td style="text-align:center;">
+41.16 ± 2.76
+</td>
+<td style="text-align:center;">
+42.17 ± 2.89
+</td>
+<td style="text-align:center;">
+50 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+解脂脢(T1)
+</td>
+<td style="text-align:center;">
+36.84 ± 2.43
+</td>
+<td style="text-align:center;">
+38.87 ± 1.66
+</td>
+<td style="text-align:center;">
+35.33 ± 1.24
+</td>
+<td style="text-align:center;">
+32.5 ± 2.63
+</td>
+<td style="text-align:center;">
+30.69 ± 3.46
+</td>
+<td style="text-align:center;">
+47.33 ± 12
+</td>
+<td style="text-align:center;">
+38.22 ± 4.91
+</td>
+<td style="text-align:center;">
+31.8 ± 2.77
+</td>
+<td style="text-align:center;">
+32.83 ± 3.35
+</td>
+<td style="text-align:center;">
+33 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+年齡
+</td>
+<td style="text-align:center;">
+39.74 ± 0.93
+</td>
+<td style="text-align:center;">
+37.92 ± 0.59
+</td>
+<td style="text-align:center;">
+41.07 ± 0.75
+</td>
+<td style="text-align:center;">
+32.43 ± 1.55
+</td>
+<td style="text-align:center;">
+47.62 ± 1.87
+</td>
+<td style="text-align:center;">
+34.83 ± 4.37
+</td>
+<td style="text-align:center;">
+39.98 ± 1.48
+</td>
+<td style="text-align:center;">
+45.24 ± 2.34
+</td>
+<td style="text-align:center;">
+33.13 ± 1.85
+</td>
+<td style="text-align:center;">
+41 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+飲食紀錄完成率(%)
+</td>
+<td style="text-align:center;">
+77.44 ± 3.63
+</td>
+<td style="text-align:center;">
+73.35 ± 1.79
+</td>
+<td style="text-align:center;">
+74.57 ± 1.96
+</td>
+<td style="text-align:center;">
+66.56 ± 4.62
+</td>
+<td style="text-align:center;">
+76.12 ± 5.82
+</td>
+<td style="text-align:center;">
+61.6 ± 14.72
+</td>
+<td style="text-align:center;">
+73.92 ± 4.41
+</td>
+<td style="text-align:center;">
+73.8 ± 5.91
+</td>
+<td style="text-align:center;">
+56.18 ± 7.02
+</td>
+<td style="text-align:center;">
+100 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+紀錄數量
+</td>
+<td style="text-align:center;">
+232.49 ± 18.84
+</td>
+<td style="text-align:center;">
+195.89 ± 10.47
+</td>
+<td style="text-align:center;">
+187.39 ± 8.36
+</td>
+<td style="text-align:center;">
+156.44 ± 19.58
+</td>
+<td style="text-align:center;">
+173.54 ± 26.64
+</td>
+<td style="text-align:center;">
+130.68 ± 29.92
+</td>
+<td style="text-align:center;">
+213.12 ± 31.36
+</td>
+<td style="text-align:center;">
+201.03 ± 33.52
+</td>
+<td style="text-align:center;">
+144.96 ± 36.25
+</td>
+<td style="text-align:center;">
+163.68 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+上傳照片張數
+</td>
+<td style="text-align:center;">
+168.91 ± 12.66
+</td>
+<td style="text-align:center;">
+157.86 ± 6.76
+</td>
+<td style="text-align:center;">
+159.97 ± 6.75
+</td>
+<td style="text-align:center;">
+130.93 ± 13.59
+</td>
+<td style="text-align:center;">
+134.49 ± 20.44
+</td>
+<td style="text-align:center;">
+161.84 ± 52.62
+</td>
+<td style="text-align:center;">
+162.56 ± 17.37
+</td>
+<td style="text-align:center;">
+175.34 ± 24.28
+</td>
+<td style="text-align:center;">
+130.19 ± 33.94
+</td>
+<td style="text-align:center;">
+253.04 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+碳水攝取率(E%)
+</td>
+<td style="text-align:center;">
+19.91 ± 0.84
+</td>
+<td style="text-align:center;">
+18.79 ± 0.44
+</td>
+<td style="text-align:center;">
+19.05 ± 0.44
+</td>
+<td style="text-align:center;">
+17.94 ± 0.93
+</td>
+<td style="text-align:center;">
+17.44 ± 2.02
+</td>
+<td style="text-align:center;">
+22.55 ± 2.38
+</td>
+<td style="text-align:center;">
+17.17 ± 1
+</td>
+<td style="text-align:center;">
+16.77 ± 1.4
+</td>
+<td style="text-align:center;">
+18.09 ± 1.55
+</td>
+<td style="text-align:center;">
+18.81 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蛋白攝取率(E%)
+</td>
+<td style="text-align:center;">
+27.7 ± 0.66
+</td>
+<td style="text-align:center;">
+27.23 ± 0.17
+</td>
+<td style="text-align:center;">
+27.07 ± 0.19
+</td>
+<td style="text-align:center;">
+27.97 ± 0.45
+</td>
+<td style="text-align:center;">
+27.53 ± 0.56
+</td>
+<td style="text-align:center;">
+26.1 ± 1.2
+</td>
+<td style="text-align:center;">
+28.25 ± 0.41
+</td>
+<td style="text-align:center;">
+27.55 ± 0.59
+</td>
+<td style="text-align:center;">
+27.68 ± 0.73
+</td>
+<td style="text-align:center;">
+30.26 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+脂肪攝取率(E%)
+</td>
+<td style="text-align:center;">
+52.39 ± 0.82
+</td>
+<td style="text-align:center;">
+53.98 ± 0.34
+</td>
+<td style="text-align:center;">
+53.87 ± 0.33
+</td>
+<td style="text-align:center;">
+54.09 ± 0.71
+</td>
+<td style="text-align:center;">
+55.03 ± 1.68
+</td>
+<td style="text-align:center;">
+51.34 ± 1.96
+</td>
+<td style="text-align:center;">
+54.58 ± 0.69
+</td>
+<td style="text-align:center;">
+55.68 ± 1.04
+</td>
+<td style="text-align:center;">
+54.23 ± 1.26
+</td>
+<td style="text-align:center;">
+50.93 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總攝取熱量(日)
+</td>
+<td style="text-align:center;">
+791.72 ± 41.3
+</td>
+<td style="text-align:center;">
+742.76 ± 20.85
+</td>
+<td style="text-align:center;">
+753.41 ± 22.22
+</td>
+<td style="text-align:center;">
+668.68 ± 50.17
+</td>
+<td style="text-align:center;">
+798.86 ± 80.53
+</td>
+<td style="text-align:center;">
+719.21 ± 180.15
+</td>
+<td style="text-align:center;">
+848.44 ± 59.52
+</td>
+<td style="text-align:center;">
+863.86 ± 80.93
+</td>
+<td style="text-align:center;">
+642.82 ± 95.26
+</td>
+<td style="text-align:center;">
+1080.98 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+綠燈率(%)
+</td>
+<td style="text-align:center;">
+80.39 ± 2.08
+</td>
+<td style="text-align:center;">
+81.8 ± 1
+</td>
+<td style="text-align:center;">
+81.55 ± 1.09
+</td>
+<td style="text-align:center;">
+82.47 ± 2.26
+</td>
+<td style="text-align:center;">
+87.81 ± 2.55
+</td>
+<td style="text-align:center;">
+64.96 ± 9.73
+</td>
+<td style="text-align:center;">
+82.26 ± 2.37
+</td>
+<td style="text-align:center;">
+86.08 ± 2.72
+</td>
+<td style="text-align:center;">
+78.95 ± 3.92
+</td>
+<td style="text-align:center;">
+87.75 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+黃燈率(%)
+</td>
+<td style="text-align:center;">
+17.58 ± 2.03
+</td>
+<td style="text-align:center;">
+15.33 ± 0.87
+</td>
+<td style="text-align:center;">
+16.02 ± 0.98
+</td>
+<td style="text-align:center;">
+15.81 ± 2.02
+</td>
+<td style="text-align:center;">
+10.59 ± 2.37
+</td>
+<td style="text-align:center;">
+27.71 ± 7.42
+</td>
+<td style="text-align:center;">
+15.27 ± 1.99
+</td>
+<td style="text-align:center;">
+12.32 ± 2.09
+</td>
+<td style="text-align:center;">
+17.55 ± 3.48
+</td>
+<td style="text-align:center;">
+7.69 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+紅燈率(%)
+</td>
+<td style="text-align:center;">
+2.03 ± 0.45
+</td>
+<td style="text-align:center;">
+2.88 ± 0.38
+</td>
+<td style="text-align:center;">
+2.43 ± 0.33
+</td>
+<td style="text-align:center;">
+1.73 ± 0.5
+</td>
+<td style="text-align:center;">
+1.6 ± 1.18
+</td>
+<td style="text-align:center;">
+7.32 ± 4.62
+</td>
+<td style="text-align:center;">
+2.46 ± 0.81
+</td>
+<td style="text-align:center;">
+1.6 ± 0.81
+</td>
+<td style="text-align:center;">
+3.5 ± 1.62
+</td>
+<td style="text-align:center;">
+4.56 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+水果(日)
+</td>
+<td style="text-align:center;">
+0.07 ± 0.02
+</td>
+<td style="text-align:center;">
+0.06 ± 0.01
+</td>
+<td style="text-align:center;">
+0.06 ± 0.01
+</td>
+<td style="text-align:center;">
+0.02 ± 0
+</td>
+<td style="text-align:center;">
+0.09 ± 0.03
+</td>
+<td style="text-align:center;">
+0.09 ± 0.06
+</td>
+<td style="text-align:center;">
+0.05 ± 0.01
+</td>
+<td style="text-align:center;">
+0.02 ± 0.01
+</td>
+<td style="text-align:center;">
+0.02 ± 0.01
+</td>
+<td style="text-align:center;">
+0.08 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蔬菜(日)
+</td>
+<td style="text-align:center;">
+2.66 ± 0.18
+</td>
+<td style="text-align:center;">
+2.5 ± 0.09
+</td>
+<td style="text-align:center;">
+2.55 ± 0.09
+</td>
+<td style="text-align:center;">
+2.09 ± 0.19
+</td>
+<td style="text-align:center;">
+2.81 ± 0.33
+</td>
+<td style="text-align:center;">
+1.8 ± 0.53
+</td>
+<td style="text-align:center;">
+2.63 ± 0.23
+</td>
+<td style="text-align:center;">
+2.79 ± 0.3
+</td>
+<td style="text-align:center;">
+2.07 ± 0.36
+</td>
+<td style="text-align:center;">
+1.78 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+全穀雜糧(日)
+</td>
+<td style="text-align:center;">
+1.36 ± 0.12
+</td>
+<td style="text-align:center;">
+1.21 ± 0.06
+</td>
+<td style="text-align:center;">
+1.27 ± 0.06
+</td>
+<td style="text-align:center;">
+1.1 ± 0.13
+</td>
+<td style="text-align:center;">
+0.97 ± 0.16
+</td>
+<td style="text-align:center;">
+1.87 ± 0.48
+</td>
+<td style="text-align:center;">
+1.31 ± 0.15
+</td>
+<td style="text-align:center;">
+1.12 ± 0.19
+</td>
+<td style="text-align:center;">
+1.05 ± 0.19
+</td>
+<td style="text-align:center;">
+2.64 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蛋豆魚肉(日)
+</td>
+<td style="text-align:center;">
+6.82 ± 0.38
+</td>
+<td style="text-align:center;">
+6.46 ± 0.19
+</td>
+<td style="text-align:center;">
+6.52 ± 0.21
+</td>
+<td style="text-align:center;">
+6.01 ± 0.48
+</td>
+<td style="text-align:center;">
+7.13 ± 0.84
+</td>
+<td style="text-align:center;">
+5.99 ± 1.74
+</td>
+<td style="text-align:center;">
+7.76 ± 0.55
+</td>
+<td style="text-align:center;">
+7.8 ± 0.81
+</td>
+<td style="text-align:center;">
+5.73 ± 0.87
+</td>
+<td style="text-align:center;">
+10.57 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+乳品(日)
+</td>
+<td style="text-align:center;">
+0.06 ± 0.01
+</td>
+<td style="text-align:center;">
+0.05 ± 0
+</td>
+<td style="text-align:center;">
+0.05 ± 0
+</td>
+<td style="text-align:center;">
+0.02 ± 0
+</td>
+<td style="text-align:center;">
+0.02 ± 0.01
+</td>
+<td style="text-align:center;">
+0.07 ± 0.06
+</td>
+<td style="text-align:center;">
+0.02 ± 0
+</td>
+<td style="text-align:center;">
+0.03 ± 0.01
+</td>
+<td style="text-align:center;">
+0.02 ± 0.01
+</td>
+<td style="text-align:center;">
+0.09 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+油脂(日)
+</td>
+<td style="text-align:center;">
+3.06 ± 0.19
+</td>
+<td style="text-align:center;">
+2.84 ± 0.09
+</td>
+<td style="text-align:center;">
+2.89 ± 0.09
+</td>
+<td style="text-align:center;">
+2.54 ± 0.21
+</td>
+<td style="text-align:center;">
+2.99 ± 0.29
+</td>
+<td style="text-align:center;">
+2.6 ± 0.61
+</td>
+<td style="text-align:center;">
+3.07 ± 0.24
+</td>
+<td style="text-align:center;">
+3.24 ± 0.31
+</td>
+<td style="text-align:center;">
+2.37 ± 0.38
+</td>
+<td style="text-align:center;">
+2.74 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體重
+</td>
+<td style="text-align:center;">
+4.62 ± 0.28
+</td>
+<td style="text-align:center;">
+4.83 ± 0.15
+</td>
+<td style="text-align:center;">
+4.62 ± 0.14
+</td>
+<td style="text-align:center;">
+5.67 ± 0.51
+</td>
+<td style="text-align:center;">
+4.94 ± 0.87
+</td>
+<td style="text-align:center;">
+6 ± 1.81
+</td>
+<td style="text-align:center;">
+6.89 ± 0.42
+</td>
+<td style="text-align:center;">
+7.36 ± 0.7
+</td>
+<td style="text-align:center;">
+7.41 ± 0.66
+</td>
+<td style="text-align:center;">
+3.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆BMI
+</td>
+<td style="text-align:center;">
+1.73 ± 0.11
+</td>
+<td style="text-align:center;">
+1.87 ± 0.06
+</td>
+<td style="text-align:center;">
+1.91 ± 0.11
+</td>
+<td style="text-align:center;">
+2.17 ± 0.19
+</td>
+<td style="text-align:center;">
+1.84 ± 0.31
+</td>
+<td style="text-align:center;">
+1.97 ± 0.59
+</td>
+<td style="text-align:center;">
+2.28 ± 0.14
+</td>
+<td style="text-align:center;">
+2.47 ± 0.22
+</td>
+<td style="text-align:center;">
+2.4 ± 0.22
+</td>
+<td style="text-align:center;">
+1.06 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂重
+</td>
+<td style="text-align:center;">
+2.96 ± 0.25
+</td>
+<td style="text-align:center;">
+3.33 ± 0.12
+</td>
+<td style="text-align:center;">
+3.09 ± 0.12
+</td>
+<td style="text-align:center;">
+3.75 ± 0.31
+</td>
+<td style="text-align:center;">
+3.35 ± 1.02
+</td>
+<td style="text-align:center;">
+3.87 ± 1.29
+</td>
+<td style="text-align:center;">
+4.98 ± 0.33
+</td>
+<td style="text-align:center;">
+5.05 ± 0.53
+</td>
+<td style="text-align:center;">
+5.2 ± 0.68
+</td>
+<td style="text-align:center;">
+1.5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂率
+</td>
+<td style="text-align:center;">
+1.94 ± 0.28
+</td>
+<td style="text-align:center;">
+2.14 ± 0.12
+</td>
+<td style="text-align:center;">
+1.96 ± 0.14
+</td>
+<td style="text-align:center;">
+1.44 ± 0.21
+</td>
+<td style="text-align:center;">
+2.06 ± 0.96
+</td>
+<td style="text-align:center;">
+2.95 ± 1.12
+</td>
+<td style="text-align:center;">
+3.37 ± 0.32
+</td>
+<td style="text-align:center;">
+3.08 ± 0.43
+</td>
+<td style="text-align:center;">
+2.31 ± 0.46
+</td>
+<td style="text-align:center;">
+0.6 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌質量指數
+</td>
+<td style="text-align:center;">
+0.27 ± 0.03
+</td>
+<td style="text-align:center;">
+0.26 ± 0.01
+</td>
+<td style="text-align:center;">
+0.26 ± 0.01
+</td>
+<td style="text-align:center;">
+0.31 ± 0.04
+</td>
+<td style="text-align:center;">
+0.28 ± 0.07
+</td>
+<td style="text-align:center;">
+0.3 ± 0.12
+</td>
+<td style="text-align:center;">
+0.28 ± 0.04
+</td>
+<td style="text-align:center;">
+0.37 ± 0.05
+</td>
+<td style="text-align:center;">
+0.24 ± 0.06
+</td>
+<td style="text-align:center;">
+0.2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌重
+</td>
+<td style="text-align:center;">
+0.99 ± 0.11
+</td>
+<td style="text-align:center;">
+0.92 ± 0.05
+</td>
+<td style="text-align:center;">
+0.94 ± 0.06
+</td>
+<td style="text-align:center;">
+1.14 ± 0.16
+</td>
+<td style="text-align:center;">
+0.93 ± 0.3
+</td>
+<td style="text-align:center;">
+1.37 ± 0.47
+</td>
+<td style="text-align:center;">
+1.22 ± 0.18
+</td>
+<td style="text-align:center;">
+1.39 ± 0.25
+</td>
+<td style="text-align:center;">
+1.35 ± 0.23
+</td>
+<td style="text-align:center;">
+0.9 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆內臟脂肪面積
+</td>
+<td style="text-align:center;">
+15.02 ± 1.52
+</td>
+<td style="text-align:center;">
+15.95 ± 0.62
+</td>
+<td style="text-align:center;">
+16.39 ± 0.62
+</td>
+<td style="text-align:center;">
+14.9 ± 1.64
+</td>
+<td style="text-align:center;">
+16.32 ± 2.54
+</td>
+<td style="text-align:center;">
+13.13 ± 5.47
+</td>
+<td style="text-align:center;">
+28.24 ± 1.75
+</td>
+<td style="text-align:center;">
+23.29 ± 3.59
+</td>
+<td style="text-align:center;">
+20.69 ± 2.88
+</td>
+<td style="text-align:center;">
+4.4 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆腰圍
+</td>
+<td style="text-align:center;">
+4.39 ± 0.37
+</td>
+<td style="text-align:center;">
+4.75 ± 0.19
+</td>
+<td style="text-align:center;">
+4.53 ± 0.19
+</td>
+<td style="text-align:center;">
+4.98 ± 0.59
+</td>
+<td style="text-align:center;">
+3.62 ± 1.11
+</td>
+<td style="text-align:center;">
+6.53 ± 2.14
+</td>
+<td style="text-align:center;">
+7.57 ± 0.51
+</td>
+<td style="text-align:center;">
+6.71 ± 0.79
+</td>
+<td style="text-align:center;">
+7.2 ± 0.88
+</td>
+<td style="text-align:center;">
+0.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆除脂體重
+</td>
+<td style="text-align:center;">
+1.66 ± 0.19
+</td>
+<td style="text-align:center;">
+1.5 ± 0.09
+</td>
+<td style="text-align:center;">
+1.53 ± 0.1
+</td>
+<td style="text-align:center;">
+1.92 ± 0.27
+</td>
+<td style="text-align:center;">
+1.59 ± 0.55
+</td>
+<td style="text-align:center;">
+2.13 ± 0.83
+</td>
+<td style="text-align:center;">
+1.9 ± 0.29
+</td>
+<td style="text-align:center;">
+2.32 ± 0.42
+</td>
+<td style="text-align:center;">
+2.21 ± 0.38
+</td>
+<td style="text-align:center;">
+1.6 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆基礎代謝率
+</td>
+<td style="text-align:center;">
+-35.89 ± 4.18
+</td>
+<td style="text-align:center;">
+-32.42 ± 1.86
+</td>
+<td style="text-align:center;">
+-32.96 ± 2.13
+</td>
+<td style="text-align:center;">
+-41.67 ± 5.85
+</td>
+<td style="text-align:center;">
+-34.54 ± 11.9
+</td>
+<td style="text-align:center;">
+-45.5 ± 17.78
+</td>
+<td style="text-align:center;">
+-41.09 ± 6.35
+</td>
+<td style="text-align:center;">
+-50.32 ± 9.08
+</td>
+<td style="text-align:center;">
+-47.78 ± 8.13
+</td>
+<td style="text-align:center;">
+-35 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆糖化血色素
+</td>
+<td style="text-align:center;">
+0.16 ± 0.03
+</td>
+<td style="text-align:center;">
+0.22 ± 0.01
+</td>
+<td style="text-align:center;">
+0.28 ± 0.02
+</td>
+<td style="text-align:center;">
+0.39 ± 0.04
+</td>
+<td style="text-align:center;">
+0.3 ± 0.14
+</td>
+<td style="text-align:center;">
+0.1 ± 0.05
+</td>
+<td style="text-align:center;">
+0.29 ± 0.03
+</td>
+<td style="text-align:center;">
+0.39 ± 0.07
+</td>
+<td style="text-align:center;">
+0.68 ± 0.17
+</td>
+<td style="text-align:center;">
+0.6 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹血糖
+</td>
+<td style="text-align:center;">
+6.1 ± 1.03
+</td>
+<td style="text-align:center;">
+8.23 ± 0.65
+</td>
+<td style="text-align:center;">
+9.63 ± 0.89
+</td>
+<td style="text-align:center;">
+8.79 ± 1.42
+</td>
+<td style="text-align:center;">
+13.54 ± 5.78
+</td>
+<td style="text-align:center;">
+1.33 ± 2.75
+</td>
+<td style="text-align:center;">
+10.8 ± 1.43
+</td>
+<td style="text-align:center;">
+17 ± 2.79
+</td>
+<td style="text-align:center;">
+18.43 ± 6.03
+</td>
+<td style="text-align:center;">
+36 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹胰島素
+</td>
+<td style="text-align:center;">
+0.48 ± 0.57
+</td>
+<td style="text-align:center;">
+1.96 ± 0.39
+</td>
+<td style="text-align:center;">
+1.71 ± 0.35
+</td>
+<td style="text-align:center;">
+14.98 ± 2.79
+</td>
+<td style="text-align:center;">
+0.7 ± 0.84
+</td>
+<td style="text-align:center;">
+-1.06 ± 2.52
+</td>
+<td style="text-align:center;">
+3.36 ± 0.93
+</td>
+<td style="text-align:center;">
+4.49 ± 1.51
+</td>
+<td style="text-align:center;">
+11.24 ± 4.09
+</td>
+<td style="text-align:center;">
+7.53 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆胰島素阻抗值
+</td>
+<td style="text-align:center;">
+0.18 ± 0.12
+</td>
+<td style="text-align:center;">
+0.57 ± 0.09
+</td>
+<td style="text-align:center;">
+0.56 ± 0.09
+</td>
+<td style="text-align:center;">
+3.72 ± 0.62
+</td>
+<td style="text-align:center;">
+0.38 ± 0.19
+</td>
+<td style="text-align:center;">
+-0.2 ± 0.56
+</td>
+<td style="text-align:center;">
+1.02 ± 0.22
+</td>
+<td style="text-align:center;">
+1.5 ± 0.37
+</td>
+<td style="text-align:center;">
+3.8 ± 1.09
+</td>
+<td style="text-align:center;">
+3 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆β細胞功能
+</td>
+<td style="text-align:center;">
+-9.38 ± 58.94
+</td>
+<td style="text-align:center;">
+-57.52 ± 22.73
+</td>
+<td style="text-align:center;">
+-129.58 ± 42.15
+</td>
+<td style="text-align:center;">
+-61.7 ± 101.93
+</td>
+<td style="text-align:center;">
+319.62 ± 345.54
+</td>
+<td style="text-align:center;">
+-29.98 ± 32.65
+</td>
+<td style="text-align:center;">
+-63.38 ± 34.81
+</td>
+<td style="text-align:center;">
+58.49 ± 97.58
+</td>
+<td style="text-align:center;">
+-68.84 ± 95.51
+</td>
+<td style="text-align:center;">
+-52 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆三酸甘油脂
+</td>
+<td style="text-align:center;">
+3.93 ± 4.78
+</td>
+<td style="text-align:center;">
+8.9 ± 2.69
+</td>
+<td style="text-align:center;">
+28.04 ± 11.44
+</td>
+<td style="text-align:center;">
+53.64 ± 22.23
+</td>
+<td style="text-align:center;">
+-0.62 ± 12.41
+</td>
+<td style="text-align:center;">
+36.67 ± 24.87
+</td>
+<td style="text-align:center;">
+23.57 ± 9.6
+</td>
+<td style="text-align:center;">
+45.44 ± 15.62
+</td>
+<td style="text-align:center;">
+22.22 ± 13.52
+</td>
+<td style="text-align:center;">
+78 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆總膽固醇
+</td>
+<td style="text-align:center;">
+-6.8 ± 5.1
+</td>
+<td style="text-align:center;">
+-6.77 ± 2.17
+</td>
+<td style="text-align:center;">
+0.36 ± 2.11
+</td>
+<td style="text-align:center;">
+8.83 ± 5.7
+</td>
+<td style="text-align:center;">
+-10.62 ± 13.05
+</td>
+<td style="text-align:center;">
+0.33 ± 17.07
+</td>
+<td style="text-align:center;">
+2.2 ± 6.03
+</td>
+<td style="text-align:center;">
+1.56 ± 6.71
+</td>
+<td style="text-align:center;">
+5.43 ± 6.77
+</td>
+<td style="text-align:center;">
+7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆高密度脂蛋白
+</td>
+<td style="text-align:center;">
+6.84 ± 1.27
+</td>
+<td style="text-align:center;">
+5.51 ± 0.55
+</td>
+<td style="text-align:center;">
+5.24 ± 0.56
+</td>
+<td style="text-align:center;">
+5.7 ± 1.16
+</td>
+<td style="text-align:center;">
+10.83 ± 2.98
+</td>
+<td style="text-align:center;">
+1.15 ± 4.49
+</td>
+<td style="text-align:center;">
+5.4 ± 0.95
+</td>
+<td style="text-align:center;">
+1.14 ± 2.12
+</td>
+<td style="text-align:center;">
+4.67 ± 1.09
+</td>
+<td style="text-align:center;">
+3.8 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆低密度脂蛋白
+</td>
+<td style="text-align:center;">
+-13.89 ± 4.32
+</td>
+<td style="text-align:center;">
+-8.92 ± 1.84
+</td>
+<td style="text-align:center;">
+-3.9 ± 1.91
+</td>
+<td style="text-align:center;">
+2.64 ± 5.14
+</td>
+<td style="text-align:center;">
+-14.54 ± 11.1
+</td>
+<td style="text-align:center;">
+-3 ± 15.89
+</td>
+<td style="text-align:center;">
+-1.11 ± 5.02
+</td>
+<td style="text-align:center;">
+1.36 ± 6.17
+</td>
+<td style="text-align:center;">
+-0.35 ± 5.41
+</td>
+<td style="text-align:center;">
+-2 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆尿酸
+</td>
+<td style="text-align:center;">
+-0.86 ± 0.12
+</td>
+<td style="text-align:center;">
+-0.59 ± 0.07
+</td>
+<td style="text-align:center;">
+-0.6 ± 0.08
+</td>
+<td style="text-align:center;">
+-0.66 ± 0.23
+</td>
+<td style="text-align:center;">
+0.12 ± 0.29
+</td>
+<td style="text-align:center;">
+-1.55 ± 0.36
+</td>
+<td style="text-align:center;">
+-0.84 ± 0.18
+</td>
+<td style="text-align:center;">
+-0.96 ± 0.25
+</td>
+<td style="text-align:center;">
+-0.68 ± 0.33
+</td>
+<td style="text-align:center;">
+-0.1 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆澱粉脢
+</td>
+<td style="text-align:center;">
+2.31 ± 1.11
+</td>
+<td style="text-align:center;">
+1.89 ± 0.62
+</td>
+<td style="text-align:center;">
+1.92 ± 0.69
+</td>
+<td style="text-align:center;">
+-0.29 ± 0.95
+</td>
+<td style="text-align:center;">
+-0.23 ± 2.69
+</td>
+<td style="text-align:center;">
+5.33 ± 3.7
+</td>
+<td style="text-align:center;">
+0.41 ± 1.8
+</td>
+<td style="text-align:center;">
+1.08 ± 1.25
+</td>
+<td style="text-align:center;">
+1.57 ± 1.54
+</td>
+<td style="text-align:center;">
+-5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆解脂脢
+</td>
+<td style="text-align:center;">
+13.43 ± 1.63
+</td>
+<td style="text-align:center;">
+13.47 ± 1.31
+</td>
+<td style="text-align:center;">
+11.19 ± 1.05
+</td>
+<td style="text-align:center;">
+5.14 ± 2.63
+</td>
+<td style="text-align:center;">
+6.69 ± 1.9
+</td>
+<td style="text-align:center;">
+23.5 ± 7.07
+</td>
+<td style="text-align:center;">
+11 ± 3.96
+</td>
+<td style="text-align:center;">
+8.36 ± 2.23
+</td>
+<td style="text-align:center;">
+9.65 ± 1.93
+</td>
+<td style="text-align:center;">
+-23 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體重(%)
+</td>
+<td style="text-align:center;">
+6.49 ± 0.36
+</td>
+<td style="text-align:center;">
+6.68 ± 0.19
+</td>
+<td style="text-align:center;">
+6.58 ± 0.19
+</td>
+<td style="text-align:center;">
+6.28 ± 0.54
+</td>
+<td style="text-align:center;">
+6.64 ± 0.87
+</td>
+<td style="text-align:center;">
+6.97 ± 2.12
+</td>
+<td style="text-align:center;">
+7.51 ± 0.46
+</td>
+<td style="text-align:center;">
+7.96 ± 0.64
+</td>
+<td style="text-align:center;">
+6.58 ± 0.55
+</td>
+<td style="text-align:center;">
+3.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆BMI(%)
+</td>
+<td style="text-align:center;">
+6.49 ± 0.36
+</td>
+<td style="text-align:center;">
+6.71 ± 0.19
+</td>
+<td style="text-align:center;">
+6.77 ± 0.28
+</td>
+<td style="text-align:center;">
+6.28 ± 0.54
+</td>
+<td style="text-align:center;">
+6.64 ± 0.87
+</td>
+<td style="text-align:center;">
+6.97 ± 2.12
+</td>
+<td style="text-align:center;">
+7.48 ± 0.46
+</td>
+<td style="text-align:center;">
+7.95 ± 0.64
+</td>
+<td style="text-align:center;">
+6.58 ± 0.55
+</td>
+<td style="text-align:center;">
+3.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂重(%)
+</td>
+<td style="text-align:center;">
+11.58 ± 0.97
+</td>
+<td style="text-align:center;">
+11.84 ± 0.42
+</td>
+<td style="text-align:center;">
+11.23 ± 0.44
+</td>
+<td style="text-align:center;">
+9.32 ± 0.8
+</td>
+<td style="text-align:center;">
+11.03 ± 3.06
+</td>
+<td style="text-align:center;">
+16.66 ± 5.67
+</td>
+<td style="text-align:center;">
+17.66 ± 1.28
+</td>
+<td style="text-align:center;">
+16.9 ± 1.7
+</td>
+<td style="text-align:center;">
+12.51 ± 1.65
+</td>
+<td style="text-align:center;">
+5.45 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂率(%)
+</td>
+<td style="text-align:center;">
+5.52 ± 0.84
+</td>
+<td style="text-align:center;">
+5.59 ± 0.33
+</td>
+<td style="text-align:center;">
+5.03 ± 0.37
+</td>
+<td style="text-align:center;">
+3.29 ± 0.49
+</td>
+<td style="text-align:center;">
+4.87 ± 2.68
+</td>
+<td style="text-align:center;">
+10.87 ± 4.17
+</td>
+<td style="text-align:center;">
+11.07 ± 1.11
+</td>
+<td style="text-align:center;">
+9.81 ± 1.45
+</td>
+<td style="text-align:center;">
+6.41 ± 1.35
+</td>
+<td style="text-align:center;">
+1.82 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌質量指數(%)
+</td>
+<td style="text-align:center;">
+3.78 ± 0.41
+</td>
+<td style="text-align:center;">
+3.78 ± 0.19
+</td>
+<td style="text-align:center;">
+3.82 ± 0.21
+</td>
+<td style="text-align:center;">
+3.96 ± 0.54
+</td>
+<td style="text-align:center;">
+3.96 ± 1.03
+</td>
+<td style="text-align:center;">
+3.37 ± 1.31
+</td>
+<td style="text-align:center;">
+3.19 ± 0.4
+</td>
+<td style="text-align:center;">
+4.2 ± 0.56
+</td>
+<td style="text-align:center;">
+2.6 ± 0.6
+</td>
+<td style="text-align:center;">
+2.53 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌重(%)
+</td>
+<td style="text-align:center;">
+4.02 ± 0.44
+</td>
+<td style="text-align:center;">
+3.81 ± 0.21
+</td>
+<td style="text-align:center;">
+4.05 ± 0.27
+</td>
+<td style="text-align:center;">
+4.2 ± 0.58
+</td>
+<td style="text-align:center;">
+3.61 ± 1.26
+</td>
+<td style="text-align:center;">
+3.75 ± 1.25
+</td>
+<td style="text-align:center;">
+3.38 ± 0.49
+</td>
+<td style="text-align:center;">
+3.99 ± 0.7
+</td>
+<td style="text-align:center;">
+3.34 ± 0.53
+</td>
+<td style="text-align:center;">
+2.92 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆內臟脂肪面積(%)
+</td>
+<td style="text-align:center;">
+11.59 ± 1.15
+</td>
+<td style="text-align:center;">
+11.63 ± 0.49
+</td>
+<td style="text-align:center;">
+12.54 ± 0.55
+</td>
+<td style="text-align:center;">
+8.45 ± 1.01
+</td>
+<td style="text-align:center;">
+13.59 ± 2.14
+</td>
+<td style="text-align:center;">
+14.61 ± 6.05
+</td>
+<td style="text-align:center;">
+24 ± 1.33
+</td>
+<td style="text-align:center;">
+17.61 ± 2.41
+</td>
+<td style="text-align:center;">
+12.84 ± 1.76
+</td>
+<td style="text-align:center;">
+3.53 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆腰圍(%)
+</td>
+<td style="text-align:center;">
+4.89 ± 0.39
+</td>
+<td style="text-align:center;">
+5.12 ± 0.2
+</td>
+<td style="text-align:center;">
+4.97 ± 0.2
+</td>
+<td style="text-align:center;">
+4.55 ± 0.51
+</td>
+<td style="text-align:center;">
+3.72 ± 1.1
+</td>
+<td style="text-align:center;">
+6.78 ± 2.24
+</td>
+<td style="text-align:center;">
+7.31 ± 0.48
+</td>
+<td style="text-align:center;">
+6.46 ± 0.75
+</td>
+<td style="text-align:center;">
+5.96 ± 0.73
+</td>
+<td style="text-align:center;">
+0.73 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆除脂體重(%)
+</td>
+<td style="text-align:center;">
+3.67 ± 0.42
+</td>
+<td style="text-align:center;">
+3.39 ± 0.19
+</td>
+<td style="text-align:center;">
+3.55 ± 0.26
+</td>
+<td style="text-align:center;">
+3.88 ± 0.55
+</td>
+<td style="text-align:center;">
+3.39 ± 1.24
+</td>
+<td style="text-align:center;">
+3.31 ± 1.28
+</td>
+<td style="text-align:center;">
+2.99 ± 0.45
+</td>
+<td style="text-align:center;">
+3.74 ± 0.66
+</td>
+<td style="text-align:center;">
+3.11 ± 0.51
+</td>
+<td style="text-align:center;">
+2.85 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆基礎代謝率(%)
+</td>
+<td style="text-align:center;">
+-2.66 ± 0.31
+</td>
+<td style="text-align:center;">
+-2.44 ± 0.14
+</td>
+<td style="text-align:center;">
+-2.53 ± 0.17
+</td>
+<td style="text-align:center;">
+-2.88 ± 0.41
+</td>
+<td style="text-align:center;">
+-2.49 ± 0.9
+</td>
+<td style="text-align:center;">
+-2.58 ± 1.01
+</td>
+<td style="text-align:center;">
+-2.35 ± 0.36
+</td>
+<td style="text-align:center;">
+-2.94 ± 0.52
+</td>
+<td style="text-align:center;">
+-2.51 ± 0.41
+</td>
+<td style="text-align:center;">
+-2.21 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆糖化血色素(%)
+</td>
+<td style="text-align:center;">
+3 ± 0.47
+</td>
+<td style="text-align:center;">
+3.96 ± 0.24
+</td>
+<td style="text-align:center;">
+4.76 ± 0.3
+</td>
+<td style="text-align:center;">
+6.49 ± 0.67
+</td>
+<td style="text-align:center;">
+4.58 ± 1.78
+</td>
+<td style="text-align:center;">
+1.81 ± 0.93
+</td>
+<td style="text-align:center;">
+4.95 ± 0.58
+</td>
+<td style="text-align:center;">
+6.35 ± 0.98
+</td>
+<td style="text-align:center;">
+9.88 ± 1.94
+</td>
+<td style="text-align:center;">
+8.45 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹血糖(%)
+</td>
+<td style="text-align:center;">
+6.75 ± 1.1
+</td>
+<td style="text-align:center;">
+9.05 ± 0.69
+</td>
+<td style="text-align:center;">
+10.06 ± 0.81
+</td>
+<td style="text-align:center;">
+9.33 ± 1.5
+</td>
+<td style="text-align:center;">
+12.55 ± 3.55
+</td>
+<td style="text-align:center;">
+1.48 ± 3.41
+</td>
+<td style="text-align:center;">
+11.6 ± 1.54
+</td>
+<td style="text-align:center;">
+16.76 ± 3.08
+</td>
+<td style="text-align:center;">
+14.66 ± 3.56
+</td>
+<td style="text-align:center;">
+30.25 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹胰島素(%)
+</td>
+<td style="text-align:center;">
+-4.16 ± 9.13
+</td>
+<td style="text-align:center;">
+9.79 ± 3.47
+</td>
+<td style="text-align:center;">
+4.34 ± 4.65
+</td>
+<td style="text-align:center;">
+36.01 ± 6.39
+</td>
+<td style="text-align:center;">
+1.3 ± 14.81
+</td>
+<td style="text-align:center;">
+-21.56 ± 33.34
+</td>
+<td style="text-align:center;">
+21.58 ± 5.86
+</td>
+<td style="text-align:center;">
+7.04 ± 26.37
+</td>
+<td style="text-align:center;">
+29.58 ± 10.24
+</td>
+<td style="text-align:center;">
+46.48 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆胰島素阻抗值(%)
+</td>
+<td style="text-align:center;">
+0.78 ± 9.37
+</td>
+<td style="text-align:center;">
+14.62 ± 3.71
+</td>
+<td style="text-align:center;">
+9.81 ± 5.44
+</td>
+<td style="text-align:center;">
+40.93 ± 6.13
+</td>
+<td style="text-align:center;">
+11.59 ± 13.17
+</td>
+<td style="text-align:center;">
+-25.68 ± 38.95
+</td>
+<td style="text-align:center;">
+28.78 ± 5.99
+</td>
+<td style="text-align:center;">
+12.69 ± 30.52
+</td>
+<td style="text-align:center;">
+37.87 ± 10.55
+</td>
+<td style="text-align:center;">
+62.5 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆β細胞功能(%)
+</td>
+<td style="text-align:center;">
+-61.17 ± 23.8
+</td>
+<td style="text-align:center;">
+-59.7 ± 20.66
+</td>
+<td style="text-align:center;">
+-84.71 ± 20.58
+</td>
+<td style="text-align:center;">
+-21.46 ± 18.79
+</td>
+<td style="text-align:center;">
+72.64 ± 175.59
+</td>
+<td style="text-align:center;">
+-22.11 ± 17.13
+</td>
+<td style="text-align:center;">
+-46.07 ± 16.58
+</td>
+<td style="text-align:center;">
+40.05 ± 46.35
+</td>
+<td style="text-align:center;">
+-40.18 ± 21.44
+</td>
+<td style="text-align:center;">
+-49.95 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆三酸甘油脂(%)
+</td>
+<td style="text-align:center;">
+-8.02 ± 5.15
+</td>
+<td style="text-align:center;">
+-2.28 ± 2.54
+</td>
+<td style="text-align:center;">
+7.7 ± 2.53
+</td>
+<td style="text-align:center;">
+15.85 ± 4.96
+</td>
+<td style="text-align:center;">
+-17.49 ± 22.98
+</td>
+<td style="text-align:center;">
+14.03 ± 22.84
+</td>
+<td style="text-align:center;">
+3.19 ± 5.82
+</td>
+<td style="text-align:center;">
+18.22 ± 6.06
+</td>
+<td style="text-align:center;">
+8.97 ± 6.08
+</td>
+<td style="text-align:center;">
+56.52 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆總膽固醇(%)
+</td>
+<td style="text-align:center;">
+-4.35 ± 2.3
+</td>
+<td style="text-align:center;">
+-4.03 ± 1.1
+</td>
+<td style="text-align:center;">
+-0.49 ± 1.04
+</td>
+<td style="text-align:center;">
+3.79 ± 2.54
+</td>
+<td style="text-align:center;">
+-6.12 ± 6.09
+</td>
+<td style="text-align:center;">
+-0.25 ± 9.08
+</td>
+<td style="text-align:center;">
+1.01 ± 2.8
+</td>
+<td style="text-align:center;">
+-0.31 ± 3.71
+</td>
+<td style="text-align:center;">
+2.17 ± 3.67
+</td>
+<td style="text-align:center;">
+4.7 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆高密度脂蛋白(%)
+</td>
+<td style="text-align:center;">
+9.44 ± 1.76
+</td>
+<td style="text-align:center;">
+8.62 ± 0.92
+</td>
+<td style="text-align:center;">
+8.58 ± 0.98
+</td>
+<td style="text-align:center;">
+11.29 ± 2.31
+</td>
+<td style="text-align:center;">
+14.33 ± 3.85
+</td>
+<td style="text-align:center;">
+0.62 ± 8.91
+</td>
+<td style="text-align:center;">
+10.81 ± 1.86
+</td>
+<td style="text-align:center;">
+1.86 ± 4.8
+</td>
+<td style="text-align:center;">
+10.65 ± 2.61
+</td>
+<td style="text-align:center;">
+8.78 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆低密度脂蛋白(%)
+</td>
+<td style="text-align:center;">
+-13.78 ± 3.24
+</td>
+<td style="text-align:center;">
+-9.24 ± 1.59
+</td>
+<td style="text-align:center;">
+-5.19 ± 1.64
+</td>
+<td style="text-align:center;">
+0.11 ± 3.68
+</td>
+<td style="text-align:center;">
+-14.06 ± 9.31
+</td>
+<td style="text-align:center;">
+-4.35 ± 11.82
+</td>
+<td style="text-align:center;">
+-1.11 ± 3.81
+</td>
+<td style="text-align:center;">
+-1.01 ± 5.56
+</td>
+<td style="text-align:center;">
+-1.13 ± 5.39
+</td>
+<td style="text-align:center;">
+-2.27 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆尿酸(%)
+</td>
+<td style="text-align:center;">
+-16.31 ± 2.14
+</td>
+<td style="text-align:center;">
+-10.06 ± 1.32
+</td>
+<td style="text-align:center;">
+-9.92 ± 1.49
+</td>
+<td style="text-align:center;">
+-9.79 ± 3.98
+</td>
+<td style="text-align:center;">
+2.67 ± 5.86
+</td>
+<td style="text-align:center;">
+-24.8 ± 4.94
+</td>
+<td style="text-align:center;">
+-10.88 ± 3.01
+</td>
+<td style="text-align:center;">
+-12.92 ± 4.05
+</td>
+<td style="text-align:center;">
+-7.83 ± 3.96
+</td>
+<td style="text-align:center;">
+-1.92 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆澱粉脢(%)
+</td>
+<td style="text-align:center;">
+6.6 ± 2.21
+</td>
+<td style="text-align:center;">
+5.24 ± 1.22
+</td>
+<td style="text-align:center;">
+5.2 ± 1.48
+</td>
+<td style="text-align:center;">
+0.92 ± 2.63
+</td>
+<td style="text-align:center;">
+3.43 ± 5.67
+</td>
+<td style="text-align:center;">
+13.82 ± 7.52
+</td>
+<td style="text-align:center;">
+3.36 ± 3.35
+</td>
+<td style="text-align:center;">
+2.29 ± 2.77
+</td>
+<td style="text-align:center;">
+6.21 ± 3.89
+</td>
+<td style="text-align:center;">
+-9.09 ± NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆解脂脢(%)
+</td>
+<td style="text-align:center;">
+66.25 ± 7.71
+</td>
+<td style="text-align:center;">
+64.12 ± 4.78
+</td>
+<td style="text-align:center;">
+61.17 ± 5.61
+</td>
+<td style="text-align:center;">
+47.27 ± 9.86
+</td>
+<td style="text-align:center;">
+40.25 ± 13.49
+</td>
+<td style="text-align:center;">
+113.82 ± 40.31
+</td>
+<td style="text-align:center;">
+59.43 ± 10.91
+</td>
+<td style="text-align:center;">
+44.33 ± 13.35
+</td>
+<td style="text-align:center;">
+66.41 ± 17.9
+</td>
+<td style="text-align:center;">
+-41.07 ± NA
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Significance:</span> <sup></sup> <br>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+<!-- </div> -->
+<!-- table string rm (string_rm.js) -->
+<script>
+  let tables = document.getElementsByTagName("table");
+for (let i = 0; i < tables.length; i++) {
+    let table = tables[i];
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input rscript\)/g, "");
+}
+</script>
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ogtt胰島素反應分型.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

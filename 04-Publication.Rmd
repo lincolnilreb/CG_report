@@ -1,0 +1,67 @@
+# Publication(1)
+
+## Genesis Insulin Response Pattern {#p1-1}
+
+### Figure 1. Genesis Pattern Categorization {#p1-1fig1}
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class_major.png){width="60%"}
+
+### Figure 2. Genesis Pattern Distribution. {#p1-1fig2}
+
+```{r}
+pub1_plot_M[[2]] 
+pub1_plot_M[[1]]
+```
+
+## Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis {#p1-2}
+
+### Table 1. Genesis Pattern Distribution Characteristics. {#p1-2tab1}
+
+```{r}
+Pub1_stat_table_1st_tbl1
+
+
+```
+
+### Figure 3. Body Composition & Biochem. Profile. {#p1-2fig3}
+
+```{r, results='asis', fig.width= 10, fig.height=24}
+cowplot::plot_grid(plotlist = myplots_pub1[c(12,1:3, 4:7, 8:11)], ncol = 2)
+
+
+```
+
+### Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis {#p1-2fig45}
+
+```{r}
+#x-axis: DM(BMI), y-axis: stack gp(IR, Pattern)
+#compared with HOMA-IR 37.6, Genesis Pattern 16.8 (20.8 better to find out early IR.)
+table_DM_girc_all
+
+```
+
+## Weight loss Efficacy(OB) {#p1-3}
+
+### Figure 6. body composition/ biochem. {#p1-3fig6}
+
+```{r}
+#Efficacy: Filter high obedience (∆weight, ∆bf, ∆pbf, ∆vfa, ∆weight%, ∆bf; ∆hba1c, ∆glucose, ∆insulin, tAUC-i, Total Calorie (carb. protein. fat.)/meal & day)
+
+```
+
+### Table 2. Pattern Response Improvement. {#p1-3tab2}
+
+```{r}
+#Efficacy: Filter high obedience ("Pattern Improvement")? 1st single treatment record
+#x-axis: baseline, y-axis: stack endpoint
+
+```
+
+### Figure 7. CIM weight loss strategy {#p1-3fig7}
+
+```{r}
+#(diet obedience score divided into 10 group).
+
+```
+
+Method: 211 portion plate (ad libitum)

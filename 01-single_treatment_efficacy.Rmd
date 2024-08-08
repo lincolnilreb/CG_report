@@ -1,0 +1,183 @@
+# 減重成效 - (單次療程)
+
+本節主要分析與探討「首次減重方案：在初始狀態(baseline)和飲食紀律(diet discipline)下的成效」。
+
+在各小節中，將逐一說明如何針對「減重方案」數據源進行資料清洗，並運用清洗後數據，篩選出最終導入分析之「資料集」(dataset)，進行「減重成效」的資料探勘、分析與解讀，並描繪出初日診所(Genesis)減重策略下的成效輪廓。
+
+同時，此次分析將聚焦「初始狀態」、「飲食紀律」對於減重成效的影響，作為未來幫助客戶達到最佳成效的依據與利器。
+
+## 資料集(Datasets) {#vens_grap_ob}
+
+```{r}
+plot_venn_0
+cat("\n<br>")
+cat(" 減重門診客戶:", stat_table[stat_table[["client_type"]] == 2, "id"] %>% unique() %>% length(), "位 \n<br>",
+    "控糖門診客戶:", stat_table[stat_table[["client_type"]] == 1, "id"] %>% unique() %>% length(), "位 \n<br>")
+```
+
+**納入標準:**
+
+1.  首次方案：減重療程
+2.  包含「體組成」(Inbody)、「血檢報告」及「飲食紀錄」等數據資料
+3.  前、後測時間點誤差均在合理範圍(體組成±7days, 血檢±15days)
+4.  有完整初始狀態OGTT血檢報告
+5.  各項變數均無遺漏值(missing value)
+
+```{r}
+plot_venn_2
+cat("\n<br>")
+cat(" 總共:", stat_table[stat_table[["client_type"]] == 2, "id"] %>% unique() %>% length() ,"筆 \n<br>",
+    "排除:", (stat_table[stat_table[["client_type"]] == 2, "id"] %>% unique() %>% length()) - (Reduce(intersect, list(stat_table[stat_table[["client_type"]] == 2, "id"],
+                       stat_table[((!is.na(stat_table[["weight_baseline"]])) & (!is.na(stat_table[["weight_endpoint"]]))), "id"],
+                       stat_table[((!is.na(stat_table[["glucose_ac_baseline"]])) & (!is.na(stat_table[["glucose_ac_endpoint"]]))), "id"],
+                       stat_table[!is.na(stat_table[["note_count"]]), "id"])) %>% length()) , "筆 \n<br>",
+    "納入分析:", Reduce(intersect, list(stat_table[stat_table[["client_type"]] == 2, "id"],
+                       stat_table[((!is.na(stat_table[["weight_baseline"]])) & (!is.na(stat_table[["weight_endpoint"]]))), "id"],
+                       stat_table[((!is.na(stat_table[["glucose_ac_baseline"]])) & (!is.na(stat_table[["glucose_ac_endpoint"]]))), "id"],
+                       stat_table[!is.na(stat_table[["note_count"]]), "id"])) %>% length(), "筆 \n<br>")
+```
+
+## 客戶輪廓分析 {#porfile_ob}
+
+**Subjects Distribution:** 年齡(Age) & 性別(Gender)分佈
+
+```{r, results='asis'}
+gvisMerge(pie_01, pie_02, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+```
+
+**Subjects Distribution:** 身體質量指數(BMI)分佈
+
+```{r, results='asis'}
+gvisMerge(pie_03, pie_04, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+
+```
+
+```{r, results='asis'}
+gvisMerge(pie_03_2, pie_04_2, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+
+```
+
+**Subjects Distribution:** 肥胖相關慢性共病
+
+```{r, results='asis'}
+pie_05_MetX %>% plot()
+
+gvisMerge(gvisMerge(pie_05_DM, pie_05_Ins, horizontal = TRUE),
+          gvisMerge(pie_05_HTN, pie_05_HLP,horizontal = TRUE),
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+
+```
+
+
+
+
+## 整體成效分析 {#global_result_ob}
+
+**減重成效(各區間百分比%):**
+
+減重部分：
+
+在女性客戶中，高達98%在療程中實現減重目的(目標設定不同)。其中將近35％表現優異(降幅\>8%)，47%表現良好(降幅4\~8%)。
+
+在男性客戶中，100%在療程中實現減重目的(目標設定不同)。其中將近1％表現超乎預期(降幅\>15%)、40％表現優異(降幅\>8%)，45%表現良好(降幅4\~8%)。
+
+減脂部分：
+
+在女性客戶中，高達97%在療程中實現減脂目的(目標設定不同)。其中將近27％表現超乎預期(降幅\>15%)，46%表現優異(降幅\>8%)，16%表現良好(降幅4\~8%)。
+
+在男性客戶中，高達97%在療程中實現減脂目的(目標設定不同)。其中將近52％表現超乎預期(降幅\>15%)，29%表現優異(降幅\>8%)，11%表現良好(降幅4\~8%)。
+
+```{r, results='asis'}
+gvisMerge(plot_stack_col_female,plot_stack_col_male, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+```
+
+-   Weight: 體重降幅(%)
+-   Fat: 脂肪降幅(%)
+-   Muscle: 肌肉降幅(%)
+
+**體組成及血生化值成效(%):**
+
+```{r, results='asis', fig.width = 7, fig.height= 7.5}
+line_plot
+```
+
+## 相關分析(Correlation Analysis) {#cor_ob}
+### 特定變數 {#cor_ob_var_specific .unnumbered}
+
+**飲食紀錄(diet) x 成效**
+
+減重表現與「飲食紀律」呈現顯著正相關。(飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等)。
+
+-   **「飲食紀錄完成度」與飲食紀律有關**：
+
+    -   「飲食紀錄完成度」與「綠燈率」、「平均攝取熱量」、「蛋白質、脂肪攝取率」、「蔬菜、蛋豆魚肉、油脂攝取量」呈現正相關。
+
+    -   與「黃、紅燈率」、「碳水化合物攝取率」呈負相關。
+
+    -   六大類食物攝取量：
+
+        -   「蔬菜」、「蛋豆魚肉」、「油脂」與減重成效呈現正相關；且這三類食物彼此呈現正相關。
+
+        -   「水果」、「五穀雜糧」與減重成效成負相關。
+
+```{r, results='asis', fig.width = 13, fig.height= 14, warning=FALSE}
+corrplot::corrplot(M1, p.mat = M_test1$p,
+         type = "lower",
+         insig = "label_sig",
+         sig.level = c(.001, .01, .05), pch.cex = .8, pch.col = "black",
+         tl.col = "black", tl.srt = 35, tl.cex = 1.0,
+         cl.ratio = 0.1,
+         col = M_col(200),
+         title = "[Correlation] Efficacy x Diet", 
+         #c(bottom, left, top, right)
+         mar = c(0,0,1,0))
+         
+
+```
+
+```{r, results='asis', warning=FALSE}
+knitr::kable(
+  cor_table_01 %>% plot(), caption = 'Correlation: Diet and Effectiveness',
+  booktabs = TRUE
+)
+
+```
+
+**初始狀態(baseline) x 成效**
+
+減重表現與初始狀態沒有顯著相關；「減脂」表現但BMI、體脂率、腰圍、空腹胰島素、HOMA-IR等初始狀態呈現負相關(i.e., 越胖的人減脂%較低)，可能是因為體脂初始值較高，而導致降幅%變小所致。
+
+此外，根據1.2.2 整體成效分析，體脂肪降幅相較體重降幅明顯，顯示不論初始狀態如何，每一個人在單次療程中減少去的體脂重「可能」差不多(待進一步分析)。
+
+```{r, results='asis', fig.width = 9, fig.height= 9.5, warning=FALSE}
+corrplot::corrplot(M2, 
+         p.mat = M_test2$p,
+         type = "lower",
+         insig = "label_sig",
+         sig.level = c(.001, .01, .05), pch.cex = .8, pch.col = "black",
+         tl.col = "black", tl.srt = 35, tl.cex = 1.0,
+         cl.ratio = 0.1,
+         col = M_col(200),
+         title = "[Correlation] Efficacy x Baseline",
+         #c(bottom, left, top, right)
+         mar = c(0,0,1,0)) 
+```
+
+```{r, results='asis', warning=FALSE}
+knitr::kable(
+  cor_table_02 %>% plot(), caption = 'Correlation: Diet and Baseline',
+  booktabs = TRUE
+)
+```
+
+### 全變數 {#cor_ob_var_all .unnumbered}
+**Global Correlation Table**
+
+```{r, results='asis', warning=FALSE}
+cor_table_all_01
+```
+

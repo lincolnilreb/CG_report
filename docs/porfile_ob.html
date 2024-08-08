@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 客戶輪廓分析 | Cofit x Genesis 醫療大數據 (分析報告)</title>
+  <meta name="description" content="1.2 客戶輪廓分析 | Cofit x Genesis 醫療大數據 (分析報告)" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 客戶輪廓分析 | Cofit x Genesis 醫療大數據 (分析報告)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 客戶輪廓分析 | Cofit x Genesis 醫療大數據 (分析報告)" />
+  
+  
+  
+
+<meta name="author" content="By Po-Lin Lin, BigData Team" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vens_grap_ob.html"/>
+<link rel="next" href="global_result_ob.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DSC50GVDJ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DSC50GVDJ7');
+</script>
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Highlight</a></li>
+<li class="chapter" data-level="1" data-path="減重成效---單次療程.html"><a href="減重成效---單次療程.html"><i class="fa fa-check"></i><b>1</b> 減重成效 - (單次療程)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="vens_grap_ob.html"><a href="vens_grap_ob.html"><i class="fa fa-check"></i><b>1.1</b> 資料集(Datasets)</a></li>
+<li class="chapter" data-level="1.2" data-path="porfile_ob.html"><a href="porfile_ob.html"><i class="fa fa-check"></i><b>1.2</b> 客戶輪廓分析</a></li>
+<li class="chapter" data-level="1.3" data-path="global_result_ob.html"><a href="global_result_ob.html"><i class="fa fa-check"></i><b>1.3</b> 整體成效分析</a></li>
+<li class="chapter" data-level="1.4" data-path="cor_ob.html"><a href="cor_ob.html"><i class="fa fa-check"></i><b>1.4</b> 相關分析(Correlation Analysis)</a>
+<ul>
+<li class="chapter" data-level="" data-path="cor_ob.html"><a href="cor_ob.html#cor_ob_var_specific"><i class="fa fa-check"></i>特定變數</a></li>
+<li class="chapter" data-level="" data-path="cor_ob.html"><a href="cor_ob.html#cor_ob_var_all"><i class="fa fa-check"></i>全變數</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="strat_1_ob.html"><a href="strat_1_ob.html"><i class="fa fa-check"></i><b>1.5</b> 分層分析-1: 減重成效</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#baseline_ob_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#endpoint_ob_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#diet_ob"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob"><i class="fa fa-check"></i>∆成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_ob_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob"><i class="fa fa-check"></i>∆成效(%)(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#delta_p_ob_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob.html"><a href="strat_1_ob.html#Summary_ob"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html"><i class="fa fa-check"></i><b>1.6</b> 續(篩選飲食上傳&gt;80%)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#baseline_ob_filtered_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#endpoint_ob_filtered_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#diet_ob_filtered"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered"><i class="fa fa-check"></i>∆成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_ob_filtered_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered"><i class="fa fa-check"></i>∆成效(%)(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#delta_p_ob_filtered_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_ob_filtered.html"><a href="strat_1_ob_filtered.html#Summary_ob_filtered"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html"><i class="fa fa-check"></i><b>1.7</b> 分層分析-2: 男性:睪固酮(Testosterone)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#cor_test_testosterone"><i class="fa fa-check"></i>相關分析(Correlation Analysis)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#baseline_testosterone"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#blood"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#endpoint_testosterone"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#inbody-1"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#blood-1"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#diet_testosterone"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#effectiveness_testosterone"><i class="fa fa-check"></i>成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#成效-inbody"><i class="fa fa-check"></i>成效(∆)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#成效-blood"><i class="fa fa-check"></i>成效(∆)-Blood</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#成效-inbody-1"><i class="fa fa-check"></i>成效(%)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_1_testosterone.html"><a href="strat_1_testosterone.html#成效-blood-1"><i class="fa fa-check"></i>成效(%)-Blood</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="strat_2_sua.html"><a href="strat_2_sua.html"><i class="fa fa-check"></i><b>1.8</b> 分層分析-3: 尿酸(Serum Uric Acid)</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="strat_2_sua.html"><a href="strat_2_sua.html#cor_sua"><i class="fa fa-check"></i><b>1.8.1</b> 相關分析(Correlation Analysis)</a></li>
+<li class="chapter" data-level="1.8.2" data-path="strat_2_sua.html"><a href="strat_2_sua.html#cutoff_sua_2"><i class="fa fa-check"></i><b>1.8.2</b> Cutoff-1 (♂7.6/♀6.6)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#baseline_sua"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#inbody-2"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#blood-2"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#endpoint_sua"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#inbody-3"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#blood-3"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#diet_sua"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#effectiveness_sua"><i class="fa fa-check"></i>成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-inbody-2"><i class="fa fa-check"></i>成效(∆)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-blood-2"><i class="fa fa-check"></i>成效(∆)-Blood</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-inbody-3"><i class="fa fa-check"></i>成效(%)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-blood-3"><i class="fa fa-check"></i>成效(%)-Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8.3" data-path="strat_2_sua.html"><a href="strat_2_sua.html#cutoff_sua_0"><i class="fa fa-check"></i><b>1.8.3</b> Cutoff-2 (5.5)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#baseline_sua0"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#inbody-4"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#blood-4"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#endpoint_sua0"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#inbody-5"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#blood-5"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#diet_sua0"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#effectiveness_sua0"><i class="fa fa-check"></i>成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-inbody-4"><i class="fa fa-check"></i>成效(∆)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-blood-4"><i class="fa fa-check"></i>成效(∆)-Blood</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-inbody-5"><i class="fa fa-check"></i>成效(%)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_2_sua.html"><a href="strat_2_sua.html#成效-blood-5"><i class="fa fa-check"></i>成效(%)-Blood</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html"><i class="fa fa-check"></i><b>1.9</b> 分層分析-4: Metabolically Healthy Obesity(MHO)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#baseline_MHO_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#endpoint_MHO_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#diet_MHO"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO"><i class="fa fa-check"></i>∆成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_MHO_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO"><i class="fa fa-check"></i>∆成效(%)(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_inbody"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_wepa"><i class="fa fa-check"></i>相位角</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_water"><i class="fa fa-check"></i>體水份</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_inbody_part"><i class="fa fa-check"></i>inbody - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_water_part"><i class="fa fa-check"></i>體水份 - 部位別</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_gi"><i class="fa fa-check"></i>Glucose/Insulin</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_lipid"><i class="fa fa-check"></i>Lipid</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_kidney"><i class="fa fa-check"></i>Kidney</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_hormone"><i class="fa fa-check"></i>Hormone</a></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#delta_p_MHO_hematology"><i class="fa fa-check"></i>Hematology</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strat_4_MHO.html"><a href="strat_4_MHO.html#Summary_MHO"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="ketone_response.html"><a href="ketone_response.html"><i class="fa fa-check"></i><b>1.10</b> 尿酮體 x 空腹胰島素</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="ketone_response.html"><a href="ketone_response.html#chisq分析"><i class="fa fa-check"></i><b>1.10.1</b> Chisq分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#endpoint"><i class="fa fa-check"></i>Endpoint</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#baseline"><i class="fa fa-check"></i>Baseline</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#pooled"><i class="fa fa-check"></i>Pooled</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10.2" data-path="ketone_response.html"><a href="ketone_response.html#敏感度分析"><i class="fa fa-check"></i><b>1.10.2</b> 敏感度分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#endpoint-1"><i class="fa fa-check"></i>Endpoint</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#baseline-1"><i class="fa fa-check"></i>Baseline</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#pooled-1"><i class="fa fa-check"></i>Pooled</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10.3" data-path="ketone_response.html"><a href="ketone_response.html#optimal-cutoff分析"><i class="fa fa-check"></i><b>1.10.3</b> Optimal Cutoff分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#endpoint-2"><i class="fa fa-check"></i>Endpoint</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#baseline-2"><i class="fa fa-check"></i>Baseline</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#pooled-2"><i class="fa fa-check"></i>Pooled</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10.4" data-path="ketone_response.html"><a href="ketone_response.html#strat_4_ketone_response"><i class="fa fa-check"></i><b>1.10.4</b> 分層分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#baseline_kt"><i class="fa fa-check"></i>初始狀態(Baseline)</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#endpoint_kt"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#diet_kt"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="ketone_response.html"><a href="ketone_response.html#effectiveness_kt"><i class="fa fa-check"></i>成效(Effectiveness)</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="glucose-insulin-response-curvegirc.html"><a href="glucose-insulin-response-curvegirc.html"><i class="fa fa-check"></i><b>2</b> Glucose Insulin Response Curve(GIRC)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html"><i class="fa fa-check"></i><b>2.1</b> OGTT胰島素反應分型</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-i"><i class="fa fa-check"></i><b>2.1.1</b> Pattern I</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-ii"><i class="fa fa-check"></i><b>2.1.2</b> Pattern II</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-iii"><i class="fa fa-check"></i><b>2.1.3</b> Pattern III</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-iv"><i class="fa fa-check"></i><b>2.1.4</b> Pattern IV</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ogtt胰島素反應分型.html"><a href="ogtt胰島素反應分型.html#pattern-v"><i class="fa fa-check"></i><b>2.1.5</b> Pattern V</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="girc_analysis_.html"><a href="girc_analysis_.html"><i class="fa fa-check"></i><b>2.2</b> GIRC分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#girc_table_all"><i class="fa fa-check"></i>DM x GIRC分佈(All)</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#girc_table_ob"><i class="fa fa-check"></i>DM x GIRC分佈(Obesity Program)</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#girc分層分析"><i class="fa fa-check"></i>GIRC分層分析</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#baseline_girc"><i class="fa fa-check"></i>初始狀態(Baseline)</a>
+<ul>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#inbody-8"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#blood-8"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#endpoint_girc"><i class="fa fa-check"></i>介入後狀態(Endpoint)</a>
+<ul>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#inbody-9"><i class="fa fa-check"></i>Inbody</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#blood-9"><i class="fa fa-check"></i>Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#diet_girc"><i class="fa fa-check"></i>飲食(Diet)</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#effectiveness_girc"><i class="fa fa-check"></i>成效(Effectiveness)</a>
+<ul>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#成效-inbody-8"><i class="fa fa-check"></i>成效(∆)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#成效-blood-8"><i class="fa fa-check"></i>成效(∆)-Blood</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#成效-inbody-9"><i class="fa fa-check"></i>成效(%)-Inbody</a></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#成效-blood-9"><i class="fa fa-check"></i>成效(%)-Blood</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="girc_analysis_.html"><a href="girc_analysis_.html#girc_improvemnt_path"><i class="fa fa-check"></i>Pattern改善分析</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="prediction研究中.html"><a href="prediction研究中.html"><i class="fa fa-check"></i><b>3</b> Prediction(研究中)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="predict_cutoff_roc.html"><a href="predict_cutoff_roc.html"><i class="fa fa-check"></i><b>3.1</b> 單因子預測力&amp;切點分析</a></li>
+<li class="chapter" data-level="3.2" data-path="predict_cutoff_roc_filtered.html"><a href="predict_cutoff_roc_filtered.html"><i class="fa fa-check"></i><b>3.2</b> 單因子預測力&amp;切點分析(排除飲食紀律不佳)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="publication1.html"><a href="publication1.html"><i class="fa fa-check"></i><b>4</b> Publication(1)</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="p1-1.html"><a href="p1-1.html"><i class="fa fa-check"></i><b>4.1</b> Genesis Insulin Response Pattern</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="p1-1.html"><a href="p1-1.html#p1-1fig1"><i class="fa fa-check"></i><b>4.1.1</b> Figure 1. Genesis Pattern Categorization</a></li>
+<li class="chapter" data-level="4.1.2" data-path="p1-1.html"><a href="p1-1.html#p1-1fig2"><i class="fa fa-check"></i><b>4.1.2</b> Figure 2. Genesis Pattern Distribution.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="p1-2.html"><a href="p1-2.html"><i class="fa fa-check"></i><b>4.2</b> Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="p1-2.html"><a href="p1-2.html#p1-2tab1"><i class="fa fa-check"></i><b>4.2.1</b> Table 1. Genesis Pattern Distribution Characteristics.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="p1-2.html"><a href="p1-2.html#p1-2fig3"><i class="fa fa-check"></i><b>4.2.2</b> Figure 3. Body Composition &amp; Biochem. Profile.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="p1-2.html"><a href="p1-2.html#p1-2fig45"><i class="fa fa-check"></i><b>4.2.3</b> Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="p1-3.html"><a href="p1-3.html"><i class="fa fa-check"></i><b>4.3</b> Weight loss Efficacy(OB)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="p1-3.html"><a href="p1-3.html#p1-3fig6"><i class="fa fa-check"></i><b>4.3.1</b> Figure 6. body composition/ biochem.</a></li>
+<li class="chapter" data-level="4.3.2" data-path="p1-3.html"><a href="p1-3.html#p1-3tab2"><i class="fa fa-check"></i><b>4.3.2</b> Table 2. Pattern Response Improvement.</a></li>
+<li class="chapter" data-level="4.3.3" data-path="p1-3.html"><a href="p1-3.html#p1-3fig7"><i class="fa fa-check"></i><b>4.3.3</b> Figure 7. CIM weight loss strategy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="亞健康改善成效246mo.html"><a href="亞健康改善成效246mo.html"><i class="fa fa-check"></i><b>5</b> 亞健康改善成效(2,4,6mo)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="imp_def.html"><a href="imp_def.html"><i class="fa fa-check"></i><b>5.1</b> 定義 Definition</a></li>
+<li class="chapter" data-level="5.2" data-path="imp_ob.html"><a href="imp_ob.html"><i class="fa fa-check"></i><b>5.2</b> Program: Weight Loss</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="imp_ob.html"><a href="imp_ob.html#obesity"><i class="fa fa-check"></i><b>5.2.1</b> Obesity</a></li>
+<li class="chapter" data-level="5.2.2" data-path="imp_ob.html"><a href="imp_ob.html#metabolic-syndrome"><i class="fa fa-check"></i><b>5.2.2</b> Metabolic Syndrome</a></li>
+<li class="chapter" data-level="5.2.3" data-path="imp_ob.html"><a href="imp_ob.html#pre-diabetes"><i class="fa fa-check"></i><b>5.2.3</b> Pre-Diabetes</a></li>
+<li class="chapter" data-level="5.2.4" data-path="imp_ob.html"><a href="imp_ob.html#insulin-response-pattern"><i class="fa fa-check"></i><b>5.2.4</b> Insulin Response Pattern</a></li>
+<li class="chapter" data-level="5.2.5" data-path="imp_ob.html"><a href="imp_ob.html#hypertension"><i class="fa fa-check"></i><b>5.2.5</b> Hypertension</a></li>
+<li class="chapter" data-level="5.2.6" data-path="imp_ob.html"><a href="imp_ob.html#hyperlipidemia"><i class="fa fa-check"></i><b>5.2.6</b> Hyperlipidemia</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="imp_dm.html"><a href="imp_dm.html"><i class="fa fa-check"></i><b>5.3</b> Program: Diabetes Control</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="imp_dm.html"><a href="imp_dm.html#obesity-1"><i class="fa fa-check"></i><b>5.3.1</b> Obesity</a></li>
+<li class="chapter" data-level="5.3.2" data-path="imp_dm.html"><a href="imp_dm.html#metabolic-syndrome-1"><i class="fa fa-check"></i><b>5.3.2</b> Metabolic Syndrome</a></li>
+<li class="chapter" data-level="5.3.3" data-path="imp_dm.html"><a href="imp_dm.html#pre-diabetes-1"><i class="fa fa-check"></i><b>5.3.3</b> Pre-Diabetes</a></li>
+<li class="chapter" data-level="5.3.4" data-path="imp_dm.html"><a href="imp_dm.html#insulin-response-pattern-1"><i class="fa fa-check"></i><b>5.3.4</b> Insulin Response Pattern</a></li>
+<li class="chapter" data-level="5.3.5" data-path="imp_dm.html"><a href="imp_dm.html#hypertension-1"><i class="fa fa-check"></i><b>5.3.5</b> Hypertension</a></li>
+<li class="chapter" data-level="5.3.6" data-path="imp_dm.html"><a href="imp_dm.html#hyperlipidemia-1"><i class="fa fa-check"></i><b>5.3.6</b> Hyperlipidemia</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cofit x Genesis 醫療大數據 (分析報告)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="porfile_ob" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> 客戶輪廓分析<a href="porfile_ob.html#porfile_ob" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Subjects Distribution:</strong> 年齡(Age) &amp; 性別(Gender)分佈</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Apr 19 15:24:50 2024 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID89e44c1f395 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"<25",
+146
+],
+[
+"25-29",
+222
+],
+[
+"30-34",
+425
+],
+[
+"35-39",
+432
+],
+[
+"40-44",
+367
+],
+[
+"45-49",
+259
+],
+[
+"50-54",
+185
+],
+[
+"55-59",
+95
+],
+[
+"60-64",
+36
+],
+[
+"65-69",
+27
+],
+[
+">70",
+11
+] 
+];
+data.addColumn('string','age_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e195ede77 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"female",
+1755
+],
+[
+"male",
+450
+] 
+];
+data.addColumn('string','gender');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID89e44c1f395() {
+var data = gvisDataPieChartID89e44c1f395();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Age";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e44c1f395')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e195ede77() {
+var data = gvisDataPieChartID89e195ede77();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Gender";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["colors"] = ['#DC3912', '#3366CC'];
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e195ede77')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e44c1f395);
+})();
+function displayChartPieChartID89e44c1f395() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e195ede77);
+})();
+function displayChartPieChartID89e195ede77() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e44c1f395"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e195ede77"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e44c1f395" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e195ede77" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<p><strong>Subjects Distribution:</strong> 身體質量指數(BMI)分佈</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Apr 19 15:24:50 2024 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID89e235f63a4 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"normal",
+8
+],
+[
+"overweight",
+64
+],
+[
+"obesity",
+378
+] 
+];
+data.addColumn('string','bmi_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e4b86b620 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"underweight",
+2
+],
+[
+"normal",
+334
+],
+[
+"overweight",
+498
+],
+[
+"obesity",
+921
+] 
+];
+data.addColumn('string','bmi_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID89e235f63a4() {
+var data = gvisDataPieChartID89e235f63a4();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Male";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e235f63a4')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e4b86b620() {
+var data = gvisDataPieChartID89e4b86b620();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Female";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e4b86b620')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e235f63a4);
+})();
+function displayChartPieChartID89e235f63a4() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e4b86b620);
+})();
+function displayChartPieChartID89e4b86b620() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e235f63a4"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e4b86b620"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e235f63a4" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e4b86b620" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Apr 19 15:24:50 2024 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID89e791f159c () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"normal",
+8
+],
+[
+"overweight",
+64
+],
+[
+"Mild obesity",
+115
+],
+[
+"Moderate obesity",
+178
+],
+[
+"Morbid obesity",
+85
+] 
+];
+data.addColumn('string','bmi_gp_2');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e67c3f2e3 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"normal",
+328
+],
+[
+"overweight",
+497
+],
+[
+"Mild obesity",
+384
+],
+[
+"Moderate obesity",
+381
+],
+[
+"Morbid obesity",
+163
+] 
+];
+data.addColumn('string','bmi_gp_2');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID89e791f159c() {
+var data = gvisDataPieChartID89e791f159c();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Male";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e791f159c')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e67c3f2e3() {
+var data = gvisDataPieChartID89e67c3f2e3();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Female";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e67c3f2e3')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e791f159c);
+})();
+function displayChartPieChartID89e791f159c() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e67c3f2e3);
+})();
+function displayChartPieChartID89e67c3f2e3() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e791f159c"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e67c3f2e3"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e791f159c" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e67c3f2e3" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<p><strong>Subjects Distribution:</strong> 肥胖相關慢性共病</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Apr 19 15:24:51 2024 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID89ed9f0c3f () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+955
+],
+[
+"Metabolic Syndrome",
+358
+] 
+];
+data.addColumn('string','MetaX_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID89ed9f0c3f() {
+var data = gvisDataPieChartID89ed9f0c3f();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Metabolic Syndrome";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89ed9f0c3f')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89ed9f0c3f);
+})();
+function displayChartPieChartID89ed9f0c3f() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89ed9f0c3f"></script>
+<!-- divChart -->
+<div id="PieChartID89ed9f0c3f" style="width: 600; height: 400;">
+
+</div>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Apr 19 15:24:50 2024 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID89e717f4a4d () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+1196
+],
+[
+"Pre-DM",
+812
+],
+[
+"DM",
+151
+] 
+];
+data.addColumn('string','DM_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e44dd0315 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Pattern I",
+190
+],
+[
+"Pattern II",
+909
+],
+[
+"Pattern III",
+803
+],
+[
+"Pattern IV",
+203
+],
+[
+"Pattern V",
+35
+] 
+];
+data.addColumn('string','Pattern_major_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e5be73f71 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+570
+],
+[
+"Elevated",
+354
+],
+[
+"HTN(Grade 1)",
+201
+],
+[
+"HTN(Grade 2)",
+193
+] 
+];
+data.addColumn('string','HTN_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID89e2af642da () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+1707
+],
+[
+"HLP",
+493
+] 
+];
+data.addColumn('string','HLP_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID89e717f4a4d() {
+var data = gvisDataPieChartID89e717f4a4d();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Diabetes";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e717f4a4d')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e44dd0315() {
+var data = gvisDataPieChartID89e44dd0315();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Insulin Response Pattern";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["colors"] = ['#628bd6','#f8e05c','#ffc081','#ff834a','#ff5959'];
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e44dd0315')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e5be73f71() {
+var data = gvisDataPieChartID89e5be73f71();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Hypertension";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e5be73f71')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID89e2af642da() {
+var data = gvisDataPieChartID89e2af642da();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Hyperlipidemia";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID89e2af642da')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e717f4a4d);
+})();
+function displayChartPieChartID89e717f4a4d() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e44dd0315);
+})();
+function displayChartPieChartID89e44dd0315() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e5be73f71);
+})();
+function displayChartPieChartID89e5be73f71() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID89e2af642da);
+})();
+function displayChartPieChartID89e2af642da() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e717f4a4d"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e44dd0315"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e5be73f71"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID89e2af642da"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e717f4a4d" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e44dd0315" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e5be73f71" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID89e2af642da" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- table string rm (string_rm.js) -->
+<script>
+  let tables = document.getElementsByTagName("table");
+for (let i = 0; i < tables.length; i++) {
+    let table = tables[i];
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input rscript\)/g, "");
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input plot rscript_global\)/g, "");
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input plot rscript_test\)/g, "");
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input plot rscript_sua\)/g, "");
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input plot rscript_girc\)/g, "");
+    table.innerHTML = table.innerHTML.replace(/\(#tab:input plot rscript_flc\)/g, "");
+}
+</script>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vens_grap_ob.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="global_result_ob.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

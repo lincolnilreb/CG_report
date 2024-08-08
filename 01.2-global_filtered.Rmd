@@ -1,0 +1,359 @@
+## 續(篩選飲食上傳>80%) {#strat_1_ob_filtered}
+
+**依據減重成效進行分層分析，分成三個組別：**
+
+-   **成效「優異」: (減重\>10%)**
+-   **「良好」: (減重介於 5 \~ 10%)**
+-   **「低於預期」: (減重\< 3%)**
+
+```{r  paged.print=TRUE}
+table_01_exclude_record_factor
+```
+
+### 初始狀態(Baseline) {#baseline_ob_filtered .unnumbered}
+
+
+
+#### Inbody {#baseline_ob_filtered_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(1,100)))
+```
+
+#### 相位角 {#baseline_ob_filtered_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global_filter[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#baseline_ob_filtered_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global_filter[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#baseline_ob_filtered_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global_filter[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#baseline_ob_filtered_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global_filter[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#baseline_ob_filtered_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global_filter[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#baseline_ob_filtered_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global_filter[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#baseline_ob_filtered_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global_filter[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#baseline_ob_filtered_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global_filter[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#baseline_ob_filtered_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t0_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t0_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global_filter[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_ob_filtered .unnumbered}
+
+#### Inbody {#endpoint_ob_filtered_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(1,100)))
+```
+
+#### 相位角 {#endpoint_ob_filtered_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global_filter[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#endpoint_ob_filtered_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global_filter[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#endpoint_ob_filtered_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global_filter[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#endpoint_ob_filtered_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global_filter[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#endpoint_ob_filtered_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global_filter[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#endpoint_ob_filtered_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global_filter[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#endpoint_ob_filtered_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global_filter[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#endpoint_ob_filtered_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global_filter[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#endpoint_ob_filtered_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "t1_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "t1_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global_filter[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 飲食(Diet) {#diet_ob_filtered .unnumbered}
+
+
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "diet") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "diet")],
+          ncol = 2,
+          labels = paste0(LETTERS[5], seq(1,100)))
+```
+
+### ∆成效(Effectiveness) {#delta_ob_filtered .unnumbered}
+
+#### Inbody {#delta_ob_filtered_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(1,100)))
+```
+
+#### 相位角 {#delta_ob_filtered_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global_filter[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_ob_filtered_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global_filter[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_ob_filtered_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global_filter[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_ob_filtered_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global_filter[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_ob_filtered_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global_filter[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_ob_filtered_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global_filter[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_ob_filtered_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global_filter[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_ob_filtered_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global_filter[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_ob_filtered_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global_filter[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### ∆成效(%)(Effectiveness) {#delta_p_ob_filtered .unnumbered}
+
+#### Inbody {#delta_p_ob_filtered_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(1,100)))
+```
+
+#### 相位角 {#delta_p_ob_filtered_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global_filter[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_p_ob_filtered_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global_filter[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_p_ob_filtered_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global_filter[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_p_ob_filtered_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global_filter[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_p_ob_filtered_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global_filter[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_p_ob_filtered_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global_filter[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_p_ob_filtered_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global_filter[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_p_ob_filtered_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global_filter[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_p_ob_filtered_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global_filter[["block"]] == "delta_p_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_exclude_record_factor[which(myplot_table_global_filter[["block"]] == "delta_p_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global_filter[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### Summary {#Summary_ob_filtered .unnumbered}
+
+
+
+```{r, results='asis',  paged.print=TRUE}
+table_02_exclude_record_factor
+```

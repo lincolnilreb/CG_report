@@ -1,0 +1,12 @@
+# Prediction(研究中)
+
+## 單因子預測力&切點分析 {#predict_cutoff_roc}
+```{r}
+table_global_cutoff
+```
+
+## 單因子預測力&切點分析(排除飲食紀律不佳) {#predict_cutoff_roc_filtered}
+```{r}
+table_global_cutoff_exclude_record_factor
+```
+

@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1.2 客戶輪廓分析 | Cofit x Genensis 醫療大數據 (分析報告)" />
+<meta property="og:type" content="book" />
+
+
+
+
+<meta name="author" content="By BigData Team" />
+
+
+
+<meta name="description" content="1.2 客戶輪廓分析 | Cofit x Genensis 醫療大數據 (分析報告)">
+
+<title>1.2 客戶輪廓分析 | Cofit x Genensis 醫療大數據 (分析報告)</title>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#index" id="toc-index">Highlight</a></li>
+<li class="has-sub"><a href="1-減重成效---單次療程.html#減重成效---單次療程" id="toc-減重成效---單次療程"><span class="toc-section-number">1</span> 減重成效 - (單次療程)</a>
+<ul>
+<li><a href="1.1-vens_grap_ob.html#vens_grap_ob" id="toc-vens_grap_ob"><span class="toc-section-number">1.1</span> 資料集(Datasets)</a></li>
+<li><a href="1.2-porfile_ob.html#porfile_ob" id="toc-porfile_ob"><span class="toc-section-number">1.2</span> 客戶輪廓分析</a></li>
+<li><a href="1.3-global_result_ob.html#global_result_ob" id="toc-global_result_ob"><span class="toc-section-number">1.3</span> 整體成效分析</a></li>
+<li class="has-sub"><a href="1.4-cor_ob.html#cor_ob" id="toc-cor_ob"><span class="toc-section-number">1.4</span> 相關分析(Correlation Analysis)</a>
+<ul>
+<li><a href="1.4-cor_ob.html#cor_ob_var_specific" id="toc-cor_ob_var_specific">特定變數</a></li>
+<li><a href="1.4-cor_ob.html#cor_ob_var_all" id="toc-cor_ob_var_all">全變數</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.5-strat_1_ob.html#strat_1_ob" id="toc-strat_1_ob"><span class="toc-section-number">1.5</span> 分層分析-1: 減重成效</a>
+<ul>
+<li><a href="1.5-strat_1_ob.html#baseline_ob" id="toc-baseline_ob">初始狀態(Baseline)</a></li>
+<li><a href="1.5-strat_1_ob.html#endpoint_ob" id="toc-endpoint_ob">介入後狀態(Endpoint)</a></li>
+<li><a href="1.5-strat_1_ob.html#diet_ob" id="toc-diet_ob">飲食(Diet)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_ob" id="toc-delta_ob">∆成效(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_p_ob" id="toc-delta_p_ob">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#Summary_ob" id="toc-Summary_ob">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.6-strat_1_ob_filtered.html#strat_1_ob_filtered" id="toc-strat_1_ob_filtered"><span class="toc-section-number">1.6</span> 續(篩選飲食上傳&gt;80%)</a>
+<ul>
+<li><a href="1.6-strat_1_ob_filtered.html#baseline_ob_filtered" id="toc-baseline_ob_filtered">初始狀態(Baseline)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#endpoint_ob_filtered" id="toc-endpoint_ob_filtered">介入後狀態(Endpoint)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#diet_ob_filtered" id="toc-diet_ob_filtered">飲食(Diet)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_ob_filtered" id="toc-delta_ob_filtered">∆成效(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_p_ob_filtered" id="toc-delta_p_ob_filtered">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#Summary_ob_filtered" id="toc-Summary_ob_filtered">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.7-strat_1_testosterone.html#strat_1_testosterone" id="toc-strat_1_testosterone"><span class="toc-section-number">1.7</span> 分層分析-2: 男性:睪固酮(Testosterone)</a>
+<ul>
+<li><a href="1.7-strat_1_testosterone.html#cor_test_testosterone" id="toc-cor_test_testosterone">相關分析(Correlation Analysis)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#baseline_testosterone" id="toc-baseline_testosterone">初始狀態(Baseline)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#endpoint_testosterone" id="toc-endpoint_testosterone">介入後狀態(Endpoint)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#diet_testosterone" id="toc-diet_testosterone">飲食(Diet)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#effectiveness_testosterone" id="toc-effectiveness_testosterone">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.8-strat_2_sua.html#strat_2_sua" id="toc-strat_2_sua"><span class="toc-section-number">1.8</span> 分層分析-3: 尿酸(Serum Uric Acid)</a>
+<ul>
+<li><a href="1.8-strat_2_sua.html#cor_sua" id="toc-cor_sua"><span class="toc-section-number">1.8.1</span> 相關分析(Correlation Analysis)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_2" id="toc-cutoff_sua_2"><span class="toc-section-number">1.8.2</span> Cutoff-1 (♂7.6/♀6.6)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua" id="toc-baseline_sua">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua" id="toc-endpoint_sua">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua" id="toc-diet_sua">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua" id="toc-effectiveness_sua">成效(Effectiveness)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_0" id="toc-cutoff_sua_0"><span class="toc-section-number">1.8.3</span> Cutoff-2 (5.5)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua0" id="toc-baseline_sua0">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua0" id="toc-endpoint_sua0">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua0" id="toc-diet_sua0">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua0" id="toc-effectiveness_sua0">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.9-ketone_response.html#ketone_response" id="toc-ketone_response"><span class="toc-section-number">1.9</span> 尿酮體 x 空腹胰島素</a>
+<ul>
+<li><a href="1.9-ketone_response.html#chisq分析" id="toc-chisq分析"><span class="toc-section-number">1.9.1</span> Chisq分析</a></li>
+<li><a href="1.9-ketone_response.html#敏感度分析" id="toc-敏感度分析"><span class="toc-section-number">1.9.2</span> 敏感度分析</a></li>
+<li><a href="1.9-ketone_response.html#optimal-cutoff分析" id="toc-optimal-cutoff分析"><span class="toc-section-number">1.9.3</span> Optimal Cutoff分析</a></li>
+<li><a href="1.9-ketone_response.html#strat_4_ketone_response" id="toc-strat_4_ketone_response"><span class="toc-section-number">1.9.4</span> 分層分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-glucose-insulin-response-curvegirc.html#glucose-insulin-response-curvegirc" id="toc-glucose-insulin-response-curvegirc"><span class="toc-section-number">2</span> Glucose Insulin Response Curve(GIRC)</a>
+<ul>
+<li class="has-sub"><a href="2.1-ogtt胰島素反應分型.html#ogtt胰島素反應分型" id="toc-ogtt胰島素反應分型"><span class="toc-section-number">2.1</span> OGTT胰島素反應分型</a>
+<ul>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-i" id="toc-pattern-i"><span class="toc-section-number">2.1.1</span> Pattern I</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-ii" id="toc-pattern-ii"><span class="toc-section-number">2.1.2</span> Pattern II</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iii" id="toc-pattern-iii"><span class="toc-section-number">2.1.3</span> Pattern III</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iv" id="toc-pattern-iv"><span class="toc-section-number">2.1.4</span> Pattern IV</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-v" id="toc-pattern-v"><span class="toc-section-number">2.1.5</span> Pattern V</a></li>
+</ul></li>
+<li class="has-sub"><a href="2.2-girc_analysis_.html#girc_analysis_" id="toc-girc_analysis_"><span class="toc-section-number">2.2</span> GIRC分析</a>
+<ul>
+<li><a href="2.2-girc_analysis_.html#girc_table_all" id="toc-girc_table_all">DM x GIRC分佈(All)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_table_ob" id="toc-girc_table_ob">DM x GIRC分佈(Obesity Program)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc分層分析" id="toc-girc分層分析">GIRC分層分析</a></li>
+<li><a href="2.2-girc_analysis_.html#baseline_girc" id="toc-baseline_girc">初始狀態(Baseline)</a></li>
+<li><a href="2.2-girc_analysis_.html#endpoint_girc" id="toc-endpoint_girc">介入後狀態(Endpoint)</a></li>
+<li><a href="2.2-girc_analysis_.html#diet_girc" id="toc-diet_girc">飲食(Diet)</a></li>
+<li><a href="2.2-girc_analysis_.html#effectiveness_girc" id="toc-effectiveness_girc">成效(Effectiveness)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_improvemnt_path" id="toc-girc_improvemnt_path">Pattern改善分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-prediction研究中.html#prediction研究中" id="toc-prediction研究中"><span class="toc-section-number">3</span> Prediction(研究中)</a>
+<ul>
+<li><a href="3.1-predict_cutoff_roc.html#predict_cutoff_roc" id="toc-predict_cutoff_roc"><span class="toc-section-number">3.1</span> 單因子預測力&amp;切點分析</a></li>
+<li><a href="3.2-predict_cutoff_roc_filtered.html#predict_cutoff_roc_filtered" id="toc-predict_cutoff_roc_filtered"><span class="toc-section-number">3.2</span> 單因子預測力&amp;切點分析(排除飲食紀律不佳)</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-publication1.html#publication1" id="toc-publication1"><span class="toc-section-number">4</span> Publication(1)</a>
+<ul>
+<li class="has-sub"><a href="4.1-p1-1.html#p1-1" id="toc-p1-1"><span class="toc-section-number">4.1</span> Genesis Insulin Response Pattern</a>
+<ul>
+<li><a href="4.1-p1-1.html#p1-1fig1" id="toc-p1-1fig1"><span class="toc-section-number">4.1.1</span> Figure 1. Genesis Pattern Categorization</a></li>
+<li><a href="4.1-p1-1.html#p1-1fig2" id="toc-p1-1fig2"><span class="toc-section-number">4.1.2</span> Figure 2. Genesis Pattern Distribution.</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.2-p1-2.html#p1-2" id="toc-p1-2"><span class="toc-section-number">4.2</span> Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis</a>
+<ul>
+<li><a href="4.2-p1-2.html#p1-2tab1" id="toc-p1-2tab1"><span class="toc-section-number">4.2.1</span> Table 1. Genesis Pattern Distribution Characteristics.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig3" id="toc-p1-2fig3"><span class="toc-section-number">4.2.2</span> Figure 3. Body Composition &amp; Biochem. Profile.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig45" id="toc-p1-2fig45"><span class="toc-section-number">4.2.3</span> Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.3-p1-3.html#p1-3" id="toc-p1-3"><span class="toc-section-number">4.3</span> Weight loss Efficacy(OB)</a>
+<ul>
+<li><a href="4.3-p1-3.html#p1-3fig6" id="toc-p1-3fig6"><span class="toc-section-number">4.3.1</span> Figure 6. body composition/ biochem.</a></li>
+<li><a href="4.3-p1-3.html#p1-3tab2" id="toc-p1-3tab2"><span class="toc-section-number">4.3.2</span> Table 2. Pattern Response Improvement.</a></li>
+<li><a href="4.3-p1-3.html#p1-3fig7" id="toc-p1-3fig7"><span class="toc-section-number">4.3.3</span> Figure 7. CIM weight loss strategy</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="5-亞健康改善成效246mo.html#亞健康改善成效246mo" id="toc-亞健康改善成效246mo"><span class="toc-section-number">5</span> 亞健康改善成效(2,4,6mo)</a>
+<ul>
+<li><a href="5.1-imp_def.html#imp_def" id="toc-imp_def"><span class="toc-section-number">5.1</span> 定義 Definition</a></li>
+<li class="has-sub"><a href="5.2-imp_ob.html#imp_ob" id="toc-imp_ob"><span class="toc-section-number">5.2</span> Program: Weight Loss</a>
+<ul>
+<li><a href="5.2-imp_ob.html#obesity" id="toc-obesity"><span class="toc-section-number">5.2.1</span> Obesity</a></li>
+<li><a href="5.2-imp_ob.html#metabolic-syndrome" id="toc-metabolic-syndrome"><span class="toc-section-number">5.2.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.2-imp_ob.html#pre-diabetes" id="toc-pre-diabetes"><span class="toc-section-number">5.2.3</span> Pre-Diabetes</a></li>
+<li><a href="5.2-imp_ob.html#insulin-response-pattern" id="toc-insulin-response-pattern"><span class="toc-section-number">5.2.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.2-imp_ob.html#hypertension" id="toc-hypertension"><span class="toc-section-number">5.2.5</span> Hypertension</a></li>
+<li><a href="5.2-imp_ob.html#hyperlipidemia" id="toc-hyperlipidemia"><span class="toc-section-number">5.2.6</span> Hyperlipidemia</a></li>
+</ul></li>
+<li class="has-sub"><a href="5.3-imp_dm.html#imp_dm" id="toc-imp_dm"><span class="toc-section-number">5.3</span> Program: Diabetes Control</a>
+<ul>
+<li><a href="5.3-imp_dm.html#obesity-1" id="toc-obesity-1"><span class="toc-section-number">5.3.1</span> Obesity</a></li>
+<li><a href="5.3-imp_dm.html#metabolic-syndrome-1" id="toc-metabolic-syndrome-1"><span class="toc-section-number">5.3.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.3-imp_dm.html#pre-diabetes-1" id="toc-pre-diabetes-1"><span class="toc-section-number">5.3.3</span> Pre-Diabetes</a></li>
+<li><a href="5.3-imp_dm.html#insulin-response-pattern-1" id="toc-insulin-response-pattern-1"><span class="toc-section-number">5.3.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.3-imp_dm.html#hypertension-1" id="toc-hypertension-1"><span class="toc-section-number">5.3.5</span> Hypertension</a></li>
+<li><a href="5.3-imp_dm.html#hyperlipidemia-1" id="toc-hyperlipidemia-1"><span class="toc-section-number">5.3.6</span> Hyperlipidemia</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="porfile_ob" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> 客戶輪廓分析</h2>
+<p><strong>Subjects Distribution:</strong> 年齡(Age) &amp; 性別(Gender)分佈</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 11:33:46 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID4b9d79b0ad15 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"<25",
+74
+],
+[
+"25-29",
+119
+],
+[
+"30-34",
+210
+],
+[
+"35-39",
+223
+],
+[
+"40-44",
+193
+],
+[
+"45-49",
+132
+],
+[
+"50-54",
+87
+],
+[
+"55-59",
+50
+],
+[
+"60-64",
+16
+],
+[
+"65-69",
+18
+],
+[
+">70",
+8
+] 
+];
+data.addColumn('string','age_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9d3e337c1d () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"female",
+944
+],
+[
+"male",
+186
+] 
+];
+data.addColumn('string','gender');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID4b9d79b0ad15() {
+var data = gvisDataPieChartID4b9d79b0ad15();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Age";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d79b0ad15')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9d3e337c1d() {
+var data = gvisDataPieChartID4b9d3e337c1d();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Gender";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["colors"] = ['#DC3912', '#3366CC'];
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d3e337c1d')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d79b0ad15);
+})();
+function displayChartPieChartID4b9d79b0ad15() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d3e337c1d);
+})();
+function displayChartPieChartID4b9d3e337c1d() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d79b0ad15"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d3e337c1d"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d79b0ad15" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d3e337c1d" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<p><strong>Subjects Distribution:</strong> 身體質量指數(BMI)分佈</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 11:33:46 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID4b9d261973d2 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"normal",
+2
+],
+[
+"overweight",
+32
+],
+[
+"obesity",
+152
+] 
+];
+data.addColumn('string','bmi_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9d5102f388 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"underweight",
+1
+],
+[
+"normal",
+175
+],
+[
+"overweight",
+258
+],
+[
+"obesity",
+510
+] 
+];
+data.addColumn('string','bmi_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID4b9d261973d2() {
+var data = gvisDataPieChartID4b9d261973d2();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Male";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d261973d2')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9d5102f388() {
+var data = gvisDataPieChartID4b9d5102f388();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Female";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d5102f388')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d261973d2);
+})();
+function displayChartPieChartID4b9d261973d2() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d5102f388);
+})();
+function displayChartPieChartID4b9d5102f388() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d261973d2"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d5102f388"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d261973d2" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d5102f388" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<p><strong>Subjects Distribution:</strong> 肥胖相關慢性共病</p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 11:33:46 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID4b9d12364089 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+538
+],
+[
+"Metabolic Syndrome",
+232
+] 
+];
+data.addColumn('string','MetaX_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID4b9d12364089() {
+var data = gvisDataPieChartID4b9d12364089();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Metabolic Syndrome";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d12364089')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d12364089);
+})();
+function displayChartPieChartID4b9d12364089() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d12364089"></script>
+<!-- divChart -->
+<div id="PieChartID4b9d12364089" style="width: 600; height: 400;">
+
+</div>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 11:33:46 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID4b9d18c28f45 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+611
+],
+[
+"Pre-DM",
+392
+],
+[
+"DM",
+93
+] 
+];
+data.addColumn('string','DM_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9d27c6ebb6 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Pattern I",
+105
+],
+[
+"Pattern II",
+452
+],
+[
+"Pattern III",
+396
+],
+[
+"Pattern IV",
+101
+],
+[
+"Pattern V",
+25
+] 
+];
+data.addColumn('string','Pattern_major_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9dd4c07b6 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+314
+],
+[
+"Elevated",
+213
+],
+[
+"HTN(Grade 1)",
+123
+],
+[
+"HTN(Grade 2)",
+123
+] 
+];
+data.addColumn('string','HTN_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9d7a8e448b () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Normal",
+541
+],
+[
+"HLP",
+586
+] 
+];
+data.addColumn('string','HLP_baseline');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID4b9d18c28f45() {
+var data = gvisDataPieChartID4b9d18c28f45();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Diabetes";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d18c28f45')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9d27c6ebb6() {
+var data = gvisDataPieChartID4b9d27c6ebb6();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Insulin Response Pattern";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["colors"] = ['#628bd6','#f8e05c','#ffc081','#ff834a','#ff5959'];
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d27c6ebb6')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9dd4c07b6() {
+var data = gvisDataPieChartID4b9dd4c07b6();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Hypertension";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9dd4c07b6')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9d7a8e448b() {
+var data = gvisDataPieChartID4b9d7a8e448b();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Hyperlipidemia";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d7a8e448b')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d18c28f45);
+})();
+function displayChartPieChartID4b9d18c28f45() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d27c6ebb6);
+})();
+function displayChartPieChartID4b9d27c6ebb6() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9dd4c07b6);
+})();
+function displayChartPieChartID4b9dd4c07b6() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d7a8e448b);
+})();
+function displayChartPieChartID4b9d7a8e448b() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d18c28f45"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d27c6ebb6"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9dd4c07b6"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d7a8e448b"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d18c28f45" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d27c6ebb6" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9dd4c07b6" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d7a8e448b" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<p style="text-align: center;">
+<a href="1.1-vens_grap_ob.html"><button class="btn btn-default">Previous</button></a>
+<a href="1.3-global_result_ob.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3696 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1.7 分層分析-2: 男性:睪固酮(Testosterone) | Cofit x Genensis 醫療大數據 (分析報告)" />
+<meta property="og:type" content="book" />
+
+
+
+
+<meta name="author" content="By BigData Team" />
+
+
+
+<meta name="description" content="1.7 分層分析-2: 男性:睪固酮(Testosterone) | Cofit x Genensis 醫療大數據 (分析報告)">
+
+<title>1.7 分層分析-2: 男性:睪固酮(Testosterone) | Cofit x Genensis 醫療大數據 (分析報告)</title>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#index" id="toc-index">Highlight</a></li>
+<li class="has-sub"><a href="1-減重成效---單次療程.html#減重成效---單次療程" id="toc-減重成效---單次療程"><span class="toc-section-number">1</span> 減重成效 - (單次療程)</a>
+<ul>
+<li><a href="1.1-vens_grap_ob.html#vens_grap_ob" id="toc-vens_grap_ob"><span class="toc-section-number">1.1</span> 資料集(Datasets)</a></li>
+<li><a href="1.2-porfile_ob.html#porfile_ob" id="toc-porfile_ob"><span class="toc-section-number">1.2</span> 客戶輪廓分析</a></li>
+<li><a href="1.3-global_result_ob.html#global_result_ob" id="toc-global_result_ob"><span class="toc-section-number">1.3</span> 整體成效分析</a></li>
+<li class="has-sub"><a href="1.4-cor_ob.html#cor_ob" id="toc-cor_ob"><span class="toc-section-number">1.4</span> 相關分析(Correlation Analysis)</a>
+<ul>
+<li><a href="1.4-cor_ob.html#cor_ob_var_specific" id="toc-cor_ob_var_specific">特定變數</a></li>
+<li><a href="1.4-cor_ob.html#cor_ob_var_all" id="toc-cor_ob_var_all">全變數</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.5-strat_1_ob.html#strat_1_ob" id="toc-strat_1_ob"><span class="toc-section-number">1.5</span> 分層分析-1: 減重成效</a>
+<ul>
+<li><a href="1.5-strat_1_ob.html#baseline_ob" id="toc-baseline_ob">初始狀態(Baseline)</a></li>
+<li><a href="1.5-strat_1_ob.html#endpoint_ob" id="toc-endpoint_ob">介入後狀態(Endpoint)</a></li>
+<li><a href="1.5-strat_1_ob.html#diet_ob" id="toc-diet_ob">飲食(Diet)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_ob" id="toc-delta_ob">∆成效(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#delta_p_ob" id="toc-delta_p_ob">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.5-strat_1_ob.html#Summary_ob" id="toc-Summary_ob">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.6-strat_1_ob_filtered.html#strat_1_ob_filtered" id="toc-strat_1_ob_filtered"><span class="toc-section-number">1.6</span> 續(篩選飲食上傳&gt;80%)</a>
+<ul>
+<li><a href="1.6-strat_1_ob_filtered.html#baseline_ob_filtered" id="toc-baseline_ob_filtered">初始狀態(Baseline)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#endpoint_ob_filtered" id="toc-endpoint_ob_filtered">介入後狀態(Endpoint)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#diet_ob_filtered" id="toc-diet_ob_filtered">飲食(Diet)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_ob_filtered" id="toc-delta_ob_filtered">∆成效(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#delta_p_ob_filtered" id="toc-delta_p_ob_filtered">∆成效(%)(Effectiveness)</a></li>
+<li><a href="1.6-strat_1_ob_filtered.html#Summary_ob_filtered" id="toc-Summary_ob_filtered">Summary</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.7-strat_1_testosterone.html#strat_1_testosterone" id="toc-strat_1_testosterone"><span class="toc-section-number">1.7</span> 分層分析-2: 男性:睪固酮(Testosterone)</a>
+<ul>
+<li><a href="1.7-strat_1_testosterone.html#cor_test_testosterone" id="toc-cor_test_testosterone">相關分析(Correlation Analysis)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#baseline_testosterone" id="toc-baseline_testosterone">初始狀態(Baseline)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#endpoint_testosterone" id="toc-endpoint_testosterone">介入後狀態(Endpoint)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#diet_testosterone" id="toc-diet_testosterone">飲食(Diet)</a></li>
+<li><a href="1.7-strat_1_testosterone.html#effectiveness_testosterone" id="toc-effectiveness_testosterone">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.8-strat_2_sua.html#strat_2_sua" id="toc-strat_2_sua"><span class="toc-section-number">1.8</span> 分層分析-3: 尿酸(Serum Uric Acid)</a>
+<ul>
+<li><a href="1.8-strat_2_sua.html#cor_sua" id="toc-cor_sua"><span class="toc-section-number">1.8.1</span> 相關分析(Correlation Analysis)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_2" id="toc-cutoff_sua_2"><span class="toc-section-number">1.8.2</span> Cutoff-1 (♂7.6/♀6.6)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua" id="toc-baseline_sua">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua" id="toc-endpoint_sua">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua" id="toc-diet_sua">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua" id="toc-effectiveness_sua">成效(Effectiveness)</a></li>
+<li><a href="1.8-strat_2_sua.html#cutoff_sua_0" id="toc-cutoff_sua_0"><span class="toc-section-number">1.8.3</span> Cutoff-2 (5.5)</a></li>
+<li><a href="1.8-strat_2_sua.html#baseline_sua0" id="toc-baseline_sua0">初始狀態(Baseline)</a></li>
+<li><a href="1.8-strat_2_sua.html#endpoint_sua0" id="toc-endpoint_sua0">介入後狀態(Endpoint)</a></li>
+<li><a href="1.8-strat_2_sua.html#diet_sua0" id="toc-diet_sua0">飲食(Diet)</a></li>
+<li><a href="1.8-strat_2_sua.html#effectiveness_sua0" id="toc-effectiveness_sua0">成效(Effectiveness)</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.9-ketone_response.html#ketone_response" id="toc-ketone_response"><span class="toc-section-number">1.9</span> 尿酮體 x 空腹胰島素</a>
+<ul>
+<li><a href="1.9-ketone_response.html#chisq分析" id="toc-chisq分析"><span class="toc-section-number">1.9.1</span> Chisq分析</a></li>
+<li><a href="1.9-ketone_response.html#敏感度分析" id="toc-敏感度分析"><span class="toc-section-number">1.9.2</span> 敏感度分析</a></li>
+<li><a href="1.9-ketone_response.html#optimal-cutoff分析" id="toc-optimal-cutoff分析"><span class="toc-section-number">1.9.3</span> Optimal Cutoff分析</a></li>
+<li><a href="1.9-ketone_response.html#strat_4_ketone_response" id="toc-strat_4_ketone_response"><span class="toc-section-number">1.9.4</span> 分層分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-glucose-insulin-response-curvegirc.html#glucose-insulin-response-curvegirc" id="toc-glucose-insulin-response-curvegirc"><span class="toc-section-number">2</span> Glucose Insulin Response Curve(GIRC)</a>
+<ul>
+<li class="has-sub"><a href="2.1-ogtt胰島素反應分型.html#ogtt胰島素反應分型" id="toc-ogtt胰島素反應分型"><span class="toc-section-number">2.1</span> OGTT胰島素反應分型</a>
+<ul>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-i" id="toc-pattern-i"><span class="toc-section-number">2.1.1</span> Pattern I</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-ii" id="toc-pattern-ii"><span class="toc-section-number">2.1.2</span> Pattern II</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iii" id="toc-pattern-iii"><span class="toc-section-number">2.1.3</span> Pattern III</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-iv" id="toc-pattern-iv"><span class="toc-section-number">2.1.4</span> Pattern IV</a></li>
+<li><a href="2.1-ogtt胰島素反應分型.html#pattern-v" id="toc-pattern-v"><span class="toc-section-number">2.1.5</span> Pattern V</a></li>
+</ul></li>
+<li class="has-sub"><a href="2.2-girc_analysis_.html#girc_analysis_" id="toc-girc_analysis_"><span class="toc-section-number">2.2</span> GIRC分析</a>
+<ul>
+<li><a href="2.2-girc_analysis_.html#girc_table_all" id="toc-girc_table_all">DM x GIRC分佈(All)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_table_ob" id="toc-girc_table_ob">DM x GIRC分佈(Obesity Program)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc分層分析" id="toc-girc分層分析">GIRC分層分析</a></li>
+<li><a href="2.2-girc_analysis_.html#baseline_girc" id="toc-baseline_girc">初始狀態(Baseline)</a></li>
+<li><a href="2.2-girc_analysis_.html#endpoint_girc" id="toc-endpoint_girc">介入後狀態(Endpoint)</a></li>
+<li><a href="2.2-girc_analysis_.html#diet_girc" id="toc-diet_girc">飲食(Diet)</a></li>
+<li><a href="2.2-girc_analysis_.html#effectiveness_girc" id="toc-effectiveness_girc">成效(Effectiveness)</a></li>
+<li><a href="2.2-girc_analysis_.html#girc_improvemnt_path" id="toc-girc_improvemnt_path">Pattern改善分析</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-prediction研究中.html#prediction研究中" id="toc-prediction研究中"><span class="toc-section-number">3</span> Prediction(研究中)</a>
+<ul>
+<li><a href="3.1-predict_cutoff_roc.html#predict_cutoff_roc" id="toc-predict_cutoff_roc"><span class="toc-section-number">3.1</span> 單因子預測力&amp;切點分析</a></li>
+<li><a href="3.2-predict_cutoff_roc_filtered.html#predict_cutoff_roc_filtered" id="toc-predict_cutoff_roc_filtered"><span class="toc-section-number">3.2</span> 單因子預測力&amp;切點分析(排除飲食紀律不佳)</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-publication1.html#publication1" id="toc-publication1"><span class="toc-section-number">4</span> Publication(1)</a>
+<ul>
+<li class="has-sub"><a href="4.1-p1-1.html#p1-1" id="toc-p1-1"><span class="toc-section-number">4.1</span> Genesis Insulin Response Pattern</a>
+<ul>
+<li><a href="4.1-p1-1.html#p1-1fig1" id="toc-p1-1fig1"><span class="toc-section-number">4.1.1</span> Figure 1. Genesis Pattern Categorization</a></li>
+<li><a href="4.1-p1-1.html#p1-1fig2" id="toc-p1-1fig2"><span class="toc-section-number">4.1.2</span> Figure 2. Genesis Pattern Distribution.</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.2-p1-2.html#p1-2" id="toc-p1-2"><span class="toc-section-number">4.2</span> Genesis Insulin Response Pattern Model for early IR/Obesity diagnosis</a>
+<ul>
+<li><a href="4.2-p1-2.html#p1-2tab1" id="toc-p1-2tab1"><span class="toc-section-number">4.2.1</span> Table 1. Genesis Pattern Distribution Characteristics.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig3" id="toc-p1-2fig3"><span class="toc-section-number">4.2.2</span> Figure 3. Body Composition &amp; Biochem. Profile.</a></li>
+<li><a href="4.2-p1-2.html#p1-2fig45" id="toc-p1-2fig45"><span class="toc-section-number">4.2.3</span> Figure 4,5. Genesis Pattern is a Potential Tool of early IR(Obesity) diagnosis</a></li>
+</ul></li>
+<li class="has-sub"><a href="4.3-p1-3.html#p1-3" id="toc-p1-3"><span class="toc-section-number">4.3</span> Weight loss Efficacy(OB)</a>
+<ul>
+<li><a href="4.3-p1-3.html#p1-3fig6" id="toc-p1-3fig6"><span class="toc-section-number">4.3.1</span> Figure 6. body composition/ biochem.</a></li>
+<li><a href="4.3-p1-3.html#p1-3tab2" id="toc-p1-3tab2"><span class="toc-section-number">4.3.2</span> Table 2. Pattern Response Improvement.</a></li>
+<li><a href="4.3-p1-3.html#p1-3fig7" id="toc-p1-3fig7"><span class="toc-section-number">4.3.3</span> Figure 7. CIM weight loss strategy</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="5-亞健康改善成效246mo.html#亞健康改善成效246mo" id="toc-亞健康改善成效246mo"><span class="toc-section-number">5</span> 亞健康改善成效(2,4,6mo)</a>
+<ul>
+<li><a href="5.1-imp_def.html#imp_def" id="toc-imp_def"><span class="toc-section-number">5.1</span> 定義 Definition</a></li>
+<li class="has-sub"><a href="5.2-imp_ob.html#imp_ob" id="toc-imp_ob"><span class="toc-section-number">5.2</span> Program: Weight Loss</a>
+<ul>
+<li><a href="5.2-imp_ob.html#obesity" id="toc-obesity"><span class="toc-section-number">5.2.1</span> Obesity</a></li>
+<li><a href="5.2-imp_ob.html#metabolic-syndrome" id="toc-metabolic-syndrome"><span class="toc-section-number">5.2.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.2-imp_ob.html#pre-diabetes" id="toc-pre-diabetes"><span class="toc-section-number">5.2.3</span> Pre-Diabetes</a></li>
+<li><a href="5.2-imp_ob.html#insulin-response-pattern" id="toc-insulin-response-pattern"><span class="toc-section-number">5.2.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.2-imp_ob.html#hypertension" id="toc-hypertension"><span class="toc-section-number">5.2.5</span> Hypertension</a></li>
+<li><a href="5.2-imp_ob.html#hyperlipidemia" id="toc-hyperlipidemia"><span class="toc-section-number">5.2.6</span> Hyperlipidemia</a></li>
+</ul></li>
+<li class="has-sub"><a href="5.3-imp_dm.html#imp_dm" id="toc-imp_dm"><span class="toc-section-number">5.3</span> Program: Diabetes Control</a>
+<ul>
+<li><a href="5.3-imp_dm.html#obesity-1" id="toc-obesity-1"><span class="toc-section-number">5.3.1</span> Obesity</a></li>
+<li><a href="5.3-imp_dm.html#metabolic-syndrome-1" id="toc-metabolic-syndrome-1"><span class="toc-section-number">5.3.2</span> Metabolic Syndrome</a></li>
+<li><a href="5.3-imp_dm.html#pre-diabetes-1" id="toc-pre-diabetes-1"><span class="toc-section-number">5.3.3</span> Pre-Diabetes</a></li>
+<li><a href="5.3-imp_dm.html#insulin-response-pattern-1" id="toc-insulin-response-pattern-1"><span class="toc-section-number">5.3.4</span> Insulin Response Pattern</a></li>
+<li><a href="5.3-imp_dm.html#hypertension-1" id="toc-hypertension-1"><span class="toc-section-number">5.3.5</span> Hypertension</a></li>
+<li><a href="5.3-imp_dm.html#hyperlipidemia-1" id="toc-hyperlipidemia-1"><span class="toc-section-number">5.3.6</span> Hyperlipidemia</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="strat_1_testosterone" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> 分層分析-2: 男性:睪固酮(Testosterone)</h2>
+<p><strong>依據睪固酮(Testosterone)初始狀態進行分層分析，分成二個組別：</strong></p>
+<ul>
+<li><strong>睪固酮低下: (</strong>小於 &lt;350 ng/dl)</li>
+<li><strong>睪固酮正常: (</strong>大於 &gt;350 ng/dl)</li>
+</ul>
+<p><strong>男性睪固酮分組&amp;年齡分佈</strong></p>
+<!-- PieChart generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 12:58:17 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID4b9d6f1ac70f () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"<25",
+1
+],
+[
+"25-29",
+3
+],
+[
+"30-34",
+9
+],
+[
+"35-39",
+4
+],
+[
+"40-44",
+8
+],
+[
+"45-49",
+2
+],
+[
+"50-54",
+3
+],
+[
+"60-64",
+2
+],
+[
+"65-69",
+1
+],
+[
+">70",
+1
+] 
+];
+data.addColumn('string','age_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataPieChartID4b9d4702e2c5 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"25-29",
+5
+],
+[
+"30-34",
+4
+],
+[
+"35-39",
+6
+],
+[
+"40-44",
+2
+],
+[
+"45-49",
+2
+],
+[
+"50-54",
+1
+],
+[
+">70",
+1
+] 
+];
+data.addColumn('string','age_gp');
+data.addColumn('number','n');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID4b9d6f1ac70f() {
+var data = gvisDataPieChartID4b9d6f1ac70f();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Low Testosterone";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d6f1ac70f')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartPieChartID4b9d4702e2c5() {
+var data = gvisDataPieChartID4b9d4702e2c5();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Normal";
+options["legend"] = {position:'right'};
+options["pieHole"] = 0.5;
+options["backgroundColor"] = "#f9fffb";
+options["width"] = "600";
+options["height"] = "400";
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID4b9d4702e2c5')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d6f1ac70f);
+})();
+function displayChartPieChartID4b9d6f1ac70f() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID4b9d4702e2c5);
+})();
+function displayChartPieChartID4b9d4702e2c5() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d6f1ac70f"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID4b9d4702e2c5"></script>
+<table cellspacing="5" bgcolor="#AABBCC">
+<tr>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d6f1ac70f" style="width: 600; height: 400;">
+
+</div>
+</td>
+<td>
+<!-- divChart -->
+<div id="PieChartID4b9d4702e2c5" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+<div id="cor_test_testosterone" class="section level3 unnumbered">
+<h3>相關分析(Correlation Analysis)</h3>
+<p><strong>睪固酮(Testosterone) x 初始狀態(Baseline)</strong></p>
+<p>男性荷爾蒙「睪固酮」血中濃度與「體重」、「體脂」，以及「空腹血糖」、「空腹胰島素」和「胰島素抗性」(IR)具有顯著負相關。換句話說，相較於「睪固酮」濃度正常的人，<u>「睪固酮」低下</u>者傾向有<u>較高的「體重」、「體脂」</u>，<u>「空腹血糖」、「空腹胰島素」和「胰島素抗性」(IR)也較高</u>。<br />
+</p>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-102-1.png" width="864" style="display: block; margin: auto;" /></p>
+<!-- Table generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Wed Aug 30 12:58:18 2023 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID4b9de7617ef () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+1,
+"∆體重(%)",
+"1 (***)",
+"0.74 (***)",
+"0.62 (***)",
+"0.62 (***)",
+"0.71 (***)",
+"0.57 (***)",
+"0.07 (ns)",
+"0.17 (*)",
+"0.27 (***)",
+"0.25 (***)",
+"0.03 (ns)",
+"0.12 (ns)",
+"0.03 (ns)",
+"0.13 (.)",
+"-0.01 (ns)",
+"-0.06 (ns)",
+"-0.05 (ns)",
+"-0.1 (ns)",
+"-0.13 (.)",
+"-0.12 (ns)",
+"0 (ns)",
+"0.15 (*)",
+"-0.13 (.)",
+"-0.04 (ns)",
+"-0.08 (ns)",
+"-0.03 (ns)",
+"-0.05 (ns)",
+"-0.04 (ns)",
+"-0.14 (.)",
+"-0.09 (ns)",
+"0.04 (ns)",
+"0.07 (ns)",
+"0.04 (ns)",
+"0.07 (ns)",
+"0.03 (ns)",
+"0.04 (ns)",
+"0.01 (ns)",
+"0.08 (ns)"
+],
+[
+2,
+"∆體脂重(%)",
+"0.74 (***)",
+"1 (***)",
+"0.02 (ns)",
+"0.69 (***)",
+"0.71 (***)",
+"-0.04 (ns)",
+"0.06 (ns)",
+"0.14 (.)",
+"0.16 (*)",
+"0.13 (.)",
+"0.03 (ns)",
+"0.11 (ns)",
+"-0.08 (ns)",
+"-0.03 (ns)",
+"-0.08 (ns)",
+"-0.05 (ns)",
+"0.05 (ns)",
+"-0.36 (***)",
+"-0.4 (***)",
+"-0.41 (***)",
+"-0.24 (**)",
+"0.41 (***)",
+"-0.4 (***)",
+"-0.25 (***)",
+"-0.08 (ns)",
+"-0.02 (ns)",
+"-0.27 (***)",
+"-0.23 (**)",
+"-0.3 (***)",
+"-0.12 (ns)",
+"-0.12 (ns)",
+"-0.07 (ns)",
+"0.01 (ns)",
+"0.12 (ns)",
+"0.08 (ns)",
+"0.1 (ns)",
+"0 (ns)",
+"0.3 (*)"
+],
+[
+3,
+"∆骨骼肌重(%)",
+"0.62 (***)",
+"0.02 (ns)",
+"1 (***)",
+"-0.05 (ns)",
+"0.2 (**)",
+"0.97 (***)",
+"-0.01 (ns)",
+"0.09 (ns)",
+"0.17 (*)",
+"0.16 (*)",
+"0 (ns)",
+"0.07 (ns)",
+"0.07 (ns)",
+"0.14 (.)",
+"0.03 (ns)",
+"-0.02 (ns)",
+"-0.1 (ns)",
+"0.06 (ns)",
+"-0.04 (ns)",
+"-0.01 (ns)",
+"0.19 (*)",
+"0.07 (ns)",
+"0.04 (ns)",
+"0.18 (*)",
+"-0.06 (ns)",
+"-0.05 (ns)",
+"0.12 (.)",
+"0.1 (ns)",
+"0.09 (ns)",
+"-0.03 (ns)",
+"0.12 (ns)",
+"0.12 (ns)",
+"0.05 (ns)",
+"-0.03 (ns)",
+"-0.07 (ns)",
+"-0.04 (ns)",
+"0.05 (ns)",
+"0.02 (ns)"
+],
+[
+4,
+"∆內臟脂肪面積",
+"0.62 (***)",
+"0.69 (***)",
+"-0.05 (ns)",
+"1 (***)",
+"0.81 (***)",
+"-0.08 (ns)",
+"0.08 (ns)",
+"0.14 (ns)",
+"0.2 (*)",
+"0.21 (*)",
+"-0.03 (ns)",
+"0.02 (ns)",
+"0.14 (ns)",
+"0.27 (**)",
+"0.1 (ns)",
+"-0.04 (ns)",
+"0.01 (ns)",
+"0.14 (ns)",
+"0.2 (*)",
+"0.18 (*)",
+"0.05 (ns)",
+"-0.19 (*)",
+"0.2 (*)",
+"0.03 (ns)",
+"0 (ns)",
+"0.05 (ns)",
+"0.02 (ns)",
+"0.05 (ns)",
+"-0.16 (.)",
+"-0.13 (ns)",
+"0.07 (ns)",
+"0.11 (ns)",
+"0.06 (ns)",
+"0.12 (ns)",
+"0.14 (ns)",
+"0.08 (ns)",
+"0 (ns)",
+"-0.03 (ns)"
+],
+[
+5,
+"∆腰圍",
+"0.71 (***)",
+"0.71 (***)",
+"0.2 (**)",
+"0.81 (***)",
+"1 (***)",
+"0.14 (.)",
+"0.15 (*)",
+"0.13 (.)",
+"0.28 (***)",
+"0.23 (**)",
+"0 (ns)",
+"0.1 (ns)",
+"0.02 (ns)",
+"0.13 (.)",
+"0 (ns)",
+"-0.05 (ns)",
+"-0.11 (ns)",
+"0.03 (ns)",
+"-0.01 (ns)",
+"-0.03 (ns)",
+"0.06 (ns)",
+"0.04 (ns)",
+"0.02 (ns)",
+"0.05 (ns)",
+"0.04 (ns)",
+"0.01 (ns)",
+"0.03 (ns)",
+"0.02 (ns)",
+"-0.09 (ns)",
+"-0.07 (ns)",
+"0.03 (ns)",
+"0.06 (ns)",
+"0.09 (ns)",
+"0.12 (ns)",
+"0.03 (ns)",
+"0.08 (ns)",
+"-0.05 (ns)",
+"0.04 (ns)"
+],
+[
+6,
+"∆基礎代謝率",
+"0.57 (***)",
+"-0.04 (ns)",
+"0.97 (***)",
+"-0.08 (ns)",
+"0.14 (.)",
+"1 (***)",
+"0.01 (ns)",
+"0.1 (ns)",
+"0.17 (*)",
+"0.17 (*)",
+"0.04 (ns)",
+"0.08 (ns)",
+"0.08 (ns)",
+"0.14 (.)",
+"0.03 (ns)",
+"-0.02 (ns)",
+"-0.14 (.)",
+"0.14 (.)",
+"0 (ns)",
+"0.07 (ns)",
+"0.28 (***)",
+"0.03 (ns)",
+"0.12 (ns)",
+"0.3 (***)",
+"-0.04 (ns)",
+"-0.04 (ns)",
+"0.18 (*)",
+"0.15 (*)",
+"0.15 (*)",
+"-0.03 (ns)",
+"0.14 (.)",
+"0.14 (.)",
+"0.05 (ns)",
+"-0.05 (ns)",
+"-0.09 (ns)",
+"-0.06 (ns)",
+"0 (ns)",
+"-0.01 (ns)"
+],
+[
+7,
+"∆糖化血色素",
+"0.07 (ns)",
+"0.06 (ns)",
+"-0.01 (ns)",
+"0.08 (ns)",
+"0.15 (*)",
+"0.01 (ns)",
+"1 (***)",
+"0.56 (***)",
+"0.09 (ns)",
+"0.26 (***)",
+"0.02 (ns)",
+"-0.02 (ns)",
+"0 (ns)",
+"0.03 (ns)",
+"0 (ns)",
+"-0.12 (ns)",
+"0.08 (ns)",
+"0.09 (ns)",
+"0.05 (ns)",
+"-0.04 (ns)",
+"0.1 (ns)",
+"-0.05 (ns)",
+"0.1 (ns)",
+"0.12 (ns)",
+"0.83 (***)",
+"0.65 (***)",
+"0.25 (***)",
+"0.42 (***)",
+"-0.09 (ns)",
+"0.64 (***)",
+"-0.07 (ns)",
+"-0.32 (***)",
+"0.09 (ns)",
+"0.04 (ns)",
+"-0.14 (.)",
+"0.04 (ns)",
+"-0.05 (ns)",
+"-0.16 (ns)"
+],
+[
+8,
+"∆空腹血糖",
+"0.17 (*)",
+"0.14 (.)",
+"0.09 (ns)",
+"0.14 (ns)",
+"0.13 (.)",
+"0.1 (ns)",
+"0.56 (***)",
+"1 (***)",
+"0.3 (***)",
+"0.55 (***)",
+"-0.13 (.)",
+"0.08 (ns)",
+"-0.06 (ns)",
+"0.04 (ns)",
+"-0.07 (ns)",
+"0 (ns)",
+"0.07 (ns)",
+"0.02 (ns)",
+"-0.04 (ns)",
+"-0.14 (ns)",
+"0.1 (ns)",
+"0.04 (ns)",
+"0.01 (ns)",
+"0.1 (ns)",
+"0.61 (***)",
+"0.85 (***)",
+"0.09 (ns)",
+"0.34 (***)",
+"-0.28 (***)",
+"0.61 (***)",
+"-0.09 (ns)",
+"-0.33 (***)",
+"0.09 (ns)",
+"0.03 (ns)",
+"-0.03 (ns)",
+"0 (ns)",
+"0.03 (ns)",
+"-0.3 (*)"
+],
+[
+9,
+"∆空腹胰島素",
+"0.27 (***)",
+"0.16 (*)",
+"0.17 (*)",
+"0.2 (*)",
+"0.28 (***)",
+"0.17 (*)",
+"0.09 (ns)",
+"0.3 (***)",
+"1 (***)",
+"0.96 (***)",
+"0.31 (***)",
+"0.14 (.)",
+"-0.14 (.)",
+"0.01 (ns)",
+"-0.12 (ns)",
+"-0.07 (ns)",
+"0.04 (ns)",
+"0.09 (ns)",
+"0 (ns)",
+"0.05 (ns)",
+"0.15 (*)",
+"0.02 (ns)",
+"0.05 (ns)",
+"0.15 (*)",
+"0.05 (ns)",
+"0.14 (.)",
+"0.39 (***)",
+"0.36 (***)",
+"0.21 (**)",
+"0.12 (ns)",
+"0.31 (***)",
+"0.25 (***)",
+"0.14 (.)",
+"-0.05 (ns)",
+"-0.1 (ns)",
+"-0.04 (ns)",
+"0.01 (ns)",
+"-0.23 (.)"
+],
+[
+10,
+"∆胰島素阻抗值",
+"0.25 (***)",
+"0.13 (.)",
+"0.16 (*)",
+"0.21 (*)",
+"0.23 (**)",
+"0.17 (*)",
+"0.26 (***)",
+"0.55 (***)",
+"0.96 (***)",
+"1 (***)",
+"0.2 (**)",
+"0.13 (.)",
+"-0.11 (ns)",
+"0.02 (ns)",
+"-0.1 (ns)",
+"-0.07 (ns)",
+"0.05 (ns)",
+"0.17 (*)",
+"0.06 (ns)",
+"0.05 (ns)",
+"0.23 (**)",
+"-0.04 (ns)",
+"0.13 (.)",
+"0.22 (**)",
+"0.26 (***)",
+"0.42 (***)",
+"0.41 (***)",
+"0.49 (***)",
+"0.1 (ns)",
+"0.34 (***)",
+"0.24 (**)",
+"0.09 (ns)",
+"0.14 (.)",
+"-0.03 (ns)",
+"-0.13 (.)",
+"-0.02 (ns)",
+"0.03 (ns)",
+"-0.36 (**)"
+],
+[
+11,
+"∆β細胞功能",
+"0.03 (ns)",
+"0.03 (ns)",
+"0 (ns)",
+"-0.03 (ns)",
+"0 (ns)",
+"0.04 (ns)",
+"0.02 (ns)",
+"-0.13 (.)",
+"0.31 (***)",
+"0.2 (**)",
+"1 (***)",
+"0.21 (**)",
+"-0.01 (ns)",
+"-0.19 (**)",
+"0.01 (ns)",
+"-0.16 (*)",
+"0.05 (ns)",
+"-0.06 (ns)",
+"-0.12 (ns)",
+"-0.02 (ns)",
+"0.01 (ns)",
+"0.11 (ns)",
+"-0.07 (ns)",
+"0.05 (ns)",
+"0 (ns)",
+"-0.04 (ns)",
+"0.09 (ns)",
+"0.06 (ns)",
+"0.14 (.)",
+"-0.02 (ns)",
+"-0.1 (ns)",
+"-0.08 (ns)",
+"0.09 (ns)",
+"-0.05 (ns)",
+"-0.09 (ns)",
+"-0.03 (ns)",
+"-0.14 (.)",
+"0.09 (ns)"
+],
+[
+12,
+"∆三酸甘油脂",
+"0.12 (ns)",
+"0.11 (ns)",
+"0.07 (ns)",
+"0.02 (ns)",
+"0.1 (ns)",
+"0.08 (ns)",
+"-0.02 (ns)",
+"0.08 (ns)",
+"0.14 (.)",
+"0.13 (.)",
+"0.21 (**)",
+"1 (***)",
+"0.15 (*)",
+"-0.35 (***)",
+"-0.05 (ns)",
+"0.03 (ns)",
+"0.02 (ns)",
+"-0.08 (ns)",
+"-0.1 (ns)",
+"-0.15 (.)",
+"-0.04 (ns)",
+"0.11 (ns)",
+"-0.13 (.)",
+"-0.06 (ns)",
+"0 (ns)",
+"0 (ns)",
+"-0.12 (ns)",
+"-0.1 (ns)",
+"-0.1 (ns)",
+"0.1 (ns)",
+"-0.12 (ns)",
+"-0.15 (*)",
+"0.46 (***)",
+"0.1 (ns)",
+"-0.21 (**)",
+"-0.02 (ns)",
+"-0.01 (ns)",
+"-0.09 (ns)"
+],
+[
+13,
+"∆總膽固醇",
+"0.03 (ns)",
+"-0.08 (ns)",
+"0.07 (ns)",
+"0.14 (ns)",
+"0.02 (ns)",
+"0.08 (ns)",
+"0 (ns)",
+"-0.06 (ns)",
+"-0.14 (.)",
+"-0.11 (ns)",
+"-0.01 (ns)",
+"0.15 (*)",
+"1 (***)",
+"0.13 (.)",
+"0.91 (***)",
+"0.01 (ns)",
+"0.1 (ns)",
+"0.1 (ns)",
+"0.13 (.)",
+"0.17 (*)",
+"0.09 (ns)",
+"-0.12 (.)",
+"0.15 (*)",
+"0.11 (ns)",
+"0.06 (ns)",
+"0.03 (ns)",
+"0.13 (.)",
+"0.13 (.)",
+"0.15 (*)",
+"0.05 (ns)",
+"0.09 (ns)",
+"0.06 (ns)",
+"0.1 (ns)",
+"0.17 (*)",
+"-0.12 (ns)",
+"0.15 (*)",
+"0.01 (ns)",
+"-0.06 (ns)"
+],
+[
+14,
+"∆高密度脂蛋白",
+"0.13 (.)",
+"-0.03 (ns)",
+"0.14 (.)",
+"0.27 (**)",
+"0.13 (.)",
+"0.14 (.)",
+"0.03 (ns)",
+"0.04 (ns)",
+"0.01 (ns)",
+"0.02 (ns)",
+"-0.19 (**)",
+"-0.35 (***)",
+"0.13 (.)",
+"1 (***)",
+"0.04 (ns)",
+"-0.02 (ns)",
+"-0.18 (*)",
+"0.12 (ns)",
+"0.2 (**)",
+"0.19 (*)",
+"0.01 (ns)",
+"-0.19 (**)",
+"0.17 (*)",
+"0.06 (ns)",
+"0.02 (ns)",
+"0.03 (ns)",
+"0.11 (ns)",
+"0.1 (ns)",
+"0.03 (ns)",
+"-0.03 (ns)",
+"0.18 (*)",
+"0.18 (*)",
+"-0.19 (*)",
+"-0.05 (ns)",
+"0.36 (***)",
+"-0.03 (ns)",
+"-0.01 (ns)",
+"0.07 (ns)"
+],
+[
+15,
+"∆低密度脂蛋白",
+"-0.01 (ns)",
+"-0.08 (ns)",
+"0.03 (ns)",
+"0.1 (ns)",
+"0 (ns)",
+"0.03 (ns)",
+"0 (ns)",
+"-0.07 (ns)",
+"-0.12 (ns)",
+"-0.1 (ns)",
+"0.01 (ns)",
+"-0.05 (ns)",
+"0.91 (***)",
+"0.04 (ns)",
+"1 (***)",
+"-0.03 (ns)",
+"0.16 (*)",
+"0.05 (ns)",
+"0.06 (ns)",
+"0.12 (ns)",
+"0.06 (ns)",
+"-0.07 (ns)",
+"0.09 (ns)",
+"0.07 (ns)",
+"0.07 (ns)",
+"0.03 (ns)",
+"0.12 (ns)",
+"0.1 (ns)",
+"0.14 (.)",
+"0.06 (ns)",
+"0.1 (ns)",
+"0.07 (ns)",
+"-0.04 (ns)",
+"0.16 (*)",
+"-0.09 (ns)",
+"0.24 (**)",
+"-0.01 (ns)",
+"0.04 (ns)"
+],
+[
+16,
+"∆解脂脢",
+"-0.06 (ns)",
+"-0.05 (ns)",
+"-0.02 (ns)",
+"-0.04 (ns)",
+"-0.05 (ns)",
+"-0.02 (ns)",
+"-0.12 (ns)",
+"0 (ns)",
+"-0.07 (ns)",
+"-0.07 (ns)",
+"-0.16 (*)",
+"0.03 (ns)",
+"0.01 (ns)",
+"-0.02 (ns)",
+"-0.03 (ns)",
+"1 (***)",
+"-0.15 (*)",
+"-0.01 (ns)",
+"-0.01 (ns)",
+"0.02 (ns)",
+"-0.03 (ns)",
+"0.01 (ns)",
+"-0.01 (ns)",
+"0 (ns)",
+"-0.04 (ns)",
+"-0.03 (ns)",
+"-0.09 (ns)",
+"-0.08 (ns)",
+"-0.03 (ns)",
+"-0.01 (ns)",
+"-0.14 (.)",
+"-0.12 (ns)",
+"0 (ns)",
+"0.16 (*)",
+"0.02 (ns)",
+"0.15 (*)",
+"0.38 (***)",
+"-0.1 (ns)"
+],
+[
+17,
+"年齡",
+"-0.05 (ns)",
+"0.05 (ns)",
+"-0.1 (ns)",
+"0.01 (ns)",
+"-0.11 (ns)",
+"-0.14 (.)",
+"0.08 (ns)",
+"0.07 (ns)",
+"0.04 (ns)",
+"0.05 (ns)",
+"0.05 (ns)",
+"0.02 (ns)",
+"0.1 (ns)",
+"-0.18 (*)",
+"0.16 (*)",
+"-0.15 (*)",
+"1 (***)",
+"-0.26 (***)",
+"-0.24 (**)",
+"-0.16 (.)",
+"-0.13 (.)",
+"0.19 (**)",
+"-0.27 (***)",
+"-0.18 (*)",
+"0.18 (*)",
+"0.17 (*)",
+"-0.15 (*)",
+"-0.08 (ns)",
+"-0.28 (***)",
+"0.31 (***)",
+"-0.1 (ns)",
+"-0.22 (**)",
+"-0.03 (ns)",
+"0.11 (ns)",
+"0.12 (.)",
+"0.06 (ns)",
+"0.26 (***)",
+"0.03 (ns)"
+],
+[
+18,
+"BMI(T0)",
+"-0.1 (ns)",
+"-0.36 (***)",
+"0.06 (ns)",
+"0.14 (ns)",
+"0.03 (ns)",
+"0.14 (.)",
+"0.09 (ns)",
+"0.02 (ns)",
+"0.09 (ns)",
+"0.17 (*)",
+"-0.06 (ns)",
+"-0.08 (ns)",
+"0.1 (ns)",
+"0.12 (ns)",
+"0.05 (ns)",
+"-0.01 (ns)",
+"-0.26 (***)",
+"1 (***)",
+"0.83 (***)",
+"0.9 (***)",
+"0.81 (***)",
+"-0.79 (***)",
+"0.88 (***)",
+"0.62 (***)",
+"0.15 (*)",
+"0.09 (ns)",
+"0.54 (***)",
+"0.5 (***)",
+"0.45 (***)",
+"0.07 (ns)",
+"0.29 (***)",
+"0.24 (**)",
+"-0.02 (ns)",
+"-0.2 (**)",
+"-0.19 (**)",
+"-0.16 (*)",
+"-0.12 (ns)",
+"-0.49 (***)"
+],
+[
+19,
+"體脂率(T0)",
+"-0.13 (.)",
+"-0.4 (***)",
+"-0.04 (ns)",
+"0.2 (*)",
+"-0.01 (ns)",
+"0 (ns)",
+"0.05 (ns)",
+"-0.04 (ns)",
+"0 (ns)",
+"0.06 (ns)",
+"-0.12 (ns)",
+"-0.1 (ns)",
+"0.13 (.)",
+"0.2 (**)",
+"0.06 (ns)",
+"-0.01 (ns)",
+"-0.24 (**)",
+"0.83 (***)",
+"1 (***)",
+"0.93 (***)",
+"0.41 (***)",
+"-0.99 (***)",
+"0.82 (***)",
+"0.24 (***)",
+"0.09 (ns)",
+"0.04 (ns)",
+"0.42 (***)",
+"0.38 (***)",
+"0.35 (***)",
+"0.05 (ns)",
+"0.27 (***)",
+"0.23 (**)",
+"-0.04 (ns)",
+"-0.16 (*)",
+"-0.06 (ns)",
+"-0.14 (.)",
+"-0.12 (.)",
+"-0.55 (***)"
+],
+[
+20,
+"內臟脂肪面積(T0)",
+"-0.12 (ns)",
+"-0.41 (***)",
+"-0.01 (ns)",
+"0.18 (*)",
+"-0.03 (ns)",
+"0.07 (ns)",
+"-0.04 (ns)",
+"-0.14 (ns)",
+"0.05 (ns)",
+"0.05 (ns)",
+"-0.02 (ns)",
+"-0.15 (.)",
+"0.17 (*)",
+"0.19 (*)",
+"0.12 (ns)",
+"0.02 (ns)",
+"-0.16 (.)",
+"0.9 (***)",
+"0.93 (***)",
+"1 (***)",
+"0.57 (***)",
+"-0.91 (***)",
+"0.96 (***)",
+"0.51 (***)",
+"0.04 (ns)",
+"0 (ns)",
+"0.45 (***)",
+"0.42 (***)",
+"0.37 (***)",
+"-0.04 (ns)",
+"0.29 (**)",
+"0.29 (**)",
+"-0.04 (ns)",
+"-0.12 (ns)",
+"-0.11 (ns)",
+"-0.09 (ns)",
+"-0.12 (ns)",
+"-0.61 (***)"
+],
+[
+21,
+"骨骼肌質量指數(T0)",
+"0 (ns)",
+"-0.24 (**)",
+"0.19 (*)",
+"0.05 (ns)",
+"0.06 (ns)",
+"0.28 (***)",
+"0.1 (ns)",
+"0.1 (ns)",
+"0.15 (*)",
+"0.23 (**)",
+"0.01 (ns)",
+"-0.04 (ns)",
+"0.09 (ns)",
+"0.01 (ns)",
+"0.06 (ns)",
+"-0.03 (ns)",
+"-0.13 (.)",
+"0.81 (***)",
+"0.41 (***)",
+"0.57 (***)",
+"1 (***)",
+"-0.35 (***)",
+"0.69 (***)",
+"0.86 (***)",
+"0.17 (*)",
+"0.16 (*)",
+"0.48 (***)",
+"0.47 (***)",
+"0.38 (***)",
+"0.11 (ns)",
+"0.25 (***)",
+"0.19 (*)",
+"0.03 (ns)",
+"-0.14 (.)",
+"-0.26 (***)",
+"-0.09 (ns)",
+"-0.12 (ns)",
+"-0.24 (.)"
+],
+[
+22,
+"骨骼肌率(T0)",
+"0.15 (*)",
+"0.41 (***)",
+"0.07 (ns)",
+"-0.19 (*)",
+"0.04 (ns)",
+"0.03 (ns)",
+"-0.05 (ns)",
+"0.04 (ns)",
+"0.02 (ns)",
+"-0.04 (ns)",
+"0.11 (ns)",
+"0.11 (ns)",
+"-0.12 (.)",
+"-0.19 (**)",
+"-0.07 (ns)",
+"0.01 (ns)",
+"0.19 (**)",
+"-0.79 (***)",
+"-0.99 (***)",
+"-0.91 (***)",
+"-0.35 (***)",
+"1 (***)",
+"-0.78 (***)",
+"-0.18 (*)",
+"-0.1 (ns)",
+"-0.04 (ns)",
+"-0.39 (***)",
+"-0.34 (***)",
+"-0.32 (***)",
+"-0.07 (ns)",
+"-0.24 (**)",
+"-0.2 (**)",
+"0.06 (ns)",
+"0.16 (*)",
+"0.04 (ns)",
+"0.14 (.)",
+"0.12 (ns)",
+"0.54 (***)"
+],
+[
+23,
+"腰圍(T0)",
+"-0.13 (.)",
+"-0.4 (***)",
+"0.04 (ns)",
+"0.2 (*)",
+"0.02 (ns)",
+"0.12 (ns)",
+"0.1 (ns)",
+"0.01 (ns)",
+"0.05 (ns)",
+"0.13 (.)",
+"-0.07 (ns)",
+"-0.13 (.)",
+"0.15 (*)",
+"0.17 (*)",
+"0.09 (ns)",
+"-0.01 (ns)",
+"-0.27 (***)",
+"0.88 (***)",
+"0.82 (***)",
+"0.96 (***)",
+"0.69 (***)",
+"-0.78 (***)",
+"1 (***)",
+"0.67 (***)",
+"0.13 (.)",
+"0.1 (ns)",
+"0.56 (***)",
+"0.52 (***)",
+"0.41 (***)",
+"0.06 (ns)",
+"0.31 (***)",
+"0.27 (***)",
+"0.04 (ns)",
+"-0.11 (ns)",
+"-0.18 (*)",
+"-0.1 (ns)",
+"-0.12 (ns)",
+"-0.43 (**)"
+],
+[
+24,
+"基礎代謝率(T0)",
+"-0.04 (ns)",
+"-0.25 (***)",
+"0.18 (*)",
+"0.03 (ns)",
+"0.05 (ns)",
+"0.3 (***)",
+"0.12 (ns)",
+"0.1 (ns)",
+"0.15 (*)",
+"0.22 (**)",
+"0.05 (ns)",
+"-0.06 (ns)",
+"0.11 (ns)",
+"0.06 (ns)",
+"0.07 (ns)",
+"0 (ns)",
+"-0.18 (*)",
+"0.62 (***)",
+"0.24 (***)",
+"0.51 (***)",
+"0.86 (***)",
+"-0.18 (*)",
+"0.67 (***)",
+"1 (***)",
+"0.16 (*)",
+"0.15 (*)",
+"0.47 (***)",
+"0.46 (***)",
+"0.36 (***)",
+"0.08 (ns)",
+"0.21 (**)",
+"0.16 (*)",
+"0.08 (ns)",
+"-0.03 (ns)",
+"-0.23 (**)",
+"-0.03 (ns)",
+"-0.1 (ns)",
+"-0.22 (ns)"
+],
+[
+25,
+"糖化血色素(T0)",
+"-0.08 (ns)",
+"-0.08 (ns)",
+"-0.06 (ns)",
+"0 (ns)",
+"0.04 (ns)",
+"-0.04 (ns)",
+"0.83 (***)",
+"0.61 (***)",
+"0.05 (ns)",
+"0.26 (***)",
+"0 (ns)",
+"0 (ns)",
+"0.06 (ns)",
+"0.02 (ns)",
+"0.07 (ns)",
+"-0.04 (ns)",
+"0.18 (*)",
+"0.15 (*)",
+"0.09 (ns)",
+"0.04 (ns)",
+"0.17 (*)",
+"-0.1 (ns)",
+"0.13 (.)",
+"0.16 (*)",
+"1 (***)",
+"0.77 (***)",
+"0.29 (***)",
+"0.48 (***)",
+"-0.08 (ns)",
+"0.72 (***)",
+"-0.08 (ns)",
+"-0.36 (***)",
+"0.13 (.)",
+"0.04 (ns)",
+"-0.13 (.)",
+"0.02 (ns)",
+"0.03 (ns)",
+"-0.17 (ns)"
+],
+[
+26,
+"空腹血糖(T0)",
+"-0.03 (ns)",
+"-0.02 (ns)",
+"-0.05 (ns)",
+"0.05 (ns)",
+"0.01 (ns)",
+"-0.04 (ns)",
+"0.65 (***)",
+"0.85 (***)",
+"0.14 (.)",
+"0.42 (***)",
+"-0.04 (ns)",
+"0 (ns)",
+"0.03 (ns)",
+"0.03 (ns)",
+"0.03 (ns)",
+"-0.03 (ns)",
+"0.17 (*)",
+"0.09 (ns)",
+"0.04 (ns)",
+"0 (ns)",
+"0.16 (*)",
+"-0.04 (ns)",
+"0.1 (ns)",
+"0.15 (*)",
+"0.77 (***)",
+"1 (***)",
+"0.22 (**)",
+"0.49 (***)",
+"-0.28 (***)",
+"0.73 (***)",
+"-0.07 (ns)",
+"-0.36 (***)",
+"0.1 (ns)",
+"0.01 (ns)",
+"-0.11 (ns)",
+"0 (ns)",
+"0.06 (ns)",
+"-0.28 (*)"
+],
+[
+27,
+"空腹胰島素(T0)",
+"-0.05 (ns)",
+"-0.27 (***)",
+"0.12 (.)",
+"0.02 (ns)",
+"0.03 (ns)",
+"0.18 (*)",
+"0.25 (***)",
+"0.09 (ns)",
+"0.39 (***)",
+"0.41 (***)",
+"0.09 (ns)",
+"-0.12 (ns)",
+"0.13 (.)",
+"0.11 (ns)",
+"0.12 (ns)",
+"-0.09 (ns)",
+"-0.15 (*)",
+"0.54 (***)",
+"0.42 (***)",
+"0.45 (***)",
+"0.48 (***)",
+"-0.39 (***)",
+"0.56 (***)",
+"0.47 (***)",
+"0.29 (***)",
+"0.22 (**)",
+"1 (***)",
+"0.94 (***)",
+"0.65 (***)",
+"0.3 (***)",
+"0.59 (***)",
+"0.43 (***)",
+"0.28 (***)",
+"-0.07 (ns)",
+"-0.27 (***)",
+"-0.1 (ns)",
+"-0.04 (ns)",
+"-0.26 (.)"
+],
+[
+28,
+"胰島素阻抗值(T0)",
+"-0.04 (ns)",
+"-0.23 (**)",
+"0.1 (ns)",
+"0.05 (ns)",
+"0.02 (ns)",
+"0.15 (*)",
+"0.42 (***)",
+"0.34 (***)",
+"0.36 (***)",
+"0.49 (***)",
+"0.06 (ns)",
+"-0.1 (ns)",
+"0.13 (.)",
+"0.1 (ns)",
+"0.1 (ns)",
+"-0.08 (ns)",
+"-0.08 (ns)",
+"0.5 (***)",
+"0.38 (***)",
+"0.42 (***)",
+"0.47 (***)",
+"-0.34 (***)",
+"0.52 (***)",
+"0.46 (***)",
+"0.48 (***)",
+"0.49 (***)",
+"0.94 (***)",
+"1 (***)",
+"0.44 (***)",
+"0.51 (***)",
+"0.47 (***)",
+"0.23 (**)",
+"0.29 (***)",
+"-0.02 (ns)",
+"-0.26 (***)",
+"-0.06 (ns)",
+"-0.01 (ns)",
+"-0.34 (*)"
+],
+[
+29,
+"β細胞功能(T0)",
+"-0.14 (.)",
+"-0.3 (***)",
+"0.09 (ns)",
+"-0.16 (.)",
+"-0.09 (ns)",
+"0.15 (*)",
+"-0.09 (ns)",
+"-0.28 (***)",
+"0.21 (**)",
+"0.1 (ns)",
+"0.14 (.)",
+"-0.1 (ns)",
+"0.15 (*)",
+"0.03 (ns)",
+"0.14 (.)",
+"-0.03 (ns)",
+"-0.28 (***)",
+"0.45 (***)",
+"0.35 (***)",
+"0.37 (***)",
+"0.38 (***)",
+"-0.32 (***)",
+"0.41 (***)",
+"0.36 (***)",
+"-0.08 (ns)",
+"-0.28 (***)",
+"0.65 (***)",
+"0.44 (***)",
+"1 (***)",
+"-0.13 (.)",
+"0.45 (***)",
+"0.48 (***)",
+"0.07 (ns)",
+"-0.08 (ns)",
+"-0.23 (**)",
+"-0.03 (ns)",
+"-0.11 (ns)",
+"-0.04 (ns)"
+],
+[
+30,
+"tAUCg(T0)",
+"-0.09 (ns)",
+"-0.12 (ns)",
+"-0.03 (ns)",
+"-0.13 (ns)",
+"-0.07 (ns)",
+"-0.03 (ns)",
+"0.64 (***)",
+"0.61 (***)",
+"0.12 (ns)",
+"0.34 (***)",
+"-0.02 (ns)",
+"0.1 (ns)",
+"0.05 (ns)",
+"-0.03 (ns)",
+"0.06 (ns)",
+"-0.01 (ns)",
+"0.31 (***)",
+"0.07 (ns)",
+"0.05 (ns)",
+"-0.04 (ns)",
+"0.11 (ns)",
+"-0.07 (ns)",
+"0.06 (ns)",
+"0.08 (ns)",
+"0.72 (***)",
+"0.73 (***)",
+"0.3 (***)",
+"0.51 (***)",
+"-0.13 (.)",
+"1 (***)",
+"0.04 (ns)",
+"-0.36 (***)",
+"0.27 (***)",
+"0.09 (ns)",
+"-0.13 (.)",
+"0.02 (ns)",
+"0.08 (ns)",
+"-0.38 (**)"
+],
+[
+31,
+"tAUCi(T0)",
+"0.04 (ns)",
+"-0.12 (ns)",
+"0.12 (ns)",
+"0.07 (ns)",
+"0.03 (ns)",
+"0.14 (.)",
+"-0.07 (ns)",
+"-0.09 (ns)",
+"0.31 (***)",
+"0.24 (**)",
+"-0.1 (ns)",
+"-0.12 (ns)",
+"0.09 (ns)",
+"0.18 (*)",
+"0.1 (ns)",
+"-0.14 (.)",
+"-0.1 (ns)",
+"0.29 (***)",
+"0.27 (***)",
+"0.29 (**)",
+"0.25 (***)",
+"-0.24 (**)",
+"0.31 (***)",
+"0.21 (**)",
+"-0.08 (ns)",
+"-0.07 (ns)",
+"0.59 (***)",
+"0.47 (***)",
+"0.45 (***)",
+"0.04 (ns)",
+"1 (***)",
+"0.92 (***)",
+"0.18 (*)",
+"0.05 (ns)",
+"-0.15 (.)",
+"0.01 (ns)",
+"-0.06 (ns)",
+"-0.2 (ns)"
+],
+[
+32,
+"OGIRIndex(T0)",
+"0.07 (ns)",
+"-0.07 (ns)",
+"0.12 (ns)",
+"0.11 (ns)",
+"0.06 (ns)",
+"0.14 (.)",
+"-0.32 (***)",
+"-0.33 (***)",
+"0.25 (***)",
+"0.09 (ns)",
+"-0.08 (ns)",
+"-0.15 (*)",
+"0.06 (ns)",
+"0.18 (*)",
+"0.07 (ns)",
+"-0.12 (ns)",
+"-0.22 (**)",
+"0.24 (**)",
+"0.23 (**)",
+"0.29 (**)",
+"0.19 (*)",
+"-0.2 (**)",
+"0.27 (***)",
+"0.16 (*)",
+"-0.36 (***)",
+"-0.36 (***)",
+"0.43 (***)",
+"0.23 (**)",
+"0.48 (***)",
+"-0.36 (***)",
+"0.92 (***)",
+"1 (***)",
+"0.06 (ns)",
+"0.01 (ns)",
+"-0.08 (ns)",
+"0 (ns)",
+"-0.09 (ns)",
+"-0.01 (ns)"
+],
+[
+33,
+"三酸甘油脂(T0)",
+"0.04 (ns)",
+"0.01 (ns)",
+"0.05 (ns)",
+"0.06 (ns)",
+"0.09 (ns)",
+"0.05 (ns)",
+"0.09 (ns)",
+"0.09 (ns)",
+"0.14 (.)",
+"0.14 (.)",
+"0.09 (ns)",
+"0.46 (***)",
+"0.1 (ns)",
+"-0.19 (*)",
+"-0.04 (ns)",
+"0 (ns)",
+"-0.03 (ns)",
+"-0.02 (ns)",
+"-0.04 (ns)",
+"-0.04 (ns)",
+"0.03 (ns)",
+"0.06 (ns)",
+"0.04 (ns)",
+"0.08 (ns)",
+"0.13 (.)",
+"0.1 (ns)",
+"0.28 (***)",
+"0.29 (***)",
+"0.07 (ns)",
+"0.27 (***)",
+"0.18 (*)",
+"0.06 (ns)",
+"1 (***)",
+"0.32 (***)",
+"-0.41 (***)",
+"-0.01 (ns)",
+"0.03 (ns)",
+"-0.25 (.)"
+],
+[
+34,
+"總膽固醇(T0)",
+"0.07 (ns)",
+"0.12 (ns)",
+"-0.03 (ns)",
+"0.12 (ns)",
+"0.12 (ns)",
+"-0.05 (ns)",
+"0.04 (ns)",
+"0.03 (ns)",
+"-0.05 (ns)",
+"-0.03 (ns)",
+"-0.05 (ns)",
+"0.1 (ns)",
+"0.17 (*)",
+"-0.05 (ns)",
+"0.16 (*)",
+"0.16 (*)",
+"0.11 (ns)",
+"-0.2 (**)",
+"-0.16 (*)",
+"-0.12 (ns)",
+"-0.14 (.)",
+"0.16 (*)",
+"-0.11 (ns)",
+"-0.03 (ns)",
+"0.04 (ns)",
+"0.01 (ns)",
+"-0.07 (ns)",
+"-0.02 (ns)",
+"-0.08 (ns)",
+"0.09 (ns)",
+"0.05 (ns)",
+"0.01 (ns)",
+"0.32 (***)",
+"1 (***)",
+"0.07 (ns)",
+"0.88 (***)",
+"0.06 (ns)",
+"0.08 (ns)"
+],
+[
+35,
+"高密度脂蛋白(T0)",
+"0.03 (ns)",
+"0.08 (ns)",
+"-0.07 (ns)",
+"0.14 (ns)",
+"0.03 (ns)",
+"-0.09 (ns)",
+"-0.14 (.)",
+"-0.03 (ns)",
+"-0.1 (ns)",
+"-0.13 (.)",
+"-0.09 (ns)",
+"-0.21 (**)",
+"-0.12 (ns)",
+"0.36 (***)",
+"-0.09 (ns)",
+"0.02 (ns)",
+"0.12 (.)",
+"-0.19 (**)",
+"-0.06 (ns)",
+"-0.11 (ns)",
+"-0.26 (***)",
+"0.04 (ns)",
+"-0.18 (*)",
+"-0.23 (**)",
+"-0.13 (.)",
+"-0.11 (ns)",
+"-0.27 (***)",
+"-0.26 (***)",
+"-0.23 (**)",
+"-0.13 (.)",
+"-0.15 (.)",
+"-0.08 (ns)",
+"-0.41 (***)",
+"0.07 (ns)",
+"1 (***)",
+"0.01 (ns)",
+"0.09 (ns)",
+"0.16 (ns)"
+],
+[
+36,
+"低密度脂蛋白(T0)",
+"0.04 (ns)",
+"0.1 (ns)",
+"-0.04 (ns)",
+"0.08 (ns)",
+"0.08 (ns)",
+"-0.06 (ns)",
+"0.04 (ns)",
+"0 (ns)",
+"-0.04 (ns)",
+"-0.02 (ns)",
+"-0.03 (ns)",
+"-0.02 (ns)",
+"0.15 (*)",
+"-0.03 (ns)",
+"0.24 (**)",
+"0.15 (*)",
+"0.06 (ns)",
+"-0.16 (*)",
+"-0.14 (.)",
+"-0.09 (ns)",
+"-0.09 (ns)",
+"0.14 (.)",
+"-0.1 (ns)",
+"-0.03 (ns)",
+"0.02 (ns)",
+"0 (ns)",
+"-0.1 (ns)",
+"-0.06 (ns)",
+"-0.03 (ns)",
+"0.02 (ns)",
+"0.01 (ns)",
+"0 (ns)",
+"-0.01 (ns)",
+"0.88 (***)",
+"0.01 (ns)",
+"1 (***)",
+"0 (ns)",
+"0.25 (.)"
+],
+[
+37,
+"解脂脢(T0)",
+"0.01 (ns)",
+"0 (ns)",
+"0.05 (ns)",
+"0 (ns)",
+"-0.05 (ns)",
+"0 (ns)",
+"-0.05 (ns)",
+"0.03 (ns)",
+"0.01 (ns)",
+"0.03 (ns)",
+"-0.14 (.)",
+"-0.01 (ns)",
+"0.01 (ns)",
+"-0.01 (ns)",
+"-0.01 (ns)",
+"0.38 (***)",
+"0.26 (***)",
+"-0.12 (ns)",
+"-0.12 (.)",
+"-0.12 (ns)",
+"-0.12 (ns)",
+"0.12 (ns)",
+"-0.12 (ns)",
+"-0.1 (ns)",
+"0.03 (ns)",
+"0.06 (ns)",
+"-0.04 (ns)",
+"-0.01 (ns)",
+"-0.11 (ns)",
+"0.08 (ns)",
+"-0.06 (ns)",
+"-0.09 (ns)",
+"0.03 (ns)",
+"0.06 (ns)",
+"0.09 (ns)",
+"0 (ns)",
+"1 (***)",
+"-0.07 (ns)"
+],
+[
+38,
+"睪固酮(T0)",
+"0.08 (ns)",
+"0.3 (*)",
+"0.02 (ns)",
+"-0.03 (ns)",
+"0.04 (ns)",
+"-0.01 (ns)",
+"-0.16 (ns)",
+"-0.3 (*)",
+"-0.23 (.)",
+"-0.36 (**)",
+"0.09 (ns)",
+"-0.09 (ns)",
+"-0.06 (ns)",
+"0.07 (ns)",
+"0.04 (ns)",
+"-0.1 (ns)",
+"0.03 (ns)",
+"-0.49 (***)",
+"-0.55 (***)",
+"-0.61 (***)",
+"-0.24 (.)",
+"0.54 (***)",
+"-0.43 (**)",
+"-0.22 (ns)",
+"-0.17 (ns)",
+"-0.28 (*)",
+"-0.26 (.)",
+"-0.34 (*)",
+"-0.04 (ns)",
+"-0.38 (**)",
+"-0.2 (ns)",
+"-0.01 (ns)",
+"-0.25 (.)",
+"0.08 (ns)",
+"0.16 (ns)",
+"0.25 (.)",
+"-0.07 (ns)",
+"1 (***)"
+] 
+];
+data.addColumn('number','#');
+data.addColumn('string','vars');
+data.addColumn('string','∆體重(%)');
+data.addColumn('string','∆體脂重(%)');
+data.addColumn('string','∆骨骼肌重(%)');
+data.addColumn('string','∆內臟脂肪面積');
+data.addColumn('string','∆腰圍');
+data.addColumn('string','∆基礎代謝率');
+data.addColumn('string','∆糖化血色素');
+data.addColumn('string','∆空腹血糖');
+data.addColumn('string','∆空腹胰島素');
+data.addColumn('string','∆胰島素阻抗值');
+data.addColumn('string','∆β細胞功能');
+data.addColumn('string','∆三酸甘油脂');
+data.addColumn('string','∆總膽固醇');
+data.addColumn('string','∆高密度脂蛋白');
+data.addColumn('string','∆低密度脂蛋白');
+data.addColumn('string','∆解脂脢');
+data.addColumn('string','年齡');
+data.addColumn('string','BMI(T0)');
+data.addColumn('string','體脂率(T0)');
+data.addColumn('string','內臟脂肪面積(T0)');
+data.addColumn('string','骨骼肌質量指數(T0)');
+data.addColumn('string','骨骼肌率(T0)');
+data.addColumn('string','腰圍(T0)');
+data.addColumn('string','基礎代謝率(T0)');
+data.addColumn('string','糖化血色素(T0)');
+data.addColumn('string','空腹血糖(T0)');
+data.addColumn('string','空腹胰島素(T0)');
+data.addColumn('string','胰島素阻抗值(T0)');
+data.addColumn('string','β細胞功能(T0)');
+data.addColumn('string','tAUCg(T0)');
+data.addColumn('string','tAUCi(T0)');
+data.addColumn('string','OGIRIndex(T0)');
+data.addColumn('string','三酸甘油脂(T0)');
+data.addColumn('string','總膽固醇(T0)');
+data.addColumn('string','高密度脂蛋白(T0)');
+data.addColumn('string','低密度脂蛋白(T0)');
+data.addColumn('string','解脂脢(T0)');
+data.addColumn('string','睪固酮(T0)');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID4b9de7617ef() {
+var data = gvisDataTableID4b9de7617ef();
+var options = {};
+options["allowHtml"] = true;
+options["frozenColumns"] = 2;
+options["height"] = 300;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID4b9de7617ef')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID4b9de7617ef);
+})();
+function displayChartTableID4b9de7617ef() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID4b9de7617ef"></script>
+<!-- divChart -->
+<div id="TableID4b9de7617ef" style="width: 150%; height: 300;">
+
+</div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-103">Table 1.3: </span>Correlation: Testosterone and Effectiveness
+</caption>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="baseline_testosterone" class="section level3 unnumbered">
+<h3>初始狀態(Baseline)</h3>
+<div id="inbody" class="section level4 unnumbered">
+<h4>Inbody</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-104-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="blood" class="section level4 unnumbered">
+<h4>Blood</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-105-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="endpoint_testosterone" class="section level3 unnumbered">
+<h3>介入後狀態(Endpoint)</h3>
+<div id="inbody-1" class="section level4 unnumbered">
+<h4>Inbody</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-106-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="blood-1" class="section level4 unnumbered">
+<h4>Blood</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-107-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="diet_testosterone" class="section level3 unnumbered">
+<h3>飲食(Diet)</h3>
+<p>在分層分析中顯示，減重表現優異者在飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等均優於減重表現低於預期者，具統計上顯著差異。</p>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-108-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="effectiveness_testosterone" class="section level3 unnumbered">
+<h3>成效(Effectiveness)</h3>
+<div id="成效-inbody" class="section level4 unnumbered">
+<h4>成效(∆)-Inbody</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-109-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-blood" class="section level4 unnumbered">
+<h4>成效(∆)-Blood</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-110-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-inbody-1" class="section level4 unnumbered">
+<h4>成效(%)-Inbody</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-111-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="成效-blood-1" class="section level4 unnumbered">
+<h4>成效(%)-Blood</h4>
+<p><img src="Cofit_Genesis_annual_report_files/figure-html/unnamed-chunk-112-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: 15pt !important;">
+(#tab:input plot rscript_test)<b>Statistics:</b>
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Male
+</div>
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1">
+</th>
+</tr>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Low
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Normal
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+顯著差異
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+人數
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體重(T0)
+</td>
+<td style="text-align:center;">
+96.7 ± 2.88
+</td>
+<td style="text-align:center;">
+87.31 ± 2.03
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI(T0)
+</td>
+<td style="text-align:center;">
+31.6 ± 0.99
+</td>
+<td style="text-align:center;">
+28.93 ± 0.58
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂重(T0)
+</td>
+<td style="text-align:center;">
+33.35 ± 2.14
+</td>
+<td style="text-align:center;">
+24.78 ± 1.25
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂率(T0)
+</td>
+<td style="text-align:center;">
+33.58 ± 1.26
+</td>
+<td style="text-align:center;">
+28.1 ± 0.99
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌質量指數(T0)
+</td>
+<td style="text-align:center;">
+8.84 ± 0.15
+</td>
+<td style="text-align:center;">
+8.77 ± 0.11
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌率(T0)
+</td>
+<td style="text-align:center;">
+37.53 ± 0.71
+</td>
+<td style="text-align:center;">
+40.75 ± 0.57
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+內臟脂肪面積(T0)
+</td>
+<td style="text-align:center;">
+135.27 ± 8.86
+</td>
+<td style="text-align:center;">
+96.6 ± 4.86
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+腰圍(T0)
+</td>
+<td style="text-align:center;">
+108.19 ± 2.55
+</td>
+<td style="text-align:center;">
+100.4 ± 3.49
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+除脂體重(T0)
+</td>
+<td style="text-align:center;">
+63.35 ± 1.26
+</td>
+<td style="text-align:center;">
+62.54 ± 1.18
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+基礎代謝率(T0)
+</td>
+<td style="text-align:center;">
+1738.38 ± 27.3
+</td>
+<td style="text-align:center;">
+1720.81 ± 25.55
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+糖化血色素(T0)
+</td>
+<td style="text-align:center;">
+5.95 ± 0.17
+</td>
+<td style="text-align:center;">
+5.63 ± 0.07
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹血糖(T0)
+</td>
+<td style="text-align:center;">
+98.41 ± 4.69
+</td>
+<td style="text-align:center;">
+87.95 ± 1.81
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹胰島素(T0)
+</td>
+<td style="text-align:center;">
+17.43 ± 1.54
+</td>
+<td style="text-align:center;">
+16.39 ± 2.42
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+胰島素阻抗值(T0)
+</td>
+<td style="text-align:center;">
+4.4 ± 0.55
+</td>
+<td style="text-align:center;">
+3.59 ± 0.53
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+β細胞功能(T0)
+</td>
+<td style="text-align:center;">
+215.21 ± 19.33
+</td>
+<td style="text-align:center;">
+261.52 ± 40.54
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+三酸甘油脂(T0)
+</td>
+<td style="text-align:center;">
+191.15 ± 18.34
+</td>
+<td style="text-align:center;">
+145.38 ± 17.04
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總膽固醇(T0)
+</td>
+<td style="text-align:center;">
+198.53 ± 5.75
+</td>
+<td style="text-align:center;">
+201.19 ± 9.29
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+高密度脂蛋白(T0)
+</td>
+<td style="text-align:center;">
+44.11 ± 1.84
+</td>
+<td style="text-align:center;">
+43.3 ± 2.02
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+低密度脂蛋白(T0)
+</td>
+<td style="text-align:center;">
+125.03 ± 4.97
+</td>
+<td style="text-align:center;">
+139.43 ± 8.09
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+解脂脢(T0)
+</td>
+<td style="text-align:center;">
+26.65 ± 2.8
+</td>
+<td style="text-align:center;">
+23.2 ± 2.73
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體重(T1)
+</td>
+<td style="text-align:center;">
+90.21 ± 2.78
+</td>
+<td style="text-align:center;">
+80.88 ± 2.1
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI(T1)
+</td>
+<td style="text-align:center;">
+29.51 ± 0.98
+</td>
+<td style="text-align:center;">
+26.8 ± 0.61
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂重(T1)
+</td>
+<td style="text-align:center;">
+28.9 ± 2.09
+</td>
+<td style="text-align:center;">
+20.11 ± 1.26
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+體脂率(T1)
+</td>
+<td style="text-align:center;">
+30.99 ± 1.35
+</td>
+<td style="text-align:center;">
+24.5 ± 1.06
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌質量指數(T1)
+</td>
+<td style="text-align:center;">
+8.57 ± 0.14
+</td>
+<td style="text-align:center;">
+8.52 ± 0.12
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+骨骼肌率(T1)
+</td>
+<td style="text-align:center;">
+38.9 ± 0.76
+</td>
+<td style="text-align:center;">
+42.64 ± 0.59
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+內臟脂肪面積(T1)
+</td>
+<td style="text-align:center;">
+109.65 ± 7.63
+</td>
+<td style="text-align:center;">
+78.93 ± 4.85
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+腰圍(T1)
+</td>
+<td style="text-align:center;">
+101.54 ± 2.59
+</td>
+<td style="text-align:center;">
+93 ± 3.79
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+除脂體重(T1)
+</td>
+<td style="text-align:center;">
+61.31 ± 1.17
+</td>
+<td style="text-align:center;">
+60.76 ± 1.19
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+基礎代謝率(T1)
+</td>
+<td style="text-align:center;">
+1694.32 ± 25.22
+</td>
+<td style="text-align:center;">
+1682.38 ± 25.64
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+糖化血色素(T1)
+</td>
+<td style="text-align:center;">
+5.43 ± 0.09
+</td>
+<td style="text-align:center;">
+5.33 ± 0.07
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹血糖(T1)
+</td>
+<td style="text-align:center;">
+77.56 ± 1.79
+</td>
+<td style="text-align:center;">
+77.38 ± 1.94
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+空腹胰島素(T1)
+</td>
+<td style="text-align:center;">
+10.23 ± 1.05
+</td>
+<td style="text-align:center;">
+11.3 ± 2.16
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+胰島素阻抗值(T1)
+</td>
+<td style="text-align:center;">
+2 ± 0.22
+</td>
+<td style="text-align:center;">
+2.27 ± 0.47
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+β細胞功能(T1)
+</td>
+<td style="text-align:center;">
+259.72 ± 47.23
+</td>
+<td style="text-align:center;">
+225.35 ± 62.12
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+三酸甘油脂(T1)
+</td>
+<td style="text-align:center;">
+151.59 ± 13.16
+</td>
+<td style="text-align:center;">
+112.38 ± 12.84
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總膽固醇(T1)
+</td>
+<td style="text-align:center;">
+198.68 ± 8.21
+</td>
+<td style="text-align:center;">
+208.52 ± 13.51
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+高密度脂蛋白(T1)
+</td>
+<td style="text-align:center;">
+41.77 ± 1.83
+</td>
+<td style="text-align:center;">
+40.74 ± 2.36
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+低密度脂蛋白(T1)
+</td>
+<td style="text-align:center;">
+129.88 ± 7.37
+</td>
+<td style="text-align:center;">
+144.33 ± 10.7
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+解脂脢(T1)
+</td>
+<td style="text-align:center;">
+41.38 ± 6.15
+</td>
+<td style="text-align:center;">
+40.76 ± 6.74
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+年齡
+</td>
+<td style="text-align:center;">
+41 ± 2.1
+</td>
+<td style="text-align:center;">
+37.62 ± 2.27
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+飲食紀錄完成率(%)
+</td>
+<td style="text-align:center;">
+59.7 ± 5.62
+</td>
+<td style="text-align:center;">
+60.76 ± 7.7
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+紀錄數量
+</td>
+<td style="text-align:center;">
+143.62 ± 26.15
+</td>
+<td style="text-align:center;">
+216.71 ± 45.56
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+上傳照片張數
+</td>
+<td style="text-align:center;">
+137.76 ± 26.04
+</td>
+<td style="text-align:center;">
+123.24 ± 20.48
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+碳水攝取率(E%)
+</td>
+<td style="text-align:center;">
+17.55 ± 1.06
+</td>
+<td style="text-align:center;">
+18.06 ± 1.78
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蛋白攝取率(E%)
+</td>
+<td style="text-align:center;">
+27.91 ± 0.46
+</td>
+<td style="text-align:center;">
+28.28 ± 0.67
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+脂肪攝取率(E%)
+</td>
+<td style="text-align:center;">
+54.54 ± 0.82
+</td>
+<td style="text-align:center;">
+53.66 ± 1.27
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+總攝取熱量(日)
+</td>
+<td style="text-align:center;">
+1126.65 ± 37.75
+</td>
+<td style="text-align:center;">
+1076.79 ± 49.51
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+綠燈率
+</td>
+<td style="text-align:center;">
+83.92 ± 2.39
+</td>
+<td style="text-align:center;">
+77.09 ± 4.41
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+黃燈率
+</td>
+<td style="text-align:center;">
+12.57 ± 1.56
+</td>
+<td style="text-align:center;">
+22.03 ± 4.48
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+紅燈率
+</td>
+<td style="text-align:center;">
+3.51 ± 1.39
+</td>
+<td style="text-align:center;">
+0.88 ± 0.43
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+水果(日)
+</td>
+<td style="text-align:center;">
+0.08 ± 0.03
+</td>
+<td style="text-align:center;">
+0.07 ± 0.03
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蔬菜(日)
+</td>
+<td style="text-align:center;">
+3.49 ± 0.21
+</td>
+<td style="text-align:center;">
+3.39 ± 0.23
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+全穀雜糧(日)
+</td>
+<td style="text-align:center;">
+2.06 ± 0.23
+</td>
+<td style="text-align:center;">
+1.93 ± 0.33
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+蛋豆魚肉(日)
+</td>
+<td style="text-align:center;">
+10.09 ± 0.39
+</td>
+<td style="text-align:center;">
+9.82 ± 0.6
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+乳品(日)
+</td>
+<td style="text-align:center;">
+0.04 ± 0.01
+</td>
+<td style="text-align:center;">
+0.06 ± 0.02
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+油脂(日)
+</td>
+<td style="text-align:center;">
+4.1 ± 0.22
+</td>
+<td style="text-align:center;">
+3.72 ± 0.2
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體重
+</td>
+<td style="text-align:center;">
+6.49 ± 0.55
+</td>
+<td style="text-align:center;">
+6.44 ± 0.55
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆BMI
+</td>
+<td style="text-align:center;">
+2.1 ± 0.17
+</td>
+<td style="text-align:center;">
+2.13 ± 0.18
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂重
+</td>
+<td style="text-align:center;">
+4.44 ± 0.32
+</td>
+<td style="text-align:center;">
+4.66 ± 0.5
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂率
+</td>
+<td style="text-align:center;">
+2.59 ± 0.25
+</td>
+<td style="text-align:center;">
+3.6 ± 0.47
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌質量指數
+</td>
+<td style="text-align:center;">
+-0.28 ± 0.05
+</td>
+<td style="text-align:center;">
+-0.25 ± 0.04
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌重
+</td>
+<td style="text-align:center;">
+-1.24 ± 0.23
+</td>
+<td style="text-align:center;">
+-1.12 ± 0.2
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆內臟脂肪面積
+</td>
+<td style="text-align:center;">
+20.39 ± 1.61
+</td>
+<td style="text-align:center;">
+23.32 ± 2.24
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆腰圍
+</td>
+<td style="text-align:center;">
+6.65 ± 0.6
+</td>
+<td style="text-align:center;">
+7.4 ± 0.7
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆除脂體重
+</td>
+<td style="text-align:center;">
+2.04 ± 0.38
+</td>
+<td style="text-align:center;">
+1.78 ± 0.33
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆基礎代謝率
+</td>
+<td style="text-align:center;">
+-44.06 ± 8.18
+</td>
+<td style="text-align:center;">
+-38.43 ± 6.94
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆糖化血色素
+</td>
+<td style="text-align:center;">
+0.52 ± 0.12
+</td>
+<td style="text-align:center;">
+0.3 ± 0.05
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹血糖
+</td>
+<td style="text-align:center;">
+20.85 ± 4.12
+</td>
+<td style="text-align:center;">
+10.57 ± 2.79
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹胰島素
+</td>
+<td style="text-align:center;">
+6.75 ± 1.56
+</td>
+<td style="text-align:center;">
+5.09 ± 1.87
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆胰島素阻抗值
+</td>
+<td style="text-align:center;">
+2.39 ± 0.55
+</td>
+<td style="text-align:center;">
+1.31 ± 0.42
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆β細胞功能
+</td>
+<td style="text-align:center;">
+44.51 ± 45.61
+</td>
+<td style="text-align:center;">
+-36.17 ± 60.14
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆三酸甘油脂
+</td>
+<td style="text-align:center;">
+39.56 ± 14.14
+</td>
+<td style="text-align:center;">
+33 ± 14.52
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆總膽固醇
+</td>
+<td style="text-align:center;">
+-0.15 ± 7.21
+</td>
+<td style="text-align:center;">
+-7.33 ± 11.51
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆高密度脂蛋白
+</td>
+<td style="text-align:center;">
+-2.34 ± 1.44
+</td>
+<td style="text-align:center;">
+-2.57 ± 1.79
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆低密度脂蛋白
+</td>
+<td style="text-align:center;">
+-4.85 ± 6.54
+</td>
+<td style="text-align:center;">
+-4.9 ± 9.24
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆解脂脢
+</td>
+<td style="text-align:center;">
+14.74 ± 5
+</td>
+<td style="text-align:center;">
+16.15 ± 5.71
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體重(%)
+</td>
+<td style="text-align:center;">
+6.7 ± 0.58
+</td>
+<td style="text-align:center;">
+7.44 ± 0.65
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆BMI(%)
+</td>
+<td style="text-align:center;">
+6.71 ± 0.58
+</td>
+<td style="text-align:center;">
+7.41 ± 0.65
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂重(%)
+</td>
+<td style="text-align:center;">
+14.45 ± 1.14
+</td>
+<td style="text-align:center;">
+19.46 ± 2
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆體脂率(%)
+</td>
+<td style="text-align:center;">
+8.36 ± 0.9
+</td>
+<td style="text-align:center;">
+13.12 ± 1.73
+</td>
+<td style="text-align:center;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌質量指數(%)
+</td>
+<td style="text-align:center;">
+-3.06 ± 0.52
+</td>
+<td style="text-align:center;">
+-2.89 ± 0.48
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆骨骼肌重(%)
+</td>
+<td style="text-align:center;">
+-3.34 ± 0.64
+</td>
+<td style="text-align:center;">
+-3.14 ± 0.58
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆內臟脂肪面積(%)
+</td>
+<td style="text-align:center;">
+15.74 ± 1
+</td>
+<td style="text-align:center;">
+24.44 ± 2
+</td>
+<td style="text-align:center;">
+**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆腰圍(%)
+</td>
+<td style="text-align:center;">
+6.22 ± 0.55
+</td>
+<td style="text-align:center;">
+7.59 ± 0.72
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆除脂體重(%)
+</td>
+<td style="text-align:center;">
+3.1 ± 0.59
+</td>
+<td style="text-align:center;">
+2.83 ± 0.53
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆基礎代謝率(%)
+</td>
+<td style="text-align:center;">
+-2.45 ± 0.47
+</td>
+<td style="text-align:center;">
+-2.23 ± 0.41
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆糖化血色素(%)
+</td>
+<td style="text-align:center;">
+7.66 ± 1.36
+</td>
+<td style="text-align:center;">
+5.34 ± 0.96
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹血糖(%)
+</td>
+<td style="text-align:center;">
+18.57 ± 2.25
+</td>
+<td style="text-align:center;">
+11.11 ± 3.17
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆空腹胰島素(%)
+</td>
+<td style="text-align:center;">
+30.2 ± 7.17
+</td>
+<td style="text-align:center;">
+29.42 ± 8.16
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆胰島素阻抗值(%)
+</td>
+<td style="text-align:center;">
+42.61 ± 6.23
+</td>
+<td style="text-align:center;">
+34.1 ± 9.31
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆β細胞功能(%)
+</td>
+<td style="text-align:center;">
+46.01 ± 21.26
+</td>
+<td style="text-align:center;">
+-0.39 ± 28.65
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆三酸甘油脂(%)
+</td>
+<td style="text-align:center;">
+12.92 ± 5.31
+</td>
+<td style="text-align:center;">
+12.15 ± 9.43
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆總膽固醇(%)
+</td>
+<td style="text-align:center;">
+-0.94 ± 3.71
+</td>
+<td style="text-align:center;">
+-4.33 ± 5.5
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆高密度脂蛋白(%)
+</td>
+<td style="text-align:center;">
+-4.21 ± 3.22
+</td>
+<td style="text-align:center;">
+-5.13 ± 3.72
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆低密度脂蛋白(%)
+</td>
+<td style="text-align:center;">
+-5.38 ± 5.77
+</td>
+<td style="text-align:center;">
+-5.11 ± 6.59
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+∆解脂脢(%)
+</td>
+<td style="text-align:center;">
+68.65 ± 18.18
+</td>
+<td style="text-align:center;">
+82.32 ± 33.34
+</td>
+<td style="text-align:center;">
+ns
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;font-weight: bold;text-decoration: underline;">Significance:</span> <sup></sup> <br> Comparison: Testosterone in male population.
+</td>
+</tr>
+</tfoot>
+</table>
+</div></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="1.6-strat_1_ob_filtered.html"><button class="btn btn-default">Previous</button></a>
+<a href="1.8-strat_2_sua.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

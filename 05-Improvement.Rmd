@@ -1,0 +1,146 @@
+# 亞健康改善成效(2,4,6mo)
+
+## [^05-improvement-1]定義 Definition {#imp_def}
+
+[^05-improvement-1]: 參考資料:
+
+    1.  衛福部國健署成人肥胖防治實證指引
+    2.  國民健康署: 高血脂防治手冊
+    3.  [@wen2008]
+    4.  Wang, T.D., et al. 2022 Guidelines of the Taiwan Society of Cardiology and the Taiwan Hypertension Society for the Management of Hypertension. Acta Cardiol Sin. (2022). [PMID: 35673334]
+
+**一、肥胖標準(Obesity):**
+
+![](https://raw.githubusercontent.com/cofit-msl/genesisclinic/main/image/ob_def_bmi.png){width="400"}
+
+**二、代謝症候群標準(Metabolic Syndrome):**
+
+1.  腹部肥胖(Central Obesity): 男性腰圍 ≧ 90cm、女性腰圍 ≧ 80cm。
+2.  血壓(Pressure, AC): 收縮壓 ≧ 130mmHg 或 舒張壓 ≧ 85mmHg。
+3.  空腹血糖(Glucose)： 檢驗值 ≧ 100 mg/dL。
+4.  空腹三酸甘油酯(TG)： 檢驗值 ≧ 150 mg/dL。
+5.  高密度脂蛋白膽固醇(HDL)： 男性 \< 40mg/dL、女性 \< 50mg/dL。
+
+以上[**5項**]{.underline}，符合[**3項**]{.underline}(含)以上即可判定為代謝症候群。
+
+**三、糖尿病/糖尿病前期(Diabetes)**
+
+糖尿病前期(Pre-diabetes)
+
+1.  空腹血糖(Glucose, AC)： 100-125 mg/dL
+2.  餐後2hr血糖(Glucose, 2hrs PC)： 140-199 mg/dL
+3.  糖化血色素(HbA1C)：5.7 - 6.4
+
+糖尿病(Diabetes)
+
+1.  空腹血糖(Glucose, AC)： ≥126 mg/dL
+2.  餐後2hr血糖(Glucose, 2hrs PC)： ≥200 mg/dL
+3.  糖化血色素(HbA1C)：≥6.5
+
+**四、Glucose-Insulin Response Pattern/Curve (GIRC)**
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+**五、高血壓(Hypertension)**
+
+1.  正常： 收縮壓(sbp) \< 120 mmHg [**和**]{.underline} 舒張壓(dbp) \< 80 mmHg
+2.  血壓偏高(Elevated): 收縮壓(sbp) 120-129 mmHg [**和**]{.underline} 舒張壓(dbp) \< 80 mmHg
+3.  高血壓第1期(Grade 1)： 收縮壓(sbp) 130-139 mmHg [**或者**]{.underline} 舒張壓(dbp) 80-89 mmHg
+4.  高血壓第2期(Grade 2)： 收縮壓(sbp) ≥140 mmHg [**或者**]{.underline} 舒張壓(dbp) ≥90 mmHg
+
+**六、高血脂(Hyperlipidemia)**
+
+1.  空腹三酸甘油酯(TG)： 檢驗值 ≧ 150 mg/dL。
+2.  總膽固醇(TC)： 檢驗值 ≧ 200 mg/dL。
+    1.  高密度脂蛋白膽固醇(HDL)： 男性 \< 40mg/dL、女性 \< 50mg/dL。
+    2.  低密度脂蛋白膽固醇(LDL)： 檢驗值 ≥ 130mg/dL。
+
+以上[**2項**]{.underline}，符合[**第1或第2項**]{.underline}即判定為**高血脂**。
+
+## Program: Weight Loss {#imp_ob}
+
+### Obesity
+
+```{r}
+imp_ob_obeisty %>% plot()
+
+```
+
+### Metabolic Syndrome
+
+```{r}
+imp_ob_mets %>% plot()
+
+```
+
+### Pre-Diabetes
+
+```{r}
+imp_ob_dm %>% plot()
+
+```
+
+### Insulin Response Pattern
+
+```{r}
+imp_ob_ir %>% plot()
+
+```
+
+### Hypertension
+
+```{r}
+imp_ob_htn %>% plot()
+
+```
+
+### Hyperlipidemia
+
+```{r}
+imp_ob_hlp %>% plot()
+
+```
+
+## Program: Diabetes Control {#imp_dm}
+
+### Obesity
+
+```{r}
+imp_dm_obeisty %>% plot()
+
+```
+
+### Metabolic Syndrome
+
+```{r}
+imp_dm_mets %>% plot()
+
+```
+
+### Pre-Diabetes
+
+```{r}
+imp_dm_dm %>% plot()
+
+```
+
+### Insulin Response Pattern
+
+```{r}
+imp_dm_ir %>% plot()
+
+```
+
+### Hypertension
+
+```{r}
+imp_dm_htn %>% plot()
+
+```
+
+### Hyperlipidemia
+
+```{r}
+imp_dm_hlp %>% plot()
+
+```

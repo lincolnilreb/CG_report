@@ -1,0 +1,365 @@
+## 分層分析-1: 減重成效 {#strat_1_ob}
+
+**依據減重成效進行分層分析，分成三個組別：**
+
+-   **成效「優異」: (減重\>10%)**
+-   **「良好」: (減重介於 5 \~ 10%)**
+-   **「低於預期」: (減重\< 3%)**
+
+```{r  paged.print=TRUE}
+table_01
+```
+
+### 初始狀態(Baseline) {#baseline_ob .unnumbered}
+
+[在目前的初日診所減重客群中]{.underline}，我們的控糖減重策略成效跟「介入前狀態」 (包括年齡、性別、BMI、體脂率、糖化血色素、空腹血糖、胰島素值等) 無顯著相關。
+
+#### Inbody {#baseline_ob_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(1,100)))
+```
+
+#### 相位角 {#baseline_ob_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#baseline_ob_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#baseline_ob_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#baseline_ob_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#baseline_ob_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#baseline_ob_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#baseline_ob_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#baseline_ob_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#baseline_ob_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t0_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_ob .unnumbered}
+
+#### Inbody {#endpoint_ob_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(1,100)))
+```
+
+#### 相位角 {#endpoint_ob_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#endpoint_ob_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#endpoint_ob_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#endpoint_ob_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#endpoint_ob_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#endpoint_ob_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#endpoint_ob_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#endpoint_ob_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#endpoint_ob_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "t1_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 飲食(Diet) {#diet_ob .unnumbered}
+
+在分層分析中顯示，減重表現優異者在飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等均優於減重表現低於預期者，具統計上顯著差異。
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "diet") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "diet")],
+          ncol = 2,
+          labels = paste0(LETTERS[5], seq(1,100)))
+```
+
+### ∆成效(Effectiveness) {#delta_ob .unnumbered}
+
+#### Inbody {#delta_ob_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(1,100)))
+```
+
+#### 相位角 {#delta_ob_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_ob_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_ob_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_ob_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_ob_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_ob_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_ob_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_ob_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_ob_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### ∆成效(%)(Effectiveness) {#delta_p_ob .unnumbered}
+
+#### Inbody {#delta_p_ob_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(1,100)))
+```
+
+#### 相位角 {#delta_p_ob_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_p_ob_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_p_ob_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_p_ob_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_p_ob_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_p_ob_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_p_ob_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_p_ob_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_p_ob_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots[which(myplot_table_global[["block"]] == "delta_p_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### Summary {#Summary_ob .unnumbered}
+
+在我們的客群中：
+
+1.  **成效**：在體重(脂)、內臟脂肪、腰圍、糖化血色素、空腹血糖(胰島素)、胰島阻抗值等，均呈現具有[**顯著改善**]{.underline}趨勢。
+
+2.  控糖減重策略的「成效」跟[**「介入前狀態」(Baseline)無關**]{.underline}。
+
+3.  減重「成效」與[**「飲食紀律」(Obedience)有關**]{.underline}(例如：飲食紀錄完成率、上傳照片數、綠燈率等)，且具有統計上顯著差異。
+
+```{r, results='asis',  paged.print=TRUE}
+table_02
+```

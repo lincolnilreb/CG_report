@@ -1,0 +1,826 @@
+## 分層分析-2: 男性:睪固酮(Testosterone) {#strat_1_testosterone}
+
+**依據睪固酮(Testosterone)初始狀態進行分層分析，分成二個組別：**
+
+-   **睪固酮低下: (**小於 \<350 ng/dl)
+-   **睪固酮正常: (**大於 \>350 ng/dl)
+
+**男性睪固酮分組&年齡分佈**
+
+```{r fig.align='left'}
+googleVis::gvisMerge(pie_testosterone_01, pie_testosterone_02, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+```
+
+### 相關分析(Correlation Analysis) {#cor_test_testosterone .unnumbered}
+
+**睪固酮(Testosterone) x 初始狀態(Baseline)**
+
+男性荷爾蒙「睪固酮」血中濃度與「體重」、「體脂」，以及「空腹血糖」、「空腹胰島素」和「胰島素抗性」(IR)具有顯著負相關。換句話說，相較於「睪固酮」濃度正常的人，[「睪固酮」低下]{.underline}者傾向有[較高的「體重」、「體脂」]{.underline}，[「空腹血糖」、「空腹胰島素」和「胰島素抗性」(IR)也較高]{.underline}。\
+
+```{r, results='asis', fig.width = 9, fig.height= 9.5, warning=FALSE}
+  corrplot::corrplot(M_testosterone,
+           p.mat = M_testosterone_test$p,
+           type = "lower",
+           insig = "label_sig",
+           sig.level = c(.001, .01, .05), pch.cex = .8, pch.col = "black",
+           tl.col = "black", tl.srt = 35, tl.cex = 1.0,
+           cl.ratio = 0.1,
+           col = M_col(200),
+           title = "[Correlation] Efficacy x Baseline",
+           #c(bottom, left, top, right)
+           mar = c(0,0,1,0))
+
+```
+
+```{r, results='asis', warning=FALSE}
+knitr::kable(
+  cor_table_testosterone %>% plot(), caption = 'Correlation: Testosterone and Effectiveness',
+  booktabs = TRUE
+) 
+```
+
+### 初始狀態(Baseline) {#baseline_testosterone .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[1:10], ncol = 5, labels = paste0(LETTERS[1], seq(1,50)))
+
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[11:20], ncol = 5, labels = paste0(LETTERS[2], seq(1,50)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_testosterone .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[21:30], ncol = 5, labels = paste0(LETTERS[3], seq(1,50)))
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[31:40], ncol = 5, labels = paste0(LETTERS[4], seq(1,50)))
+```
+
+### 飲食(Diet) {#diet_testosterone .unnumbered}
+
+在分層分析中顯示，減重表現優異者在飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等均優於減重表現低於預期者，具統計上顯著差異。
+
+```{r, results='asis', fig.width= 12, fig.height=16}
+plot_grid(plotlist = myplots_plot_testosterone[41:57], ncol = 5, labels = paste0(LETTERS[5], seq(1,50)))
+```
+
+### 成效(Effectiveness) {#effectiveness_testosterone .unnumbered}
+
+#### 成效(∆)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[58:67], ncol = 5, labels = paste0(LETTERS[6], seq(1,50)))
+```
+
+#### 成效(∆)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[68:77], ncol = 5, labels = paste0(LETTERS[7], seq(1,50)))
+```
+
+#### 成效(%)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[78:87], ncol = 5, labels = paste0(LETTERS[8], seq(1,50)))
+```
+
+#### 成效(%)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 12, fig.height=8}
+plot_grid(plotlist = myplots_plot_testosterone[88:97], ncol = 5, labels = paste0(LETTERS[9], seq(1,50)))
+```
+
+```{r, results='asis', paged.print=TRUE}
+table_02_testosterone
+```
+
+## 分層分析-3: 尿酸(Serum Uric Acid) {#strat_2_sua}
+
+### 相關分析(Correlation Analysis) {#cor_sua}
+
+```{r, results='asis',  paged.print=TRUE}
+plot_SUA_01
+plot_SUA_02
+```
+
+```{r, results='asis', fig.width = 12, fig.height= 8.5, warning=FALSE}
+corrplot::corrplot(M1_sua,
+         p.mat = M_test1_sua$p,
+         type = "lower",
+         insig = "label_sig",
+         sig.level = c(.001, .01, .05), pch.cex = .8, pch.col = "black",
+         tl.col = "black", tl.srt = 35, tl.cex = 1.0,
+         cl.ratio = 0.1,
+         col = M_col_sua(200),
+         title = "[Correlation] Uric acid x Diet",
+         #c(bottom, left, top, right)
+         mar = c(0,0,1,0))
+```
+
+```{r, results='asis', warning=FALSE}
+knitr::kable(
+  cor_table_01_sua %>% plot(), caption = 'Correlation: Diet and Effectiveness',
+  booktabs = TRUE
+)
+
+```
+
+```{r, results='asis', fig.width = 12, fig.height= 8.5, warning=FALSE}
+corrplot::corrplot(M2_sua,
+         p.mat = M_test2_sua$p,
+         type = "lower",
+         insig = "label_sig",
+         sig.level = c(.001, .01, .05), pch.cex = .8, pch.col = "black",
+         tl.col = "black", tl.srt = 35, tl.cex = 1.0,
+         cl.ratio = 0.1,
+         col = M_col_sua(200),
+         title = "[Correlation] Efficacy x Baseline",
+         #c(bottom, left, top, right)
+         mar = c(0,0,1,0))
+
+```
+
+```{r, results='asis', warning=FALSE}
+knitr::kable(
+  cor_table_02_sua %>% plot(), caption = 'Correlation: Diet and Effectiveness',
+  booktabs = TRUE
+)
+
+```
+
+### Cutoff-1 (♂7.6/♀6.6) {#cutoff_sua_2}
+
+```{r, results='asis', paged.print=TRUE}
+table_freq_sua_ob
+```
+
+### 初始狀態(Baseline) {#baseline_sua .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[1:10], ncol = 2, labels = paste0(LETTERS[1], seq(1,50)))
+
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=22}
+plot_grid(plotlist = myplots_sua[11:22], ncol = 2, labels = paste0(LETTERS[2], seq(1,50)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_sua .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[23:32], ncol = 2, labels = paste0(LETTERS[3], seq(1,50)))
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[33:44], ncol = 2, labels = paste0(LETTERS[4], seq(1,50)))
+```
+
+### 飲食(Diet) {#diet_sua .unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=44}
+plot_grid(plotlist = myplots_sua[45:61], ncol = 2, labels = paste0(LETTERS[5], seq(1,50)))
+```
+
+### 成效(Effectiveness) {#effectiveness_sua .unnumbered}
+
+#### 成效(∆)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[62:71], ncol = 2, labels = paste0(LETTERS[6], seq(1,50)))
+```
+
+#### 成效(∆)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[72:83], ncol = 2, labels = paste0(LETTERS[7], seq(1,50)))
+```
+
+#### 成效(%)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[84:93], ncol = 2, labels = paste0(LETTERS[8], seq(1,50)))
+```
+
+#### 成效(%)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua[94:105], ncol = 2, labels = paste0(LETTERS[9], seq(1,50)))
+```
+
+```{r, results='asis', paged.print=TRUE}
+table_02_sua
+```
+
+### Cutoff-2 (5.5) {#cutoff_sua_0}
+
+```{r, results='asis', paged.print=TRUE}
+table_freq_sua0_ob
+```
+
+### 初始狀態(Baseline) {#baseline_sua0 .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[1:10], ncol = 2, labels = paste0(LETTERS[1], seq(1,50)))
+
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=22}
+plot_grid(plotlist = myplots_sua0[11:22], ncol = 2, labels = paste0(LETTERS[2], seq(1,50)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_sua0 .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[23:32], ncol = 2, labels = paste0(LETTERS[3], seq(1,50)))
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[33:44], ncol = 2, labels = paste0(LETTERS[4], seq(1,50)))
+```
+
+### 飲食(Diet) {#diet_sua0 .unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=44}
+plot_grid(plotlist = myplots_sua0[45:61], ncol = 2, labels = paste0(LETTERS[5], seq(1,50)))
+```
+
+### 成效(Effectiveness) {#effectiveness_sua0 .unnumbered}
+
+#### 成效(∆)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[62:71], ncol = 2, labels = paste0(LETTERS[6], seq(1,50)))
+```
+
+#### 成效(∆)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[72:83], ncol = 2, labels = paste0(LETTERS[7], seq(1,50)))
+```
+
+#### 成效(%)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[84:93], ncol = 2, labels = paste0(LETTERS[8], seq(1,50)))
+```
+
+#### 成效(%)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_sua0[94:105], ncol = 2, labels = paste0(LETTERS[9], seq(1,50)))
+```
+
+```{r, results='asis', paged.print=TRUE}
+table_02_sua0
+```
+
+## 分層分析-4: Metabolically Healthy Obesity(MHO) {#strat_4_MHO}
+
+Criteria:
+
+1.  Obesity: BMI ≥30 kg/m^2^
+
+2.  Fasted serum triglycerides: ≤150 mg/dl
+
+3.  HDL cholesterol serum concentrations:
+
+    1.  \>40 mg/dl (in men)
+
+    2.  \>50 mg/dl (in women)
+
+4.  Blood Pressure:
+
+    1.  Systolic blood pressure (SBP) ≤130 mmHg
+
+    2.  Diastolic blood pressure ≤85 mmHg
+
+5.  Fasting blood glucose ≤100 mg/dl
+
+    [Reference: Blüher M. Metabolically Healthy Obesity. Endocr Rev. 2020 May 1;41(3):bnaa004. doi: 10.1210/endrev/bnaa004. PMID: 32128581; PMCID: PMC7098708.]{.smallcaps}
+    
+
+```{r  paged.print=TRUE}
+table_MHO_01
+```
+
+### 初始狀態(Baseline) {#baseline_MHO .unnumbered}
+
+#### Inbody {#baseline_MHO_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(1,100)))
+```
+
+#### 相位角 {#baseline_MHO_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#baseline_MHO_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#baseline_MHO_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#baseline_MHO_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[1], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#baseline_MHO_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#baseline_MHO_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#baseline_MHO_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#baseline_MHO_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#baseline_MHO_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t0_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t0_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[2], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_MHO .unnumbered}
+
+#### Inbody {#endpoint_MHO_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(1,100)))
+```
+
+#### 相位角 {#endpoint_MHO_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#endpoint_MHO_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#endpoint_MHO_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#endpoint_MHO_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[3], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#endpoint_MHO_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#endpoint_MHO_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#endpoint_MHO_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#endpoint_MHO_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#endpoint_MHO_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "t1_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "t1_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[4], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### 飲食(Diet) {#diet_MHO .unnumbered}
+
+在分層分析中顯示，減重表現優異者在飲食紀錄完成度、綠燈率、三大營養素攝取比例、六大類食物攝取量等均優於減重表現低於預期者，具統計上顯著差異。
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "diet") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "diet")],
+          ncol = 2,
+          labels = paste0(LETTERS[5], seq(1,100)))
+```
+
+### ∆成效(Effectiveness) {#delta_MHO .unnumbered}
+
+#### Inbody {#delta_MHO_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(1,100)))
+```
+
+#### 相位角 {#delta_MHO_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_MHO_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_MHO_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_MHO_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[6], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_MHO_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_MHO_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_MHO_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_MHO_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_MHO_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[7], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### ∆成效(%)(Effectiveness) {#delta_p_MHO .unnumbered}
+
+#### Inbody {#delta_p_MHO_inbody .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_1") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_1")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(1,100)))
+```
+
+#### 相位角 {#delta_p_MHO_wepa .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_2") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_2")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_2") %>% min(),1000)))
+```
+
+#### 體水份 {#delta_p_MHO_water .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_3") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_3")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_3") %>% min(),1000)))
+```
+
+#### inbody - 部位別 {#delta_p_MHO_inbody_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_4") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_4")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_4") %>% min(),1000)))
+```
+
+#### 體水份 - 部位別 {#delta_p_MHO_water_part .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_5") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_5")],
+          ncol = 2,
+          labels = paste0(LETTERS[8], seq(which(myplot_table_global[["block"]] == "t0_5") %>% min(),1000)))
+```
+
+#### Glucose/Insulin {#delta_p_MHO_gi .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_6") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_6")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_6") %>% min(),1000)))
+```
+
+#### Lipid {#delta_p_MHO_lipid .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_7") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_7")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_7") %>% min(),1000)))
+```
+
+#### Kidney {#delta_p_MHO_kidney .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_8") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_8")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_8") %>% min(),1000)))
+```
+
+#### Hormone {#delta_p_MHO_hormone .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_9") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_9")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_9") %>% min(),1000)))
+```
+
+#### Hematology {#delta_p_MHO_hematology .unnumbered}
+
+```{r, results='asis', fig.dim = c(5*2,4*(sum(myplot_table_global[["block"]] == "delta_p_10") %>% divide_by(2) %>% ceiling()))}
+plot_grid(plotlist = myplots_MHO[which(myplot_table_global[["block"]] == "delta_p_10")],
+          ncol = 2,
+          labels = paste0(LETTERS[9], seq(which(myplot_table_global[["block"]] == "t0_10") %>% min(),1000)))
+```
+
+### Summary {#Summary_MHO .unnumbered}
+
+
+```{r, results='asis',  paged.print=TRUE}
+table_MHO_02
+```
+
+
+
+
+## 尿酮體 x 空腹胰島素 {#ketone_response}
+
+### Chisq分析
+
+#### Endpoint {.unnumbered}
+
+Fasting Insulin Cutoff = 6
+
+```{r, results='hold'}
+lin_chisq.test(ketone_endpoint, ins_gp, urine_ketones_endpoint)
+
+
+```
+
+#### Baseline {.unnumbered}
+
+```{r, results='hold'}
+lin_chisq.test(ketone_baseline, ins_gp, urine_ketones_baseline)
+```
+
+#### Pooled {.unnumbered}
+
+```{r, results='hold'}
+lin_chisq.test(ketone_all, ins_gp, ketone)
+```
+
+### 敏感度分析
+
+#### Endpoint {.unnumbered}
+
+```{r}
+plot_ketone_auc_table_endpoint
+```
+
+Fasting Insulin(Cutoff = 6)預測尿酮體反應(+)的Sensitivity= 0.42, Specificity= 0.81。
+
+#### Baseline {.unnumbered}
+
+```{r}
+plot_ketone_auc_table_baseline
+```
+
+Fasting Insulin(Cutoff = 6)預測尿酮體反應(+)的Sensitivity= 0.32, Specificity= 0.85。
+
+#### Pooled {.unnumbered}
+
+```{r}
+plot_ketone_auc_table_all
+```
+
+Fasting Insulin(Cutoff = 6)預測尿酮體反應(+)的Sensitivity= 0.40, Specificity= 0.84。
+
+### Optimal Cutoff分析
+
+#### Endpoint {.unnumbered}
+
+```{r, fig.dim=c(10,8)}
+plot_ketone_auc_endpoint
+```
+
+#### Baseline {.unnumbered}
+
+```{r, fig.dim=c(10,8)}
+plot_ketone_auc_baseline
+```
+
+#### Pooled {.unnumbered}
+
+```{r, fig.dim=c(10,8)}
+plot_ketone_auc_all
+```
+
+### 分層分析 {#strat_4_ketone_response}
+
+```{r}
+table_01_qqqq
+```
+
+#### 初始狀態(Baseline) {#baseline_kt .unnumbered}
+
+##### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[1:10], ncol = 2, labels = paste0(LETTERS[1], seq(1,50)))
+
+```
+
+##### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=22}
+plot_grid(plotlist = myplots_qqqq[11:22], ncol = 2, labels = paste0(LETTERS[2], seq(1,50)))
+```
+
+#### 介入後狀態(Endpoint) {#endpoint_kt .unnumbered}
+
+##### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[23:32], ncol = 2, labels = paste0(LETTERS[3], seq(1,50)))
+```
+
+##### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[33:44], ncol = 2, labels = paste0(LETTERS[4], seq(1,50)))
+```
+
+#### 飲食(Diet) {#diet_kt .unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=44}
+plot_grid(plotlist = myplots_qqqq[45:61], ncol = 2, labels = paste0(LETTERS[5], seq(1,50)))
+```
+
+#### 成效(Effectiveness) {#effectiveness_kt .unnumbered}
+
+##### 成效(∆)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[62:71], ncol = 2, labels = paste0(LETTERS[6], seq(1,50)))
+```
+
+##### 成效(∆)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[72:83], ncol = 2, labels = paste0(LETTERS[7], seq(1,50)))
+```
+
+##### 成效(%)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[84:93], ncol = 2, labels = paste0(LETTERS[8], seq(1,50)))
+```
+
+##### 成效(%)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_qqqq[94:105], ncol = 2, labels = paste0(LETTERS[9], seq(1,50)))
+```
+
+##### Summary {.unnumbered}
+
+```{r, results='asis', paged.print=TRUE}
+table_02_qqqq
+```

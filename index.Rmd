@@ -1,0 +1,201 @@
+---
+title: "Cofit x Genesis 醫療大數據 (分析報告)"
+author: "By Po-Lin Lin, BigData Team"
+date: "Last Updated On `r Sys.Date()`"
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook:
+    dev: svglite
+    css: css/style.css
+    includes:
+      in_header: GA_script.html
+      after_body: string_rm.html
+    split_by: section
+    number_sections: true
+    toc_depth: 4
+    self_contained: false
+    config:
+      toc:
+        # before: |
+        # <li><a href="https://jim25287.github.io/CG_report/">初日診所Genesis x 醫療大數據</a></li>
+        collapse: subsection
+      download: null
+      edit: null
+      sharing: null
+      search: yes
+  bookdown::html_chapters:
+    css: [css/style.css, css/toc.css]
+  bookdown::pdf_book:
+    pandoc_args: --top-level-division=chapter
+    toc_depth: 3
+    toc_unnumbered: no
+    toc_appendix: yes
+    quote_footer: ["\\VA{", "}{}"]
+  bookdown::epub_book:
+    dev: svglite
+    stylesheet: css/style.css
+---
+
+```{r setup, include=FALSE}
+library(googleVis)
+Sys.setenv(R_BENCHMARK=TRUE)
+knitr::opts_chunk$set(echo = FALSE, comment = NA, results = 'asis', warning = FALSE, error = FALSE, message = FALSE, fig.align = 'center')
+options(knitr.graphics.auto_pdf = TRUE, gvis.plot.tag = 'chart')
+# options(knitr.graphics.auto_pdf = TRUE, gvis.plot.tag = NULL)
+```
+
+```{r input df from PostgreSQL, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/lin_function.R")
+# 
+# # Does source() rscript need to move to the same project dir??
+# lin_connect_db("connect")
+# path_sql <- "~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/sql/"
+# 
+# tmp_01 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "01_profile.sql")))
+# # tmp_01 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "01_profile_flc_q.sql")))
+# tmp_02 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "02_inbody.sql")))
+# tmp_03 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "03_FLC_self_report.sql")))
+# tmp_04 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "04_non_FLC_self_report.sql")))
+# tmp_05 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "05_biochem.sql")))
+# 
+# tmp_06 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "06_Diet_day.sql")))
+# tmp_07 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "07_Diet_meal.sql")))
+# tmp_08 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "08_3D_scanner.sql")))
+# tmp_09 <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "09_hormone.sql")))
+# tmp_03_day <- DBI::dbGetQuery(db, readr::read_file(paste0(path_sql, "10_daily_flc.sql")))
+# lin_connect_db("exit")
+# rm(path_sql)
+# 
+# tmp_03[tmp_03 %>% select_if(is.numeric) %>% select_if(~ !is.integer(.)) %>% names()]  %<>% lapply(as.numeric)
+# 
+# tmp_06[c("note_counts","pic_counts","essay_count","light_green_count","light_yellow_count","light_red_count","carbohydrate","protein","fat","calorie","grains_target","fruits_target","vegetables_target","meat_beans_low_fat_target","meat_beans_medium_fat_target","meat_beans_high_fat_target","milk_whole_fat_target","milk_low_fat_target","milk_skim_target","oil_target")] %<>% lapply(as.numeric)
+
+  
+```
+
+```{r alternative try I: input workspace, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+
+load("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/WSpace_preproc.RData")
+
+
+#Load packages
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/lin_function.R")
+
+library(pacman)
+pacman::p_load(magrittr, knitr, kableExtra, dplyr, readr, readxl, tibble, showtext, extraInserts, ggvenn, ggplot2,knitr, kableExtra, openxlsx, lubridate, cowplot, ggpubr, webshot, stringr, googleVis)
+#font
+font_add(family = "berlin_default", regular = "~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/data/font/STHeiti Light.ttc")
+showtext_auto(enable = TRUE)
+
+
+```
+
+```{r input plot rscript, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/00-data_preprocessing.R")
+
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/00-main_page_stat.R")
+
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/00_vars_vector.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/01.1-venns.R")
+
+```
+
+```{r input plot rscript_global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#   使用者     系統     流逝 
+# 2239.010   26.456 2268.609 
+
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/01.2-global_treatment.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/01.2.1-global_exclude_record_factor.R")
+
+
+
+```
+
+```{r input plot rscript_test, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# 使用者   系統   流逝 
+# 42.664  0.705 43.546 
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/07-MHO.R")
+
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/01.3-testosterone_effectiveness.R")
+
+```
+
+```{r input plot rscript_girc, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#  使用者    系統    流逝 
+# 230.912   3.230 234.972
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/02.girc.R")
+
+```
+
+```{r input plot rscript_sua, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#  使用者    系統    流逝 
+# 295.218   3.983 299.993 
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/03.sua_0.R")
+
+#  使用者    系統    流逝 
+# 319.686   4.806 326.727 
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/03.sua.R")
+
+```
+
+```{r input plot rscript_flc, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# 使用者   系統   流逝 
+# 30.482  0.672 31.304 
+# source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/04.cofit_flc.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/05.urine_ketone.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/06.prediction.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/91.publication.R")
+source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/improvement_2_4_6mo.R")
+
+
+```
+
+# Highlight {#index .unnumbered}
+
+**1.初日體系診所(秀傳、初日、小宙)累積客戶統計：**
+
+```{r, results='asis', fig.width = 6}
+client_monthly_stat_report %>% plot()
+```
+
+**#＃總計「累積服務客戶數」:** [**`r client_monthly_stat_report_total_id`**]{.underline}**(位)** / 累計共 [`r client_monthly_stat_report_total_client`]{.underline} (人次)
+
+**2.初日減重門診 - 單次療程**(分析人數: `r success_df_freq[["Total"]] %>% max()`)：
+
+-   [**成功減重人數(%)**]{.underline}，總計`r success_df_freq[success_df_freq$gender == "Total", "success"]`人(成功率:[**`r success_df_pct[success_df_freq$gender == "Total", "success"]`**]{.underline})。
+-   [**女性:**]{.underline}`r success_df_freq[success_df_freq$gender == "female", "success"]`人(成功率:[**`r success_df_pct[success_df_freq$gender == "female", "success"]`**]{.underline})。
+-   [**男性:**]{.underline}`r success_df_freq[success_df_freq$gender == "male", "success"]`人(成功率:[**`r success_df_pct[success_df_freq$gender == "male", "success"]`**]{.underline})。
+
+```{r, results='asis'}
+gvisMerge(plot_stack_col_female,plot_stack_col_male, horizontal = TRUE,
+          tableOptions = "cellspacing=\"5\" bgcolor=\"#AABBCC\"") %>% plot()
+
+```
+
+<!-- Introduction context...(editing) -->
+
+<!-- #### Disclaimer {.unnumbered} -->
+
+<!-- The information in this report is provided ...(editing). -->
+
+版本更新：
+
+[更新]
+
+-   2023-04-27
+    1.  尿酮體 x 空腹胰島素分析(分群:介入前後Ketone變化)([Link](#ketone_response))
+    2.  單因子預測力&切點分析(篩選:飲食紀律佳)([Link](#predict_cutoff_roc_filtered))
+
+[新增]
+
+-   2023-04-27
+    1.  體重成效分層分析(篩選:飲食紀律佳)([Link](#strat_1_ob_filtered))
+-   2023-04-20
+    1.  單因子預測力&切點分析([Link](#predict_cutoff_roc))
+-   2023-04-19
+    1.  全變數 - Pearson Correlation Table([Link](#cor_ob_var_all))
+    2.  尿酮體 x 空腹胰島素分析([Link](#ketone_response))
+
+[(識別碼：`r lin_timestamp()`)]{style="float:right"}

@@ -1,0 +1,185 @@
+# Glucose Insulin Response Curve(GIRC)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/lin_function.R")
+# source("~/Lincoln/02.Work/04. R&D/02. HIIS_OPP/00.Gitbook/01.CG/CG_report/rscript/02.girc.R")
+
+```
+
+診斷標準：
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+Pattern分佈：
+
+```{r}
+plot_M[[1]]
+plot_M[[2]]
+```
+
+```{r}
+plot_m[[1]]
+plot_m[[2]]
+```
+
+## OGTT胰島素反應分型
+
+### Pattern I
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+```{r, out.width = "300px",fig.align='default', fig.nol=4}
+url <- c("https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/1.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/2.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/3.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/4.jpg"
+         )
+knitr::include_graphics(url)
+
+```
+
+### Pattern II
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+```{r, out.width = "300px",fig.align='default', fig.nol=4}
+url <- c("https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/5.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/6.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/7.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/8.jpg"
+         )
+knitr::include_graphics(url)
+
+```
+
+### Pattern III
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+```{r, out.width = "300px",fig.align='default', fig.nol=4}
+url <- c("https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/9.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/10.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/11.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/12.jpg"
+         )
+knitr::include_graphics(url)
+
+```
+
+### Pattern IV
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+```{r, out.width = "300px",fig.align='default', fig.nol=5}
+url <- c("https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/13.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/14.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/15.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/16.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/17.jpg"
+         )
+knitr::include_graphics(url)
+
+```
+
+### Pattern V
+
+![](https://raw.githubusercontent.com/jim25287/CG_report/main/image/girc_class.png){width="1200"}
+
+```{r, out.width = "300px",fig.align='default', fig.nol=2}
+url <- c("https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/18.jpg",
+         "https://raw.githubusercontent.com/jim25287/CG_report/main/image/00.auto_scale/19.jpg"
+         )
+knitr::include_graphics(url)
+
+```
+
+## GIRC分析 {#girc_analysis_}
+
+### DM x GIRC分佈(All) {#girc_table_all .unnumbered}
+
+```{r}
+table_girc_all
+table_DM_girc_all
+table_Insulin_girc_all
+```
+
+### DM x GIRC分佈(Obesity Program) {#girc_table_ob .unnumbered}
+
+```{r}
+table_girc_ob
+table_DM_girc_ob
+table_Insulin_girc_ob
+```
+
+### GIRC分層分析 {.unnumbered}
+
+### 初始狀態(Baseline) {#baseline_girc .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[1:10], ncol = 2, labels = paste0(LETTERS[1], seq(1,50)))
+
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=22}
+plot_grid(plotlist = myplots_girc[11:22], ncol = 2, labels = paste0(LETTERS[2], seq(1,50)))
+```
+
+### 介入後狀態(Endpoint) {#endpoint_girc .unnumbered}
+
+#### Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[23:32], ncol = 2, labels = paste0(LETTERS[3], seq(1,50)))
+```
+
+#### Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[33:44], ncol = 2, labels = paste0(LETTERS[4], seq(1,50)))
+```
+
+### 飲食(Diet) {#diet_girc .unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=44}
+plot_grid(plotlist = myplots_girc[45:61], ncol = 2, labels = paste0(LETTERS[5], seq(1,50)))
+```
+
+### 成效(Effectiveness) {#effectiveness_girc .unnumbered}
+
+#### 成效(∆)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[62:71], ncol = 2, labels = paste0(LETTERS[6], seq(1,50)))
+```
+
+#### 成效(∆)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[72:83], ncol = 2, labels = paste0(LETTERS[7], seq(1,50)))
+```
+
+#### 成效(%)-Inbody {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[84:93], ncol = 2, labels = paste0(LETTERS[8], seq(1,50)))
+```
+
+#### 成效(%)-Blood {.unnumbered}
+
+```{r, results='asis', fig.width= 10, fig.height=20}
+plot_grid(plotlist = myplots_girc[94:105], ncol = 2, labels = paste0(LETTERS[9], seq(1,50)))
+```
+
+```{r, results='asis', paged.print=TRUE}
+table_02_girc
+```
+
+### Pattern改善分析 {#girc_improvemnt_path .unnumbered}
+
+```{r}
+table_improvement_girc_all
+```
